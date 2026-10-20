@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Asistente de IA para pymes y autónomos | WebDesign</title>
+<meta content="Asistente de IA especializado para pymes y autónomos: atiende WhatsApp y correo, organiza citas y presupuestos y ayuda a mejorar tu presencia digital." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Asistente de IA para pymes y autónomos | WebDesign" property="og:title"/>
+<meta content="Asistente de IA especializado para pymes y autónomos: atiende WhatsApp y correo, organiza citas y presupuestos y ayuda a mejorar tu presencia digital." property="og:description"/>
+<meta content="https://share.zapia.com/6ar38s5fxkuunx0edbb8ya" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://share.zapia.com/6ar38s5fxkuunx0edbb8ya" name="twitter:image"/>
+<meta content="#080B12" name="theme-color"/>
+<style>
+    :root { --ink:#080B12; --panel:#101722; --panel-2:#141d2a; --blue:#173b78; --gold:#C5A15A; --gold-light:#ead5a8; --white:#f8f8f6; --muted:#c1c8d1; --line:rgba(197,161,90,.34); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--white); background:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.65; }
+    a { color:inherit; }
+    .wrap { width:min(1160px,calc(100% - 42px)); margin:0 auto; }
+    .site-header { position:sticky; top:0; z-index:20; background:rgba(8,11,18,.96); border-bottom:1px solid rgba(197,161,90,.25); backdrop-filter:blur(12px); }
+    .nav { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { display:block; flex:0 0 auto; line-height:0; }
+    .brand-logo { display:block; width:min(310px,31vw); height:auto; border-radius:4px; filter:drop-shadow(0 5px 16px rgba(0,0,0,.35)); }
+    .nav-links { display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:17px; }
+    .nav-links a:not(.button) { text-decoration:none; color:#e5e9f0; font-size:.9rem; font-weight:700; }
+    .nav-links a:not(.button):hover { color:var(--gold-light); }
+    .button { display:inline-flex; justify-content:center; align-items:center; min-height:48px; padding:11px 20px; border-radius:999px; color:#15130f; background:linear-gradient(135deg,#e8cf96,var(--gold)); text-decoration:none; font-weight:900; box-shadow:0 8px 24px rgba(197,161,90,.2); transition:transform .18s ease,filter .18s ease; }
+    .button:hover { transform:translateY(-2px); filter:brightness(1.05); }
+    .button.outline { color:var(--white); border:1px solid rgba(255,255,255,.32); background:transparent; box-shadow:none; }
+    .eyebrow { color:var(--gold-light); font-size:.78rem; font-weight:900; letter-spacing:.16em; text-transform:uppercase; } #visibilidad .section-head > .eyebrow { font-size:.897rem; }
+    .hero { padding:58px 0 64px; background:radial-gradient(ellipse at 82% 5%,rgba(23,59,120,.5),transparent 35%),linear-gradient(145deg,#080B12,#0e1724 60%,#080B12); }
+    .hero-grid { display:grid; grid-template-columns:1fr; align-items:start; gap:16px; }
+    .hero-visual { width:100%; max-width:960px; margin:18px 0 0; }
+    h1 { margin:14px 0 18px; max-width:850px; font-size:clamp(2.1rem,4.5vw,3.7rem); line-height:1.04; letter-spacing:-.045em; }
+    h1 .gold { color:var(--gold-light); }
+    .hero-copy p { max-width:640px; margin:0; color:#d6dce4; font-size:1.08rem; }
+    .hero-tagline { display:block; margin-top:17px; color:var(--gold-light); font-weight:800; }
+    .ai-badge { display:flex; align-items:center; gap:12px; max-width:670px; margin-top:18px; padding:13px 15px; border:1px solid var(--line); border-radius:15px; background:rgba(197,161,90,.08); }
+    .ai-badge span { flex:0 0 40px; display:grid; place-items:center; width:40px; height:40px; border-radius:13px; color:var(--gold-light); background:rgba(197,161,90,.15); font-weight:950; }
+    .ai-badge p { margin:0 !important; color:#d6dce4; font-size:.92rem !important; }
+    .modernization-note { max-width:670px; margin-top:14px; padding:12px 15px; border-left:3px solid var(--gold); border-radius:0 13px 13px 0; background:rgba(23,59,120,.16); color:#d6dce4; font-size:.94rem; }
+    .connector-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin:0 auto 26px; }
+    .connector-pill { padding:8px 13px; border:1px solid rgba(197,161,90,.38); border-radius:999px; background:#101722; color:#e7eaf0; font-size:.9rem; font-weight:750; }
+    .connector-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+    .connector-card { padding:21px; border:1px solid rgba(197,161,90,.3); border-radius:17px; background:linear-gradient(145deg,#111925,#0a1018); }
+    .connector-card h3 { margin:0 0 8px; font-size:1.05rem; }
+    .connector-card p { margin:0; color:var(--muted); font-size:.92rem; }
+    .sector-connection-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; margin-top:25px; }
+    .sector-connection { padding:18px; border-radius:16px; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.09); }
+    .sector-connection h3 { margin:0 0 7px; color:var(--gold-light); font-size:1rem; }
+    .sector-connection p { margin:0; color:var(--muted); font-size:.91rem; }
+    .connector-disclaimer { max-width:850px; margin:20px auto 0; color:#c6cdd6; text-align:center; font-size:.9rem; }
+    .sample-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:930px; margin:0 auto; }
+    .sample-card { padding:24px; border:1px solid var(--gold); border-radius:20px; background:linear-gradient(145deg,#111925,#080B12); box-shadow:0 16px 40px rgba(0,0,0,.25); }
+    .sample-card-head { display:flex; align-items:center; gap:13px; padding-bottom:16px; margin-bottom:10px; border-bottom:1px solid rgba(197,161,90,.27); }
+    .logo-placeholder { display:grid; place-items:center; flex:0 0 56px; width:56px; height:56px; border:1px dashed rgba(197,161,90,.7); border-radius:13px; color:var(--gold-light); font-size:.7rem; font-weight:900; text-align:center; }
+    .sample-card-head strong,.sample-card-head b { display:block; color:var(--white); }
+    .sample-card-head small { display:block; margin-top:2px; color:var(--gold-light); }
+    .sample-line { display:flex; justify-content:space-between; gap:15px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.08); color:#d7dde5; font-size:.92rem; }
+    .sample-line b { color:#e9d7ad; }
+    .sample-caption { padding-top:14px; color:var(--muted); font-size:.82rem; }
+    .original-example { max-width:470px; margin:30px auto 0; }
+    .original-example img { display:block; width:100%; height:auto; border:1px solid rgba(197,161,90,.45); border-radius:16px; box-shadow:0 16px 40px rgba(0,0,0,.3); }
+    .original-example figcaption { margin-top:10px; color:#c6cdd6; text-align:center; font-size:.88rem; }
+    .hero-image { display:block; width:100%; max-height:560px; object-fit:cover; border-radius:22px; border:1px solid rgba(197,161,90,.55); box-shadow:0 25px 70px rgba(0,0,0,.45); }
+    .hero-image-wrap { position:relative; }
+    .hero-image-cta { position:absolute; left:28.5%; top:82.5%; width:43%; height:10.5%; display:block; border-radius:18px; }
+    .hero-image-cta:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+    .hero-image-note { max-width:620px; margin:10px auto 0; color:#c6cdd6; text-align:center; font-size:.8rem; line-height:1.45; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:25px; }
+    .section { padding:58px 0; }
+    .section.alt { background:#0c121b; border-top:1px solid rgba(255,255,255,.045); border-bottom:1px solid rgba(255,255,255,.045); }
+    .section-head { max-width:790px; margin:0 auto 24px; text-align:center; }
+    .section-head h2 { margin:8px 0 12px; font-size:clamp(1.9rem,3.8vw,3.1rem); line-height:1.1; letter-spacing:-.035em; }
+    .section-head p { margin:0; color:var(--muted); }
+    .contrast { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .contrast-card { padding:26px; border-radius:20px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(150deg,#111925,#0c121b); }
+    .contrast-card.with { border-color:var(--line); background:radial-gradient(circle at 100% 0,rgba(23,59,120,.32),transparent 50%),linear-gradient(150deg,#141c27,#0b1118); }
+    .contrast-label { display:inline-block; padding:5px 11px; border-radius:999px; color:var(--gold-light); background:rgba(197,161,90,.12); font-size:.78rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .contrast-card h3 { margin:13px 0 9px; font-size:1.3rem; }
+    .contrast-card p { margin:0; color:var(--muted); }
+    .soft-note { margin:20px auto 0; max-width:780px; text-align:center; color:#d5dbe3; }
+    .benefits { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; } .promo-benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .benefits .learning-card { grid-column:1/-1; display:grid; grid-template-columns:54px minmax(0,1fr); gap:6px 18px; align-items:start; } .benefits .learning-card .icon { grid-column:1; grid-row:1; } .benefits .learning-card .learning-copy { grid-column:2; } .benefits .learning-card h3 { margin:0 0 8px; text-align:left; } .benefits .learning-card p { margin:0; text-align:justify; }
+    .card { min-height:175px; padding:21px; border:1px solid var(--line); border-radius:19px; background:linear-gradient(150deg,rgba(255,255,255,.065),rgba(255,255,255,.02)); }
+    .icon { display:inline-grid; place-items:center; width:44px; height:44px; margin-bottom:15px; border-radius:14px; color:var(--gold-light); background:rgba(197,161,90,.13); border:1px solid rgba(197,161,90,.35); font-size:1.25rem; font-weight:950; }
+    .card h3 { margin:0 0 8px; font-size:1.12rem; }
+    .card p { margin:0; color:var(--muted); font-size:.96rem; }
+    .sectors { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .sector { min-height:60px; display:flex; align-items:center; padding:13px 16px; border-radius:15px; border:1px solid rgba(197,161,90,.29); background:linear-gradient(135deg,rgba(23,59,120,.22),rgba(255,255,255,.03)); font-weight:750; }
+    .sector::before { content:""; flex:0 0 8px; width:8px; height:8px; margin-right:11px; border-radius:50%; background:var(--gold); }
+    .center-note { margin:20px auto 0; max-width:820px; color:var(--muted); text-align:center; }
+    .section-visual { max-width:860px; margin:30px auto 0; }
+    .section-visual img { display:block; width:100%; height:auto; border:1px solid rgba(197,161,90,.35); border-radius:18px; box-shadow:0 16px 40px rgba(0,0,0,.3); }
+    .section-visual figcaption { margin-top:9px; color:var(--muted); text-align:center; font-size:.88rem; }
+    .section-visual.portrait { max-width:510px; }
+    .starter-layout { display:flex; flex-direction:column; gap:20px; align-items:stretch; }
+    .starter-visual { max-width:860px; margin:0 auto; }
+    .starter-visual figcaption { margin:0 0 10px; }
+    .pain-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:28px 0; }
+    .pain-point { padding:20px; border:1px solid rgba(197,161,90,.32); border-radius:18px; background:linear-gradient(145deg,#111925,#0a1018); }
+    .pain-point span { color:var(--gold-light); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .pain-point h3 { margin:9px 0 7px; font-size:1.06rem; line-height:1.25; }
+    .pain-point p { margin:0; color:var(--muted); font-size:.92rem; }
+    .starter-section { padding:18px 0 22px; background:linear-gradient(180deg,#090e16,#0c111a); }
+    .starter-hook { display:grid; grid-template-columns:1fr 1.15fr; gap:8px 30px; align-items:center; margin:0; padding:29px 32px; border:1px solid rgba(197,161,90,.62); border-left:5px solid var(--gold); border-radius:20px; background:radial-gradient(circle at 96% 0,rgba(197,161,90,.2),transparent 43%),linear-gradient(145deg,#151c27,#0a1018); box-shadow:0 16px 38px rgba(0,0,0,.26); }
+    .starter-hook .eyebrow { grid-column:1/-1; margin:0; }
+    .starter-hook h3 { grid-column:1; margin:0; font-size:clamp(1.3rem,2.2vw,1.7rem); line-height:1.2; }
+    .starter-hook p { grid-column:2; margin:0; color:#e0e4e9; font-size:1.02rem; }
+    .starter-hook .button { grid-column:2; justify-self:start; margin-top:7px; }
+    .steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; counter-reset:step; }
+    .step { padding:23px; border-radius:18px; border:1px solid rgba(255,255,255,.09); background:var(--panel); }
+    .step::before { counter-increment:step; content:"0" counter(step); display:block; margin-bottom:12px; color:var(--gold); font-weight:950; letter-spacing:.12em; }
+    .step h3 { margin:0 0 8px; }
+    .step p { margin:0; color:var(--muted); font-size:.95rem; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:start; }
+    .gallery figure { margin:0; }
+    .gallery img { display:block; width:100%; height:auto; border-radius:17px; border:1px solid rgba(197,161,90,.32); box-shadow:0 14px 38px rgba(0,0,0,.28); }
+    .gallery figcaption { margin-top:9px; color:var(--muted); font-size:.88rem; }
+    .communication-examples { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; max-width:1000px; margin:24px auto 0; }
+    .communication-examples figure,.communication-examples .original-example,.communication-examples .section-visual { max-width:none; margin:0; }
+    .founder-panel { display:grid; grid-template-columns:.8fr 1.2fr; gap:26px; align-items:center; padding:32px; border:1px solid var(--line); border-radius:23px; background:radial-gradient(circle at 0 50%,rgba(23,59,120,.27),transparent 35%),linear-gradient(140deg,#111925,#0a1018); }
+    .founder-mark { display:grid; place-items:center; min-height:190px; padding:20px; border-radius:18px; background:#080B12; border:1px solid rgba(197,161,90,.23); }
+    .founder-mark img { width:min(250px,90%); height:auto; }
+    .founder-copy h2 { margin:0 0 9px; font-size:clamp(1.7rem,3vw,2.5rem); line-height:1.12; }
+    .founder-copy p { margin:0 0 12px; color:var(--muted); }
+    .socials { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .social-chip { display:inline-flex; padding:8px 12px; border:1px solid rgba(197,161,90,.4); border-radius:999px; color:var(--gold-light); font-size:.9rem; text-decoration:none; }
+    .social-chip.pending { color:#d4dae1; border-style:dashed; }
+    .social-note { margin:10px 0 0 !important; font-size:.82rem; }
+    .pricing { max-width:900px; margin:0 auto; padding:38px; text-align:center; border:1px solid var(--gold); border-radius:26px; background:radial-gradient(circle at 50% 0,rgba(197,161,90,.18),transparent 52%),linear-gradient(150deg,#111925,#080B12); box-shadow:0 18px 55px rgba(0,0,0,.34); }
+    .pricing h2 { margin:7px 0 10px; font-size:clamp(1.9rem,3.6vw,2.8rem); line-height:1.1; }
+    .pricing-intro { max-width:660px; margin:0 auto 23px; color:var(--muted); }
+    .price-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:22px 0 17px; } .digital-services-callout { margin:26px 0 12px; padding:24px 28px; border:1px solid rgba(197,161,90,.62); border-left:5px solid var(--gold); border-radius:20px; background:linear-gradient(145deg,#151c27,#0a1018); box-shadow:0 16px 38px rgba(0,0,0,.22); } .digital-services-callout h3 { margin:0 0 9px; color:var(--gold); } .digital-services-callout p { margin:0; color:var(--muted); } .price-comparison-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1000px; margin:28px auto 34px; align-items:start; } .price-comparison-grid figure { margin:0; text-align:center; } .price-comparison-grid img { display:block; width:100%; height:auto; border:1px solid rgba(197,161,90,.35); border-radius:18px; box-shadow:0 16px 40px rgba(0,0,0,.3); } .price-comparison-grid figcaption { margin-top:9px; color:var(--muted); text-align:center; font-size:.88rem; } .pricing-note { color:var(--muted); font-size:.9rem; margin:8px 0 18px; }
+    .price-card { padding:22px 15px; border:1px solid rgba(197,161,90,.48); border-radius:17px; background:rgba(8,11,18,.76); }
+    .price-card h3 { margin:0 0 7px; color:#e8e1d0; font-size:1rem; }
+    .price-card ul { margin:14px 0 0; padding-left:1.15rem; color:var(--muted); text-align:left; font-size:.9rem; }
+    .price-card li { margin:7px 0; }
+    .price-perks { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:20px 0 8px; }
+    .price-perks span { padding:9px 13px; border:1px solid rgba(197,161,90,.42); border-radius:999px; background:rgba(197,161,90,.08); color:#e8e1d0; font-size:.88rem; }
+    .sector-tier { margin:20px 0 26px; }
+    .sector-tier h3 { margin:0 0 12px; color:var(--gold-light); font-size:1.08rem; }
+    .case-study { margin-top:28px; padding:25px; border:1px solid rgba(197,161,90,.48); border-radius:20px; background:linear-gradient(145deg,#111925,#0a1018); }
+    .case-study h3 { margin:7px 0 12px; font-size:1.35rem; }
+    .case-study p { color:var(--muted); }
+    .case-study ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; margin:0; padding-left:1.2rem; color:var(--muted); }
+    .case-study li { padding-left:4px; }
+    .case-study-note { margin:14px 0 0 !important; font-size:.86rem; }
+    .price-value { color:var(--gold-light); font-size:clamp(1.55rem,3vw,2.05rem); font-weight:950; line-height:1.15; }
+    .pricing small { display:block; max-width:700px; margin:12px auto 0; color:#c6cdd6; }
+    .pricing .button { margin-top:21px; }
+    .faq-list { max-width:880px; margin:0 auto; display:grid; gap:10px; }
+    details { border:1px solid rgba(197,161,90,.3); border-radius:15px; background:#0e1621; padding:0 18px; }
+    summary { cursor:pointer; padding:17px 28px 17px 0; font-weight:850; list-style:none; position:relative; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:"+"; position:absolute; right:1px; top:12px; color:var(--gold); font-size:1.35rem; }
+    details[open] summary::after { content:"−"; }
+    details p { margin:0; padding:0 0 17px; color:var(--muted); }
+    .final-cta { padding:62px 0; text-align:center; background:linear-gradient(130deg,#111b29,#090e16); border-top:1px solid var(--line); }
+    .final-cta h2 { margin:8px 0 10px; font-size:clamp(1.9rem,3.8vw,3rem); line-height:1.1; }
+    .final-cta p { max-width:720px; margin:0 auto; color:var(--muted); }
+    .final-cta .button { margin-top:22px; }
+    .final-cta .mini-note { margin-top:8px; font-size:.88rem; }
+    .contact-number { margin:12px 0 0 !important; color:var(--gold-light) !important; font-weight:850; }
+    footer { padding:28px 0 36px; background:#05070c; border-top:1px solid rgba(255,255,255,.08); color:#b8c0ca; font-size:.9rem; }
+    .footer-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+    .footer-brand { max-width:260px; }
+    .footer-brand img { display:block; width:min(220px,60vw); height:auto; margin-bottom:10px; }
+    .footer-copy { max-width:580px; }
+    .footer-copy strong { display:block; margin-bottom:3px; color:var(--white); }
+    @media (max-width:980px) { .nav { padding:12px 0; align-items:flex-start; flex-direction:column; } .brand-logo { width:min(310px,65vw); } .nav-links { justify-content:flex-start; } .hero-grid { grid-template-columns:1fr; } .hero-image { max-width:650px; margin:0 auto; } .benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .sectors { grid-template-columns:repeat(2,minmax(0,1fr)); } .connector-grid,.sector-connection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .pain-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .starter-layout { grid-template-columns:1fr; } .starter-visual { max-width:760px; margin:0 auto; } .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:620px) { .benefits .learning-card { grid-template-columns:42px minmax(0,1fr); } .wrap { width:min(100% - 30px,1160px); } .nav { gap:10px; } .nav-links { gap:10px 13px; } .nav-links a:not(.button) { font-size:.84rem; } .nav-links .button { min-height:42px; padding:8px 13px; font-size:.88rem; } .hero { padding:42px 0 48px; } .section { padding:53px 0; } .contrast,.benefits,.steps,.gallery,.communication-examples,.price-grid,.price-comparison-grid,.connector-grid,.sector-connection-grid,.sample-grid,.case-study ul,.pain-grid { grid-template-columns:1fr; } .starter-hook { grid-template-columns:1fr; padding:23px; } .starter-hook h3,.starter-hook p,.starter-hook .button { grid-column:1; } .card { min-height:auto; } .founder-panel { grid-template-columns:1fr; padding:22px; } .founder-mark { min-height:140px; } .pricing { padding:25px 18px; } .sample-line { flex-direction:column; gap:3px; } .footer-row { align-items:flex-start; flex-direction:column; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .button { transition:none; } }
+  
+    .visual-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; max-width:1000px; margin:28px auto 0; align-items:start; }
+    .visual-row .section-visual { max-width:none; margin:0; }
+    .section-subtitle { margin:25px 0 12px; color:var(--gold-light); text-align:center; font-size:1.18rem; }
+    .faq-groups { max-width:880px; margin:0 auto; display:grid; gap:22px; }
+    .faq-group h3 { margin:0 0 10px; color:var(--gold-light); font-size:1.05rem; }
+    .faq-group-list { display:grid; gap:9px; }
+    @media (max-width:620px) { .visual-row { grid-template-columns:1fr; } }
+
+/* Ritmo visual centrado con párrafos legibles */
+main > section:not(#preguntas) .section-head,
+#inicio .hero-copy,
+#precio,
+#contacto .wrap { text-align:center; }
+main > section:not(#preguntas) .section-head h2,
+main > section:not(#preguntas) .section-subtitle,
+main > section:not(#preguntas) .card h3,
+#precio .price-card h3,
+#visibilidad .digital-services-callout h3,
+.starter-hook h3 { text-align:center; }
+main > section:not(#preguntas) .section-head > p,
+main > section:not(#preguntas) .card p,
+#inicio .hero-copy > p,
+#precio .pricing-intro,
+#precio .pricing-note,
+#visibilidad .digital-services-callout p,
+.starter-hook p { max-width:780px; margin-left:auto; margin-right:auto; text-align:justify; }
+main > section:not(#preguntas) .actions,
+#precio .price-perks { justify-content:center; }
+#precio .price-card .price-value { text-align:center; }
+#precio .price-card ul,
+#precio .price-card li { text-align:left; }
+#visibilidad .digital-services-callout { text-align:center; }
+#soluciones .learning-card { grid-template-columns:1fr; justify-items:center; gap:8px; text-align:center; }
+#soluciones .learning-card .icon { grid-column:1; grid-row:auto; margin:0 auto; }
+#soluciones .learning-card .learning-copy { grid-column:1; max-width:860px; margin:0 auto; text-align:center; }
+#soluciones .learning-card h3 { text-align:center; }
+#soluciones .learning-card p { max-width:860px; margin:0 auto; text-align:justify; }
+#preguntas,
+#preguntas .faq-group,
+#preguntas details,
+#preguntas summary,
+#preguntas p { text-align:left; }
+#muestras figure figcaption { text-align:center; }
+#quienes .founder-panel { text-align:center; }
+#quienes .founder-panel p { max-width:780px; margin-left:auto; margin-right:auto; text-align:justify; }
+
+
+/* Centrado fino de los bloques señalados */
+#inicio .hero-copy > p { max-width:780px; margin:0 auto; text-align:center; }
+#inicio .ai-badge { width:100%; max-width:860px; margin:18px auto 0; justify-content:center; text-align:center; }
+#inicio .ai-badge p { max-width:780px; margin:0 auto !important; text-align:center !important; }
+#inicio .modernization-note { max-width:860px; margin:14px auto 0; text-align:center; }
+#contacto .contact-number,
+#contacto .mini-note { max-width:780px; margin-left:auto !important; margin-right:auto !important; text-align:center !important; }
+
+#inicio .hero-copy > h1 { text-align:center; margin-left:auto; margin-right:auto; }
+
+/* Eje común para todo el bloque de portada; el logo de navegación no se modifica */
+#inicio .hero-grid { justify-items:center; }
+#inicio .hero-copy { width:100%; max-width:1160px; margin-left:auto; margin-right:auto; text-align:center; }
+#inicio .hero-copy > .eyebrow,
+#inicio .hero-copy > h1,
+#inicio .hero-copy > p,
+#inicio .hero-copy > .hero-tagline { margin-left:auto; margin-right:auto; text-align:center; }
+#inicio .hero-copy > .actions { width:100%; justify-content:center; margin-left:auto; margin-right:auto; }
+#inicio .hero-visual { width:100%; margin-left:auto; margin-right:auto; }
+
+.hero-email-note,.contact-email { margin:10px auto; color:var(--muted); font-size:.92rem; text-align:center; } .hero-email-note a,.contact-email a,footer a[href^="mailto:"] { color:var(--gold-light); text-decoration:underline; text-underline-offset:3px; }
+#quienes a[href^="mailto:"] { text-decoration:none; }
+
+.whatsapp-float { position:fixed; right:20px; bottom:88px; z-index:40; display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 18px; border:1px solid #c5a15a; border-radius:999px; background:linear-gradient(135deg,#152238 0%,#05080e 100%); color:#f0d28b; font-weight:850; text-decoration:none; box-shadow:0 9px 26px rgba(0,0,0,.42); }
+.whatsapp-float:hover { border-color:#e4c078; background:linear-gradient(135deg,#1d2d47 0%,#080b12 100%); color:#fff; transform:translateY(-1px); }
+.whatsapp-float-icon { display:block; width:27px; height:27px; flex:0 0 27px; object-fit:contain; }
+@media (max-width:620px) { .whatsapp-float { right:14px; bottom:86px; min-height:48px; padding:0 15px; } }
+
+</style>
+<meta content="Asistente de IA para pymes y autónomos | WebDesign" name="twitter:title"/><meta content="Asistente de IA especializado para pymes y autónomos: atiende WhatsApp y correo, organiza citas y presupuestos y ayuda a mejorar tu presencia digital." name="twitter:description"/></head>
+<body>
+<header class="site-header">
+<div class="wrap nav">
+<a aria-label="WebDesign, inicio" class="brand" href="#inicio"><img alt="Logo WebDesign" class="brand-logo" src="https://share.zapia.com/ap2wa1p0h44r7wnuwywxv5"/></a>
+<nav aria-label="Navegación principal" class="nav-links"><a href="#soluciones">Cómo te ayuda</a><a href="#promociones">Agenda y comunicación</a><a href="#visibilidad">Análisis y presencia digital</a><a href="#sectores">Sectores</a><a href="#precio">Precios</a><a href="#preguntas">Preguntas frecuentes</a><a class="button" href="https://wa.me/34685758321?text=INFO">Escríbenos «INFO»</a></nav>
+</div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="wrap hero-grid">
+<div class="hero-copy"><div class="eyebrow">De autónomos a autónomos · desde Castellón de la Plana, Comunidad Valenciana, para toda España</div><h1>¿Cansado de contestar siempre lo mismo por WhatsApp? <span class="gold">Recupera tu tiempo sin perder el trato cercano con tus clientes.</span></h1><p>Un asistente de IA especializado e integrado en tu empresa: atiende WhatsApp y correo, organiza citas, presupuestos y seguimientos, y te ayuda a detectar nuevas oportunidades.</p><span class="hero-tagline">No es solo un contestador virtual. Es poner tu negocio al día.</span><div class="actions"><a class="button" href="https://wa.me/34685758321?text=INFO">Escríbenos «INFO»</a><a class="button outline" href="#soluciones">Ver cómo te ayuda</a></div><p class="hero-email-note">¿Prefieres escribirnos por correo? <a href="mailto:chat@ia-webdesing.es">chat@ia-webdesing.es</a></p><figure class="hero-visual"><div class="hero-image-wrap"><img alt="Creatividad de WebDesign: un asistente de IA ayuda a atraer y atender clientes en WhatsApp con respuestas rápidas." class="hero-image" src="https://share.zapia.com/ydg466lywh0g09v13fnts7"/><a aria-label="Escríbenos por WhatsApp con INFO" class="hero-image-cta" href="https://wa.me/34685758321?text=INFO"></a></div><figcaption class="hero-image-note">Un asistente especializado que atiende a tus clientes y te ayuda a organizar el día.</figcaption></figure><div class="ai-badge"><span aria-hidden="true">IA</span><p>Te asesoramos con modelos de IA actualizados para analizar tu presencia en redes y la de tu competencia, y convertir esos hallazgos en recomendaciones prácticas.</p></div><div class="modernization-note">Una solución integral, adaptada a tu negocio y acompañada de principio a fin.</div></div>
+</div>
+</section><section class="section alt" id="soluciones"><div class="wrap"><div class="section-head"><div class="eyebrow">Un asistente especializado para tu negocio</div><h2>Atiende, organiza y acompaña a tus clientes desde un mismo lugar.</h2><p>Un asistente de IA adaptado a tus servicios y a tu manera de trabajar: atiende por WhatsApp y correo, responde y envía mensajes, prepara presupuestos y ordena solicitudes.</p></div><div class="benefits"><article class="card"><span aria-hidden="true" class="icon">✉</span><h3>WhatsApp y correo</h3><p>Responde a tus clientes en los canales que ya conocen y envía correos con el estilo de tu negocio.</p></article><article class="card"><span aria-hidden="true" class="icon">€</span><h3>Servicios y presupuestos</h3><p>Explica tus servicios y prepara presupuestos profesionales con una comunicación clara.</p></article><article class="card"><span aria-hidden="true" class="icon">⌖</span><h3>Solicitudes mejor organizadas</h3><p>Ordena consultas, citas y seguimientos para que tus clientes tengan claro el siguiente paso.</p></article><article class="card"><span aria-hidden="true" class="icon">↗</span><h3>Apoyo cuando hace falta</h3><p>Libera tiempo de tareas repetidas para que puedas dedicarlo a tu negocio y a tus clientes.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Un día más ordenado</h3><p>Recibe resúmenes diarios de mensajes, citas, presupuestos, tareas pendientes y solicitudes de factura, con una visión clara de lo que requiere atención.</p></article><article class="card"><span aria-hidden="true" class="icon">↔</span><h3>Entiende y responde a los audios</h3><p>Entiende los mensajes de voz de tus clientes y responde a su consulta por WhatsApp. También puede atender en su idioma y resumir notas de voz largas.</p></article><article class="card learning-card"><span aria-hidden="true" class="icon">✦</span><div class="learning-copy"><h3>Nuestra IA se actualiza y evoluciona contigo</h3><p>Añade nuevas indicaciones, servicios, productos y cambios de inventario para mantener su información al día. Con las conversaciones y los correos que autorices, detectamos dudas frecuentes y ajustamos la atención a tu forma de trabajar.</p></div></article></div><div class="visual-row"><figure class="section-visual portrait"><img alt="Infografía de funciones del asistente virtual de WebDesign para autónomos y pymes" decoding="async" loading="lazy" src="https://share.zapia.com/rzp7m2ru8tsuqanoyda3nj"/><figcaption>Funciones que se definen contigo y se prueban antes de activarlas.</figcaption></figure><figure class="section-visual"><img alt="Creatividad de WebDesign sobre organización de consultas y atención de clientes" decoding="async" loading="lazy" src="https://share.zapia.com/kyw219mygx50p7h1x33u2g"/><figcaption>Organizamos lo repetitivo para que mantengas el trato personal y las decisiones importantes.</figcaption></figure></div></div></section><section class="section alt" id="whatsapp-business">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Un canal que tus clientes ya conocen</div><h2>Haz que WhatsApp trabaje a favor de tu negocio.</h2><p>Presenta tus servicios, responde consultas y mantén una comunicación más clara y cercana con tus clientes.</p></div>
+<figure class="section-visual"><img alt="Infografía de funciones de WhatsApp Business: perfil, catálogo, respuestas personalizadas y conversaciones organizadas" decoding="async" loading="lazy" src="https://share.zapia.com/9lv6d7dkppyb4qzpbpaxpm"/><figcaption>Algunas funciones de WhatsApp Business que pueden ayudar a ordenar la atención.</figcaption></figure>
+<div class="benefits">
+<article class="card"><span aria-hidden="true" class="icon">↗</span><h3>Un canal familiar</h3><p>Tus clientes pueden escribirte desde una aplicación que ya conocen, sin descargar otra para hacer una consulta.</p></article>
+<article class="card"><span aria-hidden="true" class="icon">⌂</span><h3>Perfil y catálogo de empresa</h3><p>Presenta nombre, horarios, ubicación, servicios y precios con una imagen profesional.</p></article>
+<article class="card"><span aria-hidden="true" class="icon">✉</span><h3>Respuestas personalizadas con IA</h3><p>Responde con el tono de tu negocio y ofrece información útil a tus clientes.</p></article>
+<article class="card"><span aria-hidden="true" class="icon">≡</span><h3>Conversaciones organizadas</h3><p>Mantén a la vista nuevos chats, solicitudes y conversaciones que necesitan seguimiento.</p></article>
+</div>
+</div>
+</section><section class="section" id="promociones"><div class="wrap"><div class="section-head"><div class="eyebrow">Agenda y nuevas oportunidades</div><h2>¿Tienes nuevas fechas, huecos libres o una promoción puntual?</h2><figure class="section-visual promo-visual"><img alt="Asistente especializado que avisa a clientes interesados de nuevas fechas, huecos libres y promociones para que puedan reservar." decoding="async" loading="lazy" src="https://share.zapia.com/saiichpmwvrw0j2d5gksuf"/><figcaption>Cada nueva fecha puede ser una oportunidad para volver a conectar con tus clientes.</figcaption></figure><p>Tu asistente especializado avisa por WhatsApp o correo a clientes que ya utilizan ese servicio o han preguntado por él, para que sepan que pueden reservar.</p></div><div class="actions" style="justify-content:center"><a class="button" href="https://wa.me/34685758321?text=INFO">Quiero aprovechar mejor mi agenda</a></div><h3 class="section-subtitle">Tu agenda y comunicación, mejor aprovechadas</h3><div class="benefits promo-benefits"><article class="card"><span aria-hidden="true" class="icon">◷</span><h3>Recordatorios</h3><p>Recuerdan la cita en el momento oportuno y ayudan a que tus clientes la tengan presente.</p></article><article class="card"><span aria-hidden="true" class="icon">↔</span><h3>Cambios y cancelaciones</h3><p>Gestiona cambios y cancelaciones para que puedas reorganizar tu agenda con más facilidad.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Huecos disponibles</h3><p>Cuando se libera una cita, avisa a clientes interesados y te ayuda a aprovechar ese hueco.</p></article><article class="card"><span aria-hidden="true" class="icon">◷</span><h3>Calendario de comunicación</h3><p>Planifica y programa mensajes semanales o mensuales de novedades, promociones y disponibilidad para tus clientes por WhatsApp y correo, y prepara publicaciones en tus grupos de WhatsApp.</p></article></div><p class="soft-note">Más orden para tus citas y nuevas oportunidades para volver a conectar con tus clientes.</p><figure class="section-visual agenda-banner"><img alt="Banner de WebDesign sobre avisar a clientes interesados para ayudar a llenar los huecos libres de la agenda; mantenimiento desde 45 euros al mes." decoding="async" loading="lazy" src="https://share.zapia.com/g40hcji9jtu2igzwvdmyot"/><figcaption>Aprovecha los huecos disponibles y vuelve a conectar con clientes interesados.</figcaption></figure></div></section><section class="section alt" id="visibilidad">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Análisis, marketing y visibilidad</div><h2>Escucha, mejora y vuelve a conectar con tus clientes.</h2><p>Nuestra IA analiza reseñas, comentarios y conversaciones para ayudarte a entender a tus clientes y volver a conectar con quienes hace tiempo que no regresan. También estudia tu web, tus redes sociales y la presencia digital de tu competencia para sugerir mejoras y nuevas campañas.</p></div>
+<div class="benefits"><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Vuelve a conectar con tus clientes</h3><p>La IA analiza reseñas, comentarios y conversaciones para detectar qué valoran tus clientes y qué dudas se repiten. Con esa información, te ayuda a preparar seguimientos y campañas personalizadas para reabrir la conversación e invitarlos a volver.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Analiza tu web, tus redes y la competencia</h3><p>Revisa tu web, tus redes sociales y la presencia digital de otros negocios de tu sector para encontrar oportunidades y proponerte nuevas ideas de campaña.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>SEO y SEM, en palabras sencillas</h3><p>SEO: mejoras en tu web para ayudar a que aparezca en los resultados orgánicos de búsqueda de Google y otros buscadores. SEM: campañas de anuncios de pago que muestran tu negocio a personas que buscan servicios como los tuyos.</p></article></div>
+<figure class="section-visual portrait"><img alt="Diagrama del recorrido SEO/SEM desde Google hasta el contacto por WhatsApp" decoding="async" loading="lazy" src="https://share.zapia.com/y2cjmjuu0xqqj7zte685x4"/><figcaption>SEO/SEM y llamadas a la acción pensadas para facilitar el contacto por WhatsApp.</figcaption></figure>
+<p class="center-note">De las opiniones de tus clientes al contacto por WhatsApp: ideas claras para seguir mejorando.</p>
+</div>
+<div class="digital-services-callout"><h3>Más apoyo para tu presencia digital</h3><p>Además del asesoramiento SEO/SEM, podemos crear la página web de tu negocio y gestionar tus redes sociales. Adaptamos el alcance y el presupuesto a lo que necesites. La gestión de redes no incluye creación de contenido.</p></div></section><section class="section alt" id="sectores">
+<div class="wrap">
+<div class="pain-grid"><article class="pain-point"><span>Estética y peluquería</span><h3>Te escriben mientras estás atendiendo.</h3><p>Respuestas sobre servicios, tarifas y citas para que tus clientes tengan la información que buscan.</p></article><article class="pain-point"><span>Talleres y transporte</span><h3>Cada presupuesto depende de varios datos.</h3><p>Recoge los datos de cada consulta y organiza solicitudes y presupuestos con más claridad.</p></article><article class="pain-point"><span>Terapias y farmacias</span><h3>Se repiten preguntas durante toda la jornada.</h3><p>Información sobre horarios, ubicación y servicios, con atención cercana durante toda la jornada.</p></article></div>
+<figure class="section-visual"><img alt="Centro de estética y masajes con una comparación visual de la organización de consultas por WhatsApp" decoding="async" loading="lazy" src="https://share.zapia.com/38c6ggplmbcov0rvp9tn7j"/><figcaption>Creatividad para estética y masajes sobre organización de consultas y atención por WhatsApp.</figcaption></figure>
+<div class="sector-tier"><h3>Especialmente recomendado</h3><div class="sectors"><div class="sector">Centros de estética</div><div class="sector">Peluquerías y barberías</div><div class="sector">Tratamientos y terapias</div><div class="sector">Farmacias</div><div class="sector">Talleres mecánicos</div></div></div>
+<div class="sector-tier"><h3>Somos tan versátiles que trabajamos también con:</h3><div class="sectors"><div class="sector">Restaurantes y cafeterías</div><div class="sector">Agencias de viajes</div><div class="sector">Librerías</div><div class="sector">Empresas de transporte</div><div class="sector">Otros servicios</div></div></div>
+<figure class="section-visual portrait"><img alt="Sectores a los que WebDesign adapta su automatización de WhatsApp, desde estética y talleres hasta transporte y viajes" decoding="async" loading="lazy" src="https://share.zapia.com/8hnuc4qgkhxizgi119sni4"/><figcaption>Ejemplos de sectores donde se puede adaptar la automatización de WhatsApp.</figcaption></figure>
+<p class="center-note">Desde Castellón de la Plana, Comunidad Valenciana, trabajamos con pymes y autónomos de toda España.</p>
+<article class="case-study"><div class="eyebrow">Ejemplo de un proyecto real</div><h3>Castelló Connect Transfer: atención adaptada al transporte</h3><p>Castelló Connect Transfer es un ejemplo real de cómo un asistente especializado puede ayudar a organizar la atención de una empresa de transporte:</p><ul><li>Presupuestos de traslado adaptados al trayecto.</li><li>Reservas organizadas y seguimiento de consultas.</li><li>Orientación sobre el vehículo según pasajeros y equipaje.</li><li>Información útil sobre otros servicios de transporte.</li></ul><p class="case-study-note">Un ejemplo real de cómo un asistente especializado acompaña a un negocio de transporte.</p></article>
+</div>
+</section><section class="section alt" id="muestras">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Ejemplos reales e ilustrativos</div><h2>Así pueden verse tus respuestas, citas y presupuestos.</h2><p>Muestras de atención, confirmaciones de cita y presupuestos personalizados con el logo y la identidad de cada negocio.</p></div><p class="connector-disclaimer">Una comunicación profesional y coherente con la identidad de tu marca.</p>
+<div class="communication-examples">
+<figure class="original-example"><img alt="Ejemplo de ficha de confirmación de un servicio de transporte en Castellón, de Castelló Connect Transfer" src="https://share.zapia.com/5e78nt4dww3clxnyt1b3zx"/><figcaption>Ejemplo de una ficha real de Castelló Connect Transfer. La ruta, fecha e importe corresponden a una muestra pasada y no son una oferta ni una tarifa vigente.</figcaption></figure>
+<figure class="section-visual portrait"><img alt="Ejemplo de confirmación de servicio de automatización de WhatsApp de WebDesign con precios vigentes" decoding="async" loading="lazy" src="https://share.zapia.com/ki50djqvka48f91nhjbzi0"/><figcaption>Ejemplo visual de confirmación: configuración inicial desde 298 € y mantenimiento desde 45 €/mes.</figcaption></figure>
+<figure class="section-visual portrait"><img alt="Ejemplo ilustrativo de presupuesto para taller mecánico en una conversación de WhatsApp con fondo claro." decoding="async" loading="lazy" src="https://share.zapia.com/vwsphwp4clm7fb6e86mkpj"/><figcaption>Ejemplo ilustrativo de presupuesto para taller en modo claro de WhatsApp; los precios y condiciones son de muestra.</figcaption></figure>
+<figure class="section-visual portrait"><img alt="Confirmación ilustrativa de cita para un centro de estética, presentada como una captura móvil de WhatsApp con tonos rosas suaves." decoding="async" loading="lazy" src="https://share.zapia.com/a4t4fbr7nc67pygod1t3fj"/><figcaption>Ejemplo ilustrativo de confirmación de cita para un centro de estética en WhatsApp móvil.</figcaption></figure>
+</div>
+</div>
+</section><section class="section" id="como-trabajamos">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Un proceso contigo</div><h2>Empezar es más sencillo de lo que parece.</h2><p>Te acompañamos desde la primera conversación hasta que el asistente encaja con el día a día de tu negocio.</p></div>
+<div class="steps"><article class="step"><h3>1. Conocemos tu negocio</h3><p>Conocemos tus servicios, tu forma de atender y lo que quieres mejorar.</p></article><article class="step"><h3>2. Diseñamos y configuramos tu asistente</h3><p>Preparamos respuestas, funciones y una atención con la personalidad de tu negocio.</p></article><article class="step"><h3>3. Empiezas con acompañamiento</h3><p>Probamos la solución contigo y te acompañamos con soporte y mejoras continuas.</p></article></div>
+<figure class="section-visual"><img alt="Proceso WebDesign en tres pasos: conocer el negocio, configurar y probar, y acompañar" decoding="async" loading="lazy" src="https://share.zapia.com/s7ndclr2humygkbvyq2ll6"/><figcaption>Un proceso cercano para crear un asistente a la medida de tu negocio.</figcaption></figure>
+</div>
+</section><section aria-label="Acompañamiento para negocios que empiezan" class="starter-section"><div class="wrap"><div class="starter-layout"><figure class="section-visual starter-visual"><figcaption>Acompañamiento a pequeños emprendimientos y negocios desde casa.</figcaption><img alt="Emprendedora que organiza la atención de su pequeño negocio por WhatsApp" decoding="async" loading="lazy" src="https://share.zapia.com/hjo73a2jd5pvwsxl24r750"/></figure><aside class="starter-hook"><div class="eyebrow">Acompañamiento para negocios que empiezan</div><h2>Proyecta una imagen profesional desde el primer día.</h2><p>Te ayudamos a ordenar WhatsApp, presentar tus servicios con claridad y atender con confianza, tanto si estás poniendo en marcha un pequeño emprendimiento como si trabajas desde casa.</p><a class="button" href="https://wa.me/34685758321?text=Hola%2C%20estoy%20empezando%20un%20peque%C3%B1o%20negocio%20y%20quiero%20organizar%20mi%20WhatsApp">Quiero empezar con orden</a></aside></div></div></section><section class="section alt" id="precio">
+<div class="wrap pricing">
+<div class="eyebrow">Valor para tu negocio</div><h2>Una inversión pensada para acompañar tu crecimiento.</h2><p class="pricing-intro">No contratas solo respuestas automáticas. Incorporas un asistente de IA especializado en tu negocio que te ayuda a atender consultas, organizar citas y presupuestos, hacer seguimientos y aprovechar nuevas oportunidades. Así puedes dedicar más tiempo a tus clientes y a las tareas importantes de tu negocio.</p><figure class="section-visual portrait price-value-banner"><img alt="Infografía de WebDesign que compara la gestión manual, contratar apoyo y una IA especializada; muestra precios y beneficios confirmados." decoding="async" loading="lazy" src="https://share.zapia.com/twlbamp3ovhmpeu2kf3g38"/><figcaption>Comparativa del valor y el coste de distintas formas de atender y organizar tu negocio.</figcaption></figure>
+<div class="price-grid">
+<article class="price-card"><h3>Configuración inicial · pago único</h3><div class="price-value">Desde 298 €</div><ul><li>Análisis de tu negocio y tono de atención.</li><li>Configuración personalizada de respuestas automáticas.</li><li>Sistema de presupuestos y solicitudes de cita.</li><li>Pruebas y dos rondas de ajustes.</li><li>Acompañamiento inicial.</li></ul></article>
+<article class="price-card"><h3>Mantenimiento · mensual</h3><div class="price-value">Desde 45 €/mes</div><ul><li>Soporte y ajustes continuos.</li><li>Informes de actividad y SEO/SEM.</li><li>Mejoras continuas para acompañar la evolución de tu negocio.</li></ul></article>
+</div>
+<div class="price-perks"><span>Opciones de pago flexibles</span><span>Asesoramiento SEO/SEM para mejorar tu visibilidad</span><span>Sin permanencia</span><span>Impuestos incluidos</span></div><p class="pricing-note">El precio exacto se confirma tras conocer tu negocio y el alcance necesario. Cualquier coste externo se detalla antes de empezar.</p>
+<a class="button" href="https://wa.me/34685758321?text=INFO">Pide asesoramiento por WhatsApp</a>
+</div>
+</section><section class="section" id="quienes">
+<div class="wrap founder-panel">
+<div class="founder-mark"><img alt="Logo WebDesign" src="https://share.zapia.com/ap2wa1p0h44r7wnuwywxv5"/></div>
+<div class="founder-copy"><div class="eyebrow">Una marca creada por autónomos</div><h2>De autónomos para autónomos, pequeños negocios y pymes.</h2><p>WebDesign acompaña a autónomos y pequeños equipos de 1 a 10 personas desde Castellón de la Plana, Comunidad Valenciana, a toda España. Creamos asistentes especializados que reflejan la personalidad de tu negocio y cuidan la relación con tus clientes.</p><div class="socials"><a class="social-chip" href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21</a><a class="social-chip" href="mailto:chat@ia-webdesing.es" title="Escríbenos por correo">chat@ia-webdesing.es</a><a class="social-chip" href="https://www.instagram.com/ia_webdesing?exln=Z3VsYjVma2drYmxr&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">Instagram</a><a class="social-chip" href="https://www.facebook.com/share/19nWuPdr1T/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank">Facebook</a></div></div>
+</div>
+</section><section class="section" id="preguntas">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Preguntas frecuentes</div><h2>Resolvemos tus dudas.</h2></div>
+<div class="faq-list"><div class="faq-group"><h3>El asistente y tu día a día</h3><div class="faq-group-list"><details><summary>¿Necesito saber de tecnología?</summary><p>No. Te acompañamos para definir qué quieres mejorar, configurar el asistente y probarlo contigo.</p></details><details><summary>¿Tengo que cambiar el número de WhatsApp que mis clientes ya conocen?</summary><p>No necesariamente. Nuestra prioridad es conservar el número que tus clientes ya conocen. Revisamos cómo tienes configurado WhatsApp y qué opciones de conexión admite. Si también lo usas para asuntos personales, te ayudamos a separar ambos usos para que el asistente de IA atienda las consultas del negocio sin interferir en tus conversaciones privadas.</p></details><details><summary>¿Qué puede hacer el asistente por mi negocio?</summary><p>Puede atender consultas por WhatsApp y correo, responder y enviar correos, explicar servicios, preparar presupuestos y organizar solicitudes.</p></details><details><summary>¿Qué incluyen los resúmenes diarios?</summary><p>Pueden reunir mensajes, citas, presupuestos, tareas y solicitudes pendientes, incluidas peticiones de factura cuando corresponda, para que tengas una visión más clara del día.</p></details><details><summary>¿Qué pasa si falta información o hace falta criterio profesional?</summary><p>Las consultas incompletas, especiales o que requieren una decisión o valoración —incluidas las consultas clínicas o de salud en farmacias y terapias— se derivan a una persona.</p></details><details><summary>¿Puede responder y enviar mis correos?</summary><p>Sí. Con tu autorización y un buzón conectado, puede responder y enviar correos con la información y las reglas de tu negocio.</p></details></div></div><div class="faq-group"><h3>Agenda, promociones y organización</h3><div class="faq-group-list"><details><summary>¿Cómo organiza citas, cambios y recordatorios?</summary><p>Con el calendario conectado, autorizado y probado, ayuda a recibir solicitudes de cita, confirmar las que encajan con la disponibilidad y las reglas acordadas, gestionar cambios y cancelaciones, enviar recordatorios y ofrecer huecos que queden libres.</p></details><details><summary>¿Puede avisar de promociones a clientes interesados?</summary><p>Sí. Puede avisar a personas que ya utilizan ese servicio o han preguntado por él. En WhatsApp se requiere el opt-in correspondiente; en correo se respetan las reglas aplicables, las preferencias y las bajas.</p></details><details><summary>¿Puede preparar presupuestos y revisar el inventario?</summary><p>Prepara presupuestos según las tarifas acordadas. Puede revisar el inventario y sugerir mejoras si los datos están actualizados; no cambia existencias ni realiza pedidos automáticamente salvo acuerdo expreso.</p></details><details><summary>¿Puede entender un audio y responder por WhatsApp?</summary><p>Sí. Puede entender el mensaje de voz y responder por WhatsApp con la información del negocio, también en el idioma del cliente. Puede enviarte un resumen en español, con traducción opcional de la respuesta, y resumir audios largos en puntos clave. Si el audio no se entiende o falta contexto, la consulta se deriva a una persona.</p></details></div><details><summary>¿Puedo programar mensajes en grupos de WhatsApp?</summary><p>Sí. Podemos planificar publicaciones semanales o mensuales en los grupos de tu negocio. Antes definimos los grupos, la frecuencia y el contenido, y comprobamos permisos, normas de cada grupo y opciones de conexión. Para promociones directas, contactamos solo a personas interesadas y respetamos sus preferencias y bajas.</p></details></div><div class="faq-group"><h3>Precio, herramientas y privacidad</h3><div class="faq-group-list"><details><summary>¿Cuánto cuesta y qué incluye?</summary><p>La configuración inicial parte de 298 € como pago único. El mantenimiento parte de 45 €/mes e incluye soporte, ajustes, informes de actividad y SEO/SEM, además de mejoras. El precio exacto depende del alcance acordado. Los impuestos están incluidos; no hay costes ocultos ni permanencia. Cualquier coste externo se detalla antes de empezar.</p></details><details><summary>¿Qué herramientas se pueden conectar?</summary><p>Revisamos la compatibilidad, los accesos y los permisos antes de incluir cada herramienta. Podemos valorar correo, Google Calendar y otras plataformas que use tu negocio; te explicamos cualquier coste externo antes de contratar.</p></details><details><summary>¿Cómo se protege la información?</summary><p>WhatsApp explica que los mensajes personales y los enviados mediante WhatsApp Business están cifrados de extremo a extremo durante el envío. Antes de conectar herramientas acordamos qué información puede usar el asistente, con qué accesos y para qué. El tratamiento posterior depende también de las herramientas y su configuración.</p></details></div></div><div class="faq-group"><h3>Resultados y próximos pasos</h3><div class="faq-group-list"><details><summary>¿Qué puede analizar WebDesign para ayudarme a mejorar?</summary><p>Puede analizar reseñas, valoraciones, quejas y conversaciones que facilites o autorices, además de tu web, tus redes y la presencia digital pública de otros negocios de tu sector, para sugerir mejoras y nuevas campañas.</p></details><details><summary>¿Me garantiza más clientes, reservas o una posición en Google?</summary><p>No se garantizan posiciones ni resultados comerciales concretos. El asesoramiento SEO/SEM busca mejorar visibilidad y facilitar el contacto; la inversión publicitaria, si se acuerda, va aparte.</p></details><details><summary>¿Qué tecnología de IA utilizáis?</summary><p>Trabajamos con modelos de IA actualizados y los adaptamos al alcance y a la información aprobada de cada proyecto.</p></details><details><summary>¿Cómo puedo empezar?</summary><p>Escríbenos por WhatsApp con «INFO» y cuéntanos qué tipo de negocio tienes y qué te gustaría organizar o mejorar.</p></details></div><details><summary>¿También podéis crear mi página web y gestionar mis redes sociales?</summary><p>Sí. Podemos crear la página web de tu negocio y gestionar tus redes sociales como servicios adicionales, con presupuesto personalizado según tus necesidades. La gestión de redes sociales no incluye creación de contenido.</p></details></div></div>
+<figure class="section-visual portrait"><img alt="Resumen visual de preguntas frecuentes sobre el asistente, citas, precios, audios e idiomas." decoding="async" loading="lazy" src="https://share.zapia.com/c64o0hv8hs3p6guhgqew2p"/><figcaption>Resumen visual de algunas funciones; el alcance se acuerda antes de activarlas.</figcaption></figure>
+</div>
+</section><section class="final-cta" id="contacto">
+<div class="wrap"><div class="eyebrow">Hablemos de tu negocio</div><h2>¿Qué te gustaría mejorar en tu negocio?</h2><p>Cuéntanos qué quieres organizar o mejorar y te ayudamos a dar el siguiente paso con un asistente de IA especializado en tu empresa.</p><a class="button" href="https://wa.me/34685758321?text=INFO">Escríbenos «INFO» por WhatsApp</a><p class="contact-number">WhatsApp · +34 685 75 83 21</p><p class="contact-email">Correo: <a href="mailto:chat@ia-webdesing.es">chat@ia-webdesing.es</a></p><p class="mini-note">Escribe «INFO» y cuéntanos brevemente tu necesidad.</p></div>
+</section></main>
+<footer>
+<div class="wrap footer-row"><div class="footer-brand"><img alt="Logo WebDesign" src="https://share.zapia.com/ap2wa1p0h44r7wnuwywxv5"/><div>Desde Castellón de la Plana, Comunidad Valenciana · servicio en toda España.</div></div><div class="footer-copy"><strong>WebDesign · De autónomos a autónomos.</strong>Asistente virtual de IA para WhatsApp y correo, organización de citas y asesoramiento SEO/SEM para autónomos y pymes.<div class="socials"><a class="social-chip" href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21</a><a href="mailto:chat@ia-webdesing.es">chat@ia-webdesing.es</a><a class="social-chip" href="https://www.instagram.com/ia_webdesing?exln=Z3VsYjVma2drYmxr&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">Instagram</a><a class="social-chip" href="https://www.facebook.com/share/19nWuPdr1T/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank">Facebook</a></div></div></div>
+</footer>
+<a aria-label="Escríbenos por WhatsApp con el mensaje INFO" class="whatsapp-float" href="https://wa.me/34685758321?text=INFO"><img alt="" aria-hidden="true" class="whatsapp-float-icon" src="https://share.zapia.com/ijm1shrnvjulcssv0cnv4m"/><span>WhatsApp</span></a></body>
+</html>
