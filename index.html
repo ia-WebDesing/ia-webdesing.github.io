@@ -20,7 +20,12 @@
     body { margin:0; color:var(--white); background:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.65; }
     a { color:inherit; }
     .wrap { width:min(1160px,calc(100% - 42px)); margin:0 auto; }
-    .site-header { position:sticky; top:0; z-index:20; background:rgba(8,11,18,.96); border-bottom:1px solid rgba(197,161,90,.25); backdrop-filter:blur(12px); }
+    .site-header { position:sticky; top:0; z-index:20; background:rgba(8,11,18,.96); border-bottom:1px solid rgba(197,161,90,.25); backdrop-filter:blur(12px); transition:transform .22s ease; will-change:transform; }
+    .site-header.is-hidden { transform:translateY(calc(-100% - 2px)); }
+    .header-reopen-tab { position:fixed; top:0; left:50%; z-index:21; display:inline-flex; align-items:center; gap:8px; min-height:36px; padding:6px 14px 8px; border:1px solid rgba(197,161,90,.55); border-top:0; border-radius:0 0 14px 14px; background:rgba(8,11,18,.97); color:var(--gold-light); font-size:.82rem; font-weight:850; letter-spacing:.02em; box-shadow:0 10px 25px rgba(0,0,0,.35); cursor:pointer; visibility:hidden; opacity:0; pointer-events:none; transform:translate(-50%,-110%); transition:transform .22s ease,opacity .18s ease,visibility 0s linear .22s; }
+    .header-reopen-tab.is-visible { visibility:visible; opacity:1; pointer-events:auto; transform:translate(-50%,0); transition:transform .22s ease,opacity .18s ease,visibility 0s; }
+    .header-reopen-tab:focus-visible { outline:2px solid var(--gold-light); outline-offset:3px; }
+    @media (prefers-reduced-motion:reduce) { .site-header,.header-reopen-tab { transition:none; } }
     .nav { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
     .brand { display:block; flex:0 0 auto; line-height:0; }
     .brand-logo { display:block; width:min(310px,31vw); height:auto; border-radius:4px; filter:drop-shadow(0 5px 16px rgba(0,0,0,.35)); }
@@ -258,7 +263,8 @@ main > section:not(#preguntas) .actions,
 </style>
 <meta content="Asistente de IA para pymes y autónomos | WebDesign" name="twitter:title"/><meta content="Asistente de IA especializado para pymes y autónomos: atiende WhatsApp y correo, organiza citas y presupuestos y ayuda a mejorar tu presencia digital." name="twitter:description"/></head>
 <body>
-<header class="site-header">
+<button aria-controls="site-header" aria-expanded="true" aria-label="Abrir el menú de navegación" class="header-reopen-tab" id="header-reopen-tab" type="button"><span aria-hidden="true">☰</span><span>Menú</span><span aria-hidden="true">⌄</span></button>
+<header class="site-header" id="site-header">
 <div class="wrap nav">
 <a aria-label="WebDesign, inicio" class="brand" href="#inicio"><img alt="Logo WebDesign" class="brand-logo" src="img-01.png"/></a>
 <nav aria-label="Navegación principal" class="nav-links"><a href="#soluciones">Cómo te ayuda</a><a href="#promociones">Agenda y comunicación</a><a href="#visibilidad">Análisis y presencia digital</a><a href="#sectores">Sectores</a><a href="#precio">Precios</a><a href="#preguntas">Preguntas frecuentes</a><a class="button" href="https://wa.me/34685758321?text=INFO">Escríbenos «INFO»</a></nav>
@@ -340,5 +346,46 @@ main > section:not(#preguntas) .actions,
 <footer>
 <div class="wrap footer-row"><div class="footer-brand"><img alt="Logo WebDesign" src="img-01.png"/><div>Desde Castellón de la Plana, Comunidad Valenciana · servicio en toda España.</div></div><div class="footer-copy"><strong>WebDesign · De autónomos a autónomos.</strong>Asistente virtual de IA para WhatsApp y correo, organización de citas y asesoramiento SEO/SEM para autónomos y pymes.<div class="socials"><a class="social-chip" href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21</a><a class="social-chip" href="mailto:chat@ia-webdesing.es" title="Escríbenos por correo">chat@ia-webdesing.es</a><a class="social-chip" href="https://www.instagram.com/ia_webdesing?exln=Z3VsYjVma2drYmxr&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">Instagram</a><a class="social-chip" href="https://www.facebook.com/share/19nWuPdr1T/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank">Facebook</a></div></div></div>
 </footer>
-<a aria-label="Escríbenos por WhatsApp con el mensaje INFO" class="whatsapp-float" href="https://wa.me/34685758321?text=INFO"><img alt="" aria-hidden="true" class="whatsapp-float-icon" src="img-19.png"/><span>WhatsApp</span></a></body>
+<a aria-label="Escríbenos por WhatsApp con el mensaje INFO" class="whatsapp-float" href="https://wa.me/34685758321?text=INFO"><img alt="" aria-hidden="true" class="whatsapp-float-icon" src="img-19.png"/><span>WhatsApp</span></a><script>
+(() => {
+  const header = document.getElementById('site-header');
+  const tab = document.getElementById('header-reopen-tab');
+  if (!header || !tab) return;
+  let lastY = window.scrollY;
+  let scheduled = false;
+  const showHeader = () => {
+    header.classList.remove('is-hidden');
+    header.removeAttribute('aria-hidden');
+    header.inert = false;
+    tab.classList.remove('is-visible');
+    tab.setAttribute('aria-expanded', 'true');
+  };
+  const hideHeader = () => {
+    header.classList.add('is-hidden');
+    header.setAttribute('aria-hidden', 'true');
+    header.inert = true;
+    tab.classList.add('is-visible');
+    tab.setAttribute('aria-expanded', 'false');
+  };
+  const onScroll = () => {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(() => {
+      const currentY = Math.max(0, window.scrollY);
+      const movement = currentY - lastY;
+      if (currentY < 90) showHeader();
+      else if (movement > 7) hideHeader();
+      else if (movement < -5) showHeader();
+      lastY = currentY;
+      scheduled = false;
+    });
+  };
+  tab.addEventListener('click', (event) => {
+    showHeader();
+    if (event.detail === 0) header.querySelector('.nav-links a')?.focus({ preventScroll: true });
+  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+</body>
 </html>
