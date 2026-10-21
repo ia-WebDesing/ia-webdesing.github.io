@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Modo de prueba del chat web de WebDesign. Respuestas simuladas, sin búsqueda ni reservas reales.">
+<meta name="description" content="Prueba el asistente de IA de WebDesign con una búsqueda pública controlada y sin ejecutar reservas ni otras acciones.">
 <meta name="theme-color" content="#080b12">
 <title>Modo de prueba · Chatbot de IA de WebDesign</title>
 <style>
 :root{--bg:#080b12;--panel:#101722;--panel2:#141d2a;--gold:#c5a15a;--gold2:#ead5a8;--white:#f8f8f6;--muted:#c1c8d1;--line:rgba(197,161,90,.34)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}.wrap{width:min(1080px,calc(100% - 36px));margin:0 auto}.top{border-bottom:1px solid var(--line);background:#0b1019}.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{width:178px;height:auto;display:block}.return{color:var(--gold2);text-decoration:none;font-weight:700;font-size:.9rem}.hero{padding:42px 0 28px}.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--gold2);font-size:.82rem;background:#0c121c}.tag i{width:8px;height:8px;background:var(--gold);border-radius:50%}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:17px 0 12px;max-width:850px}.lead{max-width:820px;color:var(--muted);margin:0}.notice{margin-top:18px;padding:13px 16px;border:1px solid rgba(197,161,90,.3);border-radius:12px;background:#111722;color:#e5e9ef;font-size:.88rem}.notice strong{color:var(--gold2)}h2{font-size:1.3rem;margin:28px 0 10px}.examples{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:17px 0 35px}.example{margin:0;border:1px solid rgba(255,255,255,.1);border-radius:15px;overflow:hidden;background:var(--panel)}.example img{width:100%;height:220px;object-fit:cover;display:block;background:#121b28}.example figcaption{padding:12px 14px;color:var(--muted);font-size:.82rem}.example figcaption strong{display:block;color:var(--gold2);margin-bottom:3px}.footer{margin-top:30px;padding:24px 0 34px;border-top:1px solid rgba(255,255,255,.1);color:#aeb8c7;font-size:.84rem}.contact{display:flex;flex-wrap:wrap;gap:14px;margin-top:9px}.contact a{color:var(--gold2);text-decoration:none}.small{font-size:.74rem;color:#8995a4;margin-top:12px}
 /* Ventana flotante del modo de prueba */
+.field-label{display:block;color:var(--gold2);font-size:.72rem;font-weight:700;margin:0 0 4px}.demo-panel{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,.08);background:#0c131e}.demo-panel h3{font-size:.78rem;color:var(--gold2);margin:0 0 7px}.demo-panel p{font-size:.69rem;color:var(--muted);margin:0 0 8px}.demo-panel input[type=text],.demo-panel input[type=password],.demo-panel input[type=url]{display:block;width:100%;margin:0 0 7px;padding:8px 9px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:#111925;color:var(--white);font:inherit;font-size:.75rem}.checkline{display:flex;gap:7px;align-items:flex-start;color:#d7dde6;font-size:.68rem;margin:7px 0}.checkline input{margin:3px 0 0;accent-color:var(--gold);flex:none}.panel-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.panel-actions button,.clear-demo{border:1px solid rgba(197,161,90,.55);border-radius:99px;background:#182337;color:var(--gold2);padding:6px 10px;font:700 .68rem system-ui;cursor:pointer}.panel-actions button:disabled,.chat-compose button:disabled{opacity:.45;cursor:not-allowed}.demo-status{font-size:.66rem;color:var(--muted);margin-top:6px;min-height:1em}.chat-head .clear-demo{flex:none;padding:5px 8px;font-size:.62rem}.chat-log{display:flex;flex-direction:column}.sources{margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,.14);font-size:.72rem}.sources strong{display:block;color:var(--gold2);margin-bottom:3px}.sources a{display:block;color:#d5c28e;overflow-wrap:anywhere;margin:3px 0}.reply-note{color:#aab5c3;font-size:.68rem;margin-top:7px}.chat-compose input:disabled{opacity:.55}
 .chat-window{position:fixed;z-index:60;right:18px;bottom:18px;width:min(390px,calc(100vw - 28px));height:min(650px,calc(100vh - 36px));display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);box-shadow:0 20px 60px rgba(0,0,0,.55)}.chat-head{flex:none;display:flex;align-items:center;gap:11px;padding:12px 14px;background:linear-gradient(115deg,#19273b,#0e1521);border-bottom:1px solid rgba(255,255,255,.08)}.chat-logo{width:96px;height:auto;flex:none}.chat-title{min-width:0;flex:1}.chat-title strong{display:block;font-size:.86rem;line-height:1.25}.chat-title span{display:block;color:var(--muted);font-size:.7rem}.chat-close{border:0;background:transparent;color:var(--gold2);font-size:1.4rem;cursor:pointer;padding:4px 7px}.chat-log{flex:1;min-height:0;overflow:auto;padding:13px;background:linear-gradient(#0c121d,#080d15)}.bubble{max-width:94%;padding:10px 12px;border:1px solid rgba(255,255,255,.07);border-radius:13px;margin:0 0 9px;background:#162235;color:#eef2f7;font-size:.82rem;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.user{margin-left:auto;background:#29394f;border-color:rgba(197,161,90,.18);border-top-right-radius:4px}.bubble.bot{border-top-left-radius:4px}.chat-image{display:block;width:100%;max-height:185px;object-fit:contain;margin-top:8px;border-radius:9px;background:#0b111b}.image-caption{display:block;color:var(--muted);font-size:.7rem;margin-top:5px}.quick-actions{flex:none;display:flex;gap:6px;flex-wrap:wrap;padding:8px 10px;background:#0a1019;border-top:1px solid rgba(255,255,255,.06)}.quick-actions button{border:1px solid rgba(197,161,90,.45);border-radius:99px;background:#111b2a;color:var(--gold2);padding:6px 9px;font:600 .68rem system-ui;cursor:pointer}.quick-actions button:hover{border-color:var(--gold);background:#1a2739}.chat-compose{flex:none;display:flex;gap:7px;padding:9px;background:#080d15;border-top:1px solid rgba(255,255,255,.08)}.chat-compose input{flex:1;min-width:0;border:1px solid rgba(255,255,255,.15);border-radius:99px;background:#111925;color:var(--white);padding:10px 12px;font:inherit;font-size:.8rem;outline:none}.chat-compose input:focus{border-color:var(--gold)}.chat-compose button{border:0;border-radius:99px;background:var(--gold);color:#14171e;font-weight:800;padding:0 13px;cursor:pointer}.chat-disclosure{flex:none;text-align:center;background:#080d15;color:#8995a4;font-size:.62rem;padding:6px 8px 8px}.chat-launcher{position:fixed;z-index:59;right:18px;bottom:18px;border:1px solid var(--gold);border-radius:99px;background:#111b2a;color:var(--gold2);padding:12px 17px;font:700 .9rem system-ui;box-shadow:0 8px 28px rgba(0,0,0,.4);cursor:pointer}.hidden{display:none!important}
 @media(max-width:720px){.wrap{width:min(100% - 24px,620px)}.hero{padding-top:32px}.examples{grid-template-columns:1fr}.example img{height:210px}.logo{width:150px}.nav{min-height:65px}.chat-window{right:8px;bottom:8px;width:calc(100vw - 16px);height:min(78vh,650px);max-height:calc(100vh - 16px)}.chat-launcher{right:12px;bottom:12px}}
 </style>
@@ -19,10 +20,10 @@
 <header class="top"><div class="wrap nav"><a href="/" aria-label="WebDesign, inicio"><img class="logo" src="img-01.png" alt="Logo WebDesign"></a><a class="return" href="/">Volver a WebDesign</a></div></header>
 <main class="wrap">
 <section class="hero">
-  <div class="tag"><i></i> Modo de prueba · simulación</div>
+  <div class="tag"><i></i> Modo de prueba · IA conectada</div>
   <h1>Prueba cómo podría ayudarte un asistente de IA en tu negocio.</h1>
-  <p class="lead">La ventana de chat está abierta para que puedas escribir preguntas de prueba o usar las respuestas rápidas.</p>
-  <div class="notice"><strong>Esta versión es una simulación con respuestas predefinidas:</strong> no es una IA conectada, no busca empresas en Internet, no envía ni guarda tus mensajes, no modifica WhatsApp Business ni conecta calendarios. No introduzcas datos personales ni de clientes. No se crean reservas, pedidos ni ventas.</div>
+  <p class="lead">Haz una consulta de prueba sobre un negocio real o ficticio. La búsqueda de información pública solo se activa después de que confirmes su identidad y des tu consentimiento.</p>
+  <div class="notice"><strong>Demostración restringida:</strong> el mensaje y los datos públicos de la empresa seleccionada se envían al servicio de IA para responder. No incluyas datos personales, privados, de clientes ni confidenciales. Esta página no guarda el chat ni la empresa en almacenamiento persistente y no ejecuta reservas, ventas, envíos de mensajes ni cambios de agenda. La búsqueda se limita a fuentes públicas tras el consentimiento y la confirmación.</div>
 </section>
 <section aria-labelledby="images-title">
   <h2 id="images-title">Ejemplos visuales de WebDesign</h2>
@@ -34,37 +35,234 @@
   </div>
 </section>
 </main>
-<footer class="footer"><div class="wrap"><strong>Modo de prueba de WebDesign.</strong> El asistente no es el canal oficial de otra empresa. Los ejemplos son simulados; no se crean reservas, pedidos ni ventas.<div class="contact"><a href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21 · INFO</a><a href="mailto:chat@ia-webdesing.es">chat@ia-webdesing.es</a></div><div class="small">La búsqueda conectada y el borrado automático de datos aún no están activos en esta prueba.</div></div></footer>
+<footer class="footer"><div class="wrap"><strong>Modo de prueba de WebDesign.</strong> El asistente no es el canal oficial de otra empresa. Los ejemplos son simulados; no se crean reservas, pedidos ni ventas.<div class="contact"><a href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21 · INFO</a><a href="mailto:chat@ia-webdesing.es">chat@ia-webdesing.es</a></div><div class="small">No se guarda historial en esta página. No existe un archivo temporal de siete días ni un borrado automático: los datos solo permanecen en la memoria de la pestaña hasta que la limpies o la cierres.</div></div></footer>
 <div class="chat-window" id="chatWindow" role="region" aria-label="Ventana del chat de prueba">
-  <div class="chat-head"><img class="chat-logo" src="img-01.png" alt="Logo WebDesign"><div class="chat-title"><strong>Chatbot de IA · WebDesign</strong><span>Modo de prueba · respuestas simuladas</span></div><button class="chat-close" id="closeChat" type="button" aria-label="Cerrar chat">×</button></div>
-  <div class="chat-log" id="chatLog" aria-live="polite"><div class="bubble bot">¡Hola! Soy el chatbot de IA de WebDesign, en modo de prueba. Puedes escribir una pregunta o tocar una respuesta rápida. En esta versión solo simulo respuestas: no busco negocios ni guardo mensajes.</div></div>
-  <div class="quick-actions" aria-label="Preguntas de prueba">
-    <button type="button" data-key="catalog">Catálogo</button><button type="button" data-key="prices">Precios WebDesign</button><button type="button" data-key="workshop">Taller</button><button type="button" data-key="agenda">Agenda</button><button type="button" data-key="reminder">Recordatorio</button><button type="button" data-key="report">Informe</button><button type="button" data-key="extra">Otros servicios</button>
+  <div class="chat-head"><img class="chat-logo" src="img-01.png" alt="Logo WebDesign"><div class="chat-title"><strong>Chat con IA · WebDesign</strong><span>Demo restringida · sin acciones reales</span></div><button class="clear-demo" id="clearDemo" type="button">Limpiar demo</button><button class="chat-close" id="closeChat" type="button" aria-label="Cerrar chat">×</button></div>
+  <div class="chat-log" id="chatLog" aria-live="polite">
+    <div class="bubble bot" id="welcomeBubble">¡Hola! Soy el chatbot de IA de WebDesign, en modo de prueba. Antes de consultar información pública, introduce tus credenciales de acceso y confirma el negocio y tu consentimiento. No se realizan reservas ni otras acciones.</div>
+    <section class="demo-panel" id="authPanel" aria-labelledby="authTitle">
+      <h3 id="authTitle">1. Acceso protegido</h3><p>Introduce el usuario y la contraseña de prueba que te han facilitado. Se usan solo en esta pestaña y no se guardan.</p>
+      <form id="authForm"><label class="field-label" for="authUser">Usuario</label><input id="authUser" type="text" autocomplete="username" required><label class="field-label" for="authPass">Contraseña</label><input id="authPass" type="password" autocomplete="current-password" required><div class="panel-actions"><button type="submit">Usar credenciales en esta pestaña</button></div></form><div class="demo-status" id="authStatus" role="status"></div>
+    </section>
+    <section class="demo-panel" aria-labelledby="businessTitle">
+      <h3 id="businessTitle">2. Empresa y permisos</h3><p>Indica el nombre exacto, la localidad y una URL pública HTTPS de esa empresa. No se hace ninguna consulta hasta confirmar ambos permisos.</p>
+      <form id="businessForm"><label class="field-label" for="businessName">Nombre exacto del negocio</label><input id="businessName" type="text" autocomplete="off" required maxlength="160"><label class="field-label" for="businessLocality">Localidad</label><input id="businessLocality" type="text" autocomplete="off" required maxlength="120"><label class="field-label" for="businessUrl">URL pública del negocio (HTTPS)</label><input id="businessUrl" type="url" inputmode="url" autocomplete="url" placeholder="https://ejemplo.es" required maxlength="500">
+      <label class="checkline"><input id="publicConsent" type="checkbox"><span>Consiento que esta demo consulte fuentes públicas de Internet sobre el negocio indicado para responder a mi pregunta.</span></label>
+      <label class="checkline"><input id="businessConfirm" type="checkbox"><span>Confirmo que este es el negocio correcto y que la URL pública indicada corresponde a él.</span></label>
+      <div class="panel-actions"><button id="confirmBusiness" type="submit">Confirmar negocio y consentimiento</button></div><div class="demo-status" id="businessStatus" role="status"></div></form>
+    </section>
   </div>
-  <form class="chat-compose" id="chatForm"><input id="chatInput" type="text" autocomplete="off" placeholder="Escribe una pregunta de prueba…" aria-label="Escribe una pregunta de prueba"><button type="submit">Enviar</button></form>
-  <div class="chat-disclosure">Simulación local en tu navegador · no se envía ni se guarda el texto</div>
+  <form class="chat-compose" id="chatForm"><input id="chatInput" type="text" autocomplete="off" maxlength="2000" placeholder="Escribe una pregunta de prueba…" aria-label="Escribe una pregunta de prueba" disabled><button id="sendButton" type="submit" disabled>Enviar</button></form>
+  <div class="chat-disclosure">Consulta pública solo tras consentimiento y confirmación · no se ejecutan acciones reales</div>
 </div>
 <button class="chat-launcher hidden" id="openChat" type="button">Abrir modo de prueba</button>
 <script>
-const log=document.getElementById('chatLog');
-const answers={
- catalog:'CATÁLOGO · EJEMPLO\nEn una demo conectada, cada ficha mostraría nombre, descripción, imagen pública o autorizada, precio publicado o confirmado, fuente y fecha. Esta página solo enseña una maqueta de WhatsApp Business; no consulta otras empresas ni modifica catálogos.',
- prices:'PRECIOS PUBLICADOS DE WEBDESIGN\nConfiguración inicial: desde 298 € (pago único).\nMantenimiento: desde 45 €/mes. Impuestos incluidos y sin permanencia. El precio exacto depende del alcance.\nFuente: apartado Precios de ia-webdesing.es. Estas tarifas son de WebDesign, no de otra empresa.',
- workshop:'TALLER · EJEMPLO ILUSTRATIVO\nLa imagen de taller de esta página es una muestra publicada por WebDesign y sus importes son de ejemplo, no tarifas verificadas de un taller real. Para mostrar el precio de una empresa concreta se necesita una fuente pública o la confirmación de su responsable; no invento precios.',
- agenda:'AGENDA · VISTA PREVIA\nSe podrían organizar horarios, solicitudes, citas y huecos según las reglas confirmadas por el negocio. Esta demostración no conecta con Google Calendar ni crea eventos.',
- reminder:'RECORDATORIO · DATOS FICTICIOS\nHola, [Nombre]. Te recordamos que tienes una cita de ejemplo el [día] a las [hora] en [Empresa].\nEl recordatorio no se envía; el momento y el canal se configurarían con autorización.',
- report:'INFORME DIARIO · CIFRAS FICTICIAS\nConsultas pendientes: 3\nCitas por confirmar: 2\nPresupuestos para revisar: 1\nSeguimientos pendientes: 2\nSon cifras inventadas para mostrar el formato, no datos reales.',
- extra:'FUERA DE ESTA PRUEBA\nWebDesign también ofrece creación de páginas web, gestión de redes sociales (sin creación de contenido) y asesoramiento SEO/SEM. Escríbenos por WhatsApp al +34 685 75 83 21 con «INFO» o a chat@ia-webdesing.es para revisar el alcance y preparar una propuesta. No garantizamos posiciones ni resultados concretos.',
- unknownPrice:'No tengo precios de otra empresa en esta simulación. Si no hay una tarifa pública o confirmada, la demo lo indicaría como «sin precio público»; no inventaría un importe.\nPrecios publicados de WebDesign: configuración desde 298 € y mantenimiento desde 45 €/mes.',
- fallback:'En este modo de prueba solo puedo simular respuestas sobre catálogo, precios, agenda, recordatorios, informes y servicios. No hay una IA conectada ni búsqueda web. Prueba una de esas preguntas o usa las respuestas rápidas.'
-};
-const labels={catalog:'Ver catálogo',prices:'Consultar precios de WebDesign',workshop:'Ver ejemplo de taller',agenda:'Ver agenda',reminder:'Ver recordatorio',report:'Ver informe diario',extra:'Preguntar por otros servicios'};
-function addBubble(text,who='bot'){const b=document.createElement('div');b.className='bubble '+who;b.textContent=text;log.appendChild(b);log.scrollTop=log.scrollHeight;}
-function classify(q){const t=q.toLowerCase();if(/seo|sem|p[aá]gina web|redes sociales|gestionar redes/.test(t))return'extra';if(/patinete|taller|reparaci[oó]n/.test(t))return'workshop';if(/precio|precios|coste|cu[aá]nto|tarifa/.test(t))return/webdesign|configuraci[oó]n|mantenimiento/.test(t)?'prices':'unknownPrice';if(/cat[aá]logo|imagen|foto|producto|servicio/.test(t))return'catalog';if(/agenda|cita|horario|calendario/.test(t))return'agenda';if(/recordatorio|recordar/.test(t))return'reminder';if(/informe|resumen diario/.test(t))return'report';return'fallback';}
-function ask(key,text){addBubble(text,'user');addBubble(answers[key]||answers.fallback,'bot');}
-document.querySelectorAll('[data-key]').forEach(b=>b.addEventListener('click',()=>ask(b.dataset.key,labels[b.dataset.key]||b.textContent)));
-document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('chatInput');const q=input.value.trim();if(!q)return;input.value='';ask(classify(q),q);});
-const win=document.getElementById('chatWindow'),launcher=document.getElementById('openChat');document.getElementById('closeChat').onclick=()=>{win.classList.add('hidden');launcher.classList.remove('hidden');};launcher.onclick=()=>{launcher.classList.add('hidden');win.classList.remove('hidden');document.getElementById('chatInput').focus();};
+(() => {
+  'use strict';
+  const WEBHOOK_URL = 'https://ia-webdesing.app.n8n.cloud/webhook/webdesign-demo-chat-v1';
+  const log = document.getElementById('chatLog');
+  const authForm = document.getElementById('authForm');
+  const businessForm = document.getElementById('businessForm');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const sendButton = document.getElementById('sendButton');
+  const authPanel = document.getElementById('authPanel');
+  const authStatus = document.getElementById('authStatus');
+  const businessStatus = document.getElementById('businessStatus');
+  const publicConsent = document.getElementById('publicConsent');
+  const businessConfirm = document.getElementById('businessConfirm');
+  const businessName = document.getElementById('businessName');
+  const businessLocality = document.getElementById('businessLocality');
+  const businessUrl = document.getElementById('businessUrl');
+  let authUsername = '';
+  let authPassword = '';
+  let selectedBusiness = null;
+  let ready = false;
+  let pending = false;
+
+  function addBubble(text, who = 'bot') {
+    const bubble = document.createElement('div');
+    bubble.className = `bubble ${who}`;
+    bubble.textContent = String(text ?? '');
+    log.appendChild(bubble);
+    log.scrollTop = log.scrollHeight;
+    return bubble;
+  }
+  function setStatus(el, text) { el.textContent = text; }
+  function validHttps(value) {
+    try { const u = new URL(value); return u.protocol === 'https:' && !!u.hostname && !u.username && !u.password; }
+    catch (_) { return false; }
+  }
+  function updateReady() {
+    const goodFields = businessName.value.trim().length > 0 && businessLocality.value.trim().length > 0 && validHttps(businessUrl.value.trim());
+    const allowed = !!authUsername && !!authPassword && !!selectedBusiness && !!publicConsent.checked && !!businessConfirm.checked && goodFields && !pending;
+    chatInput.disabled = !allowed;
+    sendButton.disabled = !allowed;
+    return allowed;
+  }
+  authForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const user = document.getElementById('authUser').value.trim();
+    const pass = document.getElementById('authPass').value;
+    if (!user || !pass) { setStatus(authStatus, 'Introduce el usuario y la contraseña.'); return; }
+    authUsername = user;
+    authPassword = pass;
+    document.getElementById('authUser').value = '';
+    document.getElementById('authPass').value = '';
+    authPanel.classList.add('hidden');
+    setStatus(authStatus, 'Credenciales cargadas solo en la memoria de esta pestaña; se comprobarán al enviar la primera consulta.');
+    addBubble('Acceso preparado en esta pestaña. Confirma ahora el negocio y los dos permisos.', 'bot');
+    updateReady();
+  });
+  businessForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const name = businessName.value.trim();
+    const locality = businessLocality.value.trim();
+    const url = businessUrl.value.trim();
+    if (!name || !locality || !validHttps(url)) {
+      selectedBusiness = null;
+      ready = false;
+      setStatus(businessStatus, 'Revisa los tres campos; la URL debe ser válida y empezar por HTTPS.');
+      updateReady();
+      return;
+    }
+    if (!publicConsent.checked || !businessConfirm.checked) {
+      selectedBusiness = null;
+      ready = false;
+      setStatus(businessStatus, 'Para continuar, marca tanto el consentimiento de búsqueda pública como la confirmación del negocio.');
+      updateReady();
+      return;
+    }
+    selectedBusiness = { name, locality, url };
+    ready = true;
+    setStatus(businessStatus, 'Negocio confirmado. La búsqueda solo comenzará al enviar una pregunta.');
+    addBubble('Negocio y consentimiento confirmados. Ya puedes hacer una consulta de prueba.', 'bot');
+    updateReady();
+    chatInput.focus();
+  });
+  [businessName, businessLocality, businessUrl, publicConsent, businessConfirm].forEach(field => {
+    field.addEventListener('input', () => { selectedBusiness = null; ready = false; updateReady(); });
+    field.addEventListener('change', () => { selectedBusiness = null; ready = false; updateReady(); });
+  });
+  function renderSources(host, sources) {
+    if (!Array.isArray(sources) || sources.length === 0) return;
+    const section = document.createElement('div');
+    section.className = 'sources';
+    const heading = document.createElement('strong');
+    heading.textContent = 'Fuentes públicas';
+    section.appendChild(heading);
+    sources.slice(0, 8).forEach(source => {
+      const item = typeof source === 'string' ? { url: source, title: source } : (source || {});
+      const label = item.title || item.name || item.url || 'Fuente';
+      if (typeof item.url === 'string' && validHttps(item.url)) {
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = String(label);
+        section.appendChild(link);
+      } else {
+        const plain = document.createElement('span');
+        plain.textContent = String(label);
+        section.appendChild(plain);
+      }
+    });
+    host.appendChild(section);
+  }
+  function renderResponse(host, data) {
+    const text = data && (data.text ?? data.answer ?? data.output);
+    if (typeof text === 'string' && text.trim()) host.textContent = text;
+    else host.textContent = 'La demo no ha recibido una respuesta legible. No se ha ejecutado ninguna acción.';
+    renderSources(host, data && data.sources);
+    const note = document.createElement('div');
+    note.className = 'reply-note';
+    note.textContent = 'Modo demo: no se han realizado reservas, ventas, envíos de mensajes ni cambios de agenda.';
+    host.appendChild(note);
+    log.scrollTop = log.scrollHeight;
+  }
+  chatForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message || message.length > 2000 || pending) return;
+    if (!updateReady() || !ready || !selectedBusiness) {
+      setStatus(businessStatus, 'Antes de enviar, confirma el negocio y marca los dos permisos.');
+      return;
+    }
+    const business = { ...selectedBusiness };
+    const consent = !!publicConsent.checked;
+    const confirmation = !!businessConfirm.checked;
+    addBubble(message, 'user');
+    chatInput.value = '';
+    pending = true;
+    updateReady();
+    const loading = addBubble('Consultando fuentes públicas para la demostración…', 'bot');
+    try {
+      const basic = btoa(`${authUsername}:${authPassword}`);
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Basic ${basic}` },
+        body: JSON.stringify({ message, publicSearchConsent: consent, businessConfirmed: confirmation, selectedBusiness: business }),
+        cache: 'no-store',
+        credentials: 'omit'
+      });
+      if (response.status === 401 || response.status === 403) {
+        authUsername = '';
+        authPassword = '';
+        authPanel.classList.remove('hidden');
+        setStatus(authStatus, 'Acceso no válido. Vuelve a introducir las credenciales de prueba.');
+        loading.textContent = 'No se ha podido autenticar la demo. No se ha iniciado una búsqueda.';
+        loading.className = 'bubble bot';
+        ready = false;
+        return;
+      }
+      const raw = await response.text();
+      let data = null;
+      try { data = raw ? JSON.parse(raw) : null; } catch (_) { data = null; }
+      if (!response.ok) {
+        const errorBubble = document.createElement('div');
+        errorBubble.className = 'bubble bot';
+        errorBubble.textContent = 'La demo no ha podido completar la consulta. No se ha ejecutado ninguna acción.';
+        loading.replaceWith(errorBubble);
+      } else {
+        renderResponse(loading, data || {});
+      }
+    } catch (_) {
+      loading.textContent = 'No se pudo conectar con la demo. Comprueba la conexión y vuelve a intentarlo; no se ha confirmado ninguna acción.';
+    } finally {
+      pending = false;
+      updateReady();
+      log.scrollTop = log.scrollHeight;
+    }
+  });
+  document.getElementById('clearDemo').addEventListener('click', () => {
+    authUsername = '';
+    authPassword = '';
+    selectedBusiness = null;
+    ready = false;
+    pending = false;
+    authForm.reset();
+    businessForm.reset();
+    chatForm.reset();
+    authPanel.classList.remove('hidden');
+    log.replaceChildren();
+    const welcome = document.createElement('div');
+    welcome.className = 'bubble bot';
+    welcome.textContent = '¡Hola! Soy el chatbot de IA de WebDesign, en modo de prueba. Antes de consultar información pública, introduce tus credenciales de acceso y confirma el negocio y tu consentimiento. No se realizan reservas ni otras acciones.';
+    log.appendChild(welcome);
+    log.appendChild(authPanel);
+    log.appendChild(businessForm.closest('.demo-panel'));
+    setStatus(authStatus, '');
+    setStatus(businessStatus, '');
+    updateReady();
+    chatInput.focus();
+  });
+  const win = document.getElementById('chatWindow');
+  const launcher = document.getElementById('openChat');
+  document.getElementById('closeChat').addEventListener('click', () => { win.classList.add('hidden'); launcher.classList.remove('hidden'); });
+  launcher.addEventListener('click', () => { launcher.classList.add('hidden'); win.classList.remove('hidden'); if (updateReady()) chatInput.focus(); });
+  updateReady();
+})();
 </script>
 </body>
 </html>
