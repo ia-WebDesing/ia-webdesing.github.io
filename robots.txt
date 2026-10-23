@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /respaldo-
+Disallow: /modo-de-prueba.html
+
+Sitemap: https://www.ia-webdesing.es/sitemap.xml
