@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Asistente de IA para pymes y autónomos | WebDesign</title>
+<meta content="Asistente de IA para pymes y autónomos: atención por WhatsApp, Telegram y correo, organización de citas y presupuestos, y asesoramiento para mejorar la presencia digital." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="Asistente de IA para pymes y autónomos | WebDesign" property="og:title"/>
+<meta content="Asistente de IA para pymes y autónomos: atención por WhatsApp, Telegram y correo, organización de citas y presupuestos, y asesoramiento para mejorar la presencia digital." property="og:description"/>
+<meta content="https://www.ia-webdesing.es/img-02.webp" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://www.ia-webdesing.es/img-02.webp" name="twitter:image"/>
+<meta content="#080B12" name="theme-color"/>
+<style>
+    :root { --ink:#080B12; --panel:#101722; --panel-2:#141d2a; --blue:#173b78; --gold:#C5A15A; --gold-light:#ead5a8; --white:#f8f8f6; --muted:#c1c8d1; --line:rgba(197,161,90,.34); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--white); background:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.65; }
+    a { color:inherit; }
+    .wrap { width:min(1160px,calc(100% - 42px)); margin:0 auto; }
+    .site-header { position:sticky; top:0; z-index:20; background:rgba(8,11,18,.96); border-bottom:1px solid rgba(197,161,90,.25); backdrop-filter:blur(12px); transition:transform .22s ease; will-change:transform; }
+    .site-header.is-hidden { transform:translateY(calc(-100% - 2px)); }
+    .header-reopen-tab { position:fixed; top:0; left:50%; z-index:21; display:inline-flex; align-items:center; gap:8px; min-height:36px; padding:6px 14px 8px; border:1px solid rgba(197,161,90,.55); border-top:0; border-radius:0 0 14px 14px; background:rgba(8,11,18,.97); color:var(--gold-light); font-size:.82rem; font-weight:850; letter-spacing:.02em; box-shadow:0 10px 25px rgba(0,0,0,.35); cursor:pointer; visibility:hidden; opacity:0; pointer-events:none; transform:translate(-50%,-110%); transition:transform .22s ease,opacity .18s ease,visibility 0s linear .22s; }
+    .header-reopen-tab.is-visible { visibility:visible; opacity:1; pointer-events:auto; transform:translate(-50%,0); transition:transform .22s ease,opacity .18s ease,visibility 0s; }
+    .header-reopen-tab:focus-visible { outline:2px solid var(--gold-light); outline-offset:3px; }
+    @media (prefers-reduced-motion:reduce) { .site-header,.header-reopen-tab { transition:none; } }
+    .nav { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { display:block; flex:0 0 auto; line-height:0; }
+    .brand-logo { display:block; width:min(310px,31vw); height:auto; border-radius:4px; filter:drop-shadow(0 5px 16px rgba(0,0,0,.35)); }
+    .nav-links { display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:17px; }
+    .nav-links a:not(.button) { text-decoration:none; color:#e5e9f0; font-size:.9rem; font-weight:700; }
+    .nav-links a:not(.button):hover { color:var(--gold-light); }
+    .button { display:inline-flex; justify-content:center; align-items:center; min-height:48px; padding:11px 20px; border-radius:999px; color:#15130f; background:linear-gradient(135deg,#e8cf96,var(--gold)); text-decoration:none; font-weight:900; box-shadow:0 8px 24px rgba(197,161,90,.2); transition:transform .18s ease,filter .18s ease; }
+    .button:hover { transform:translateY(-2px); filter:brightness(1.05); }
+    .button.outline { color:var(--white); border:1px solid rgba(255,255,255,.32); background:transparent; box-shadow:none; }
+    .eyebrow { color:var(--gold-light); font-size:.78rem; font-weight:900; letter-spacing:.16em; text-transform:uppercase; } #visibilidad .section-head > .eyebrow { font-size:.897rem; }
+    .hero { padding:58px 0 64px; background:radial-gradient(ellipse at 82% 5%,rgba(23,59,120,.5),transparent 35%),linear-gradient(145deg,#080B12,#0e1724 60%,#080B12); }
+    .hero-grid { display:grid; grid-template-columns:1fr; align-items:start; gap:16px; }
+    .hero-visual { width:100%; max-width:960px; margin:18px 0 0; }
+    h1 { margin:14px 0 18px; max-width:850px; font-size:clamp(2.1rem,4.5vw,3.7rem); line-height:1.04; letter-spacing:-.045em; }
+    h1 .gold { color:var(--gold-light); }
+    .hero-copy p { max-width:640px; margin:0; color:#d6dce4; font-size:1.08rem; }
+    .hero-tagline { display:block; margin-top:17px; color:var(--gold-light); font-size:clamp(1.2rem,2vw,1.65rem); line-height:1.25; font-weight:900; letter-spacing:.01em; }
+    .hero-handoff-note { max-width:860px; margin:16px auto 0 !important; padding:12px 18px; border:1px solid rgba(197,161,90,.24); border-radius:12px; background:rgba(255,255,255,.045); color:#e5e9ee !important; font-size:1rem !important; line-height:1.5; text-align:center !important; }
+    .hero-handoff-note strong { display:block; margin:0 0 5px; color:var(--gold-light); font-size:clamp(1.2rem,2.3vw,1.65rem); line-height:1.25; font-weight:900; }
+    #inicio .hero-copy > .hero-tagline { margin-top:12px; }
+    .ai-badge { display:flex; align-items:center; gap:12px; max-width:670px; margin-top:18px; padding:13px 15px; border:1px solid var(--line); border-radius:15px; background:rgba(197,161,90,.08); }
+    .ai-badge span { flex:0 0 40px; display:grid; place-items:center; width:40px; height:40px; border-radius:13px; color:var(--gold-light); background:rgba(197,161,90,.15); font-weight:950; }
+    .ai-badge p { margin:0 !important; color:#d6dce4; font-size:.92rem !important; }
+    .modernization-note { max-width:670px; margin-top:14px; padding:12px 15px; border-left:3px solid var(--gold); border-radius:0 13px 13px 0; background:rgba(23,59,120,.16); color:#d6dce4; font-size:.94rem; }
+    .connector-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin:0 auto 26px; }
+    .connector-pill { padding:8px 13px; border:1px solid rgba(197,161,90,.38); border-radius:999px; background:#101722; color:#e7eaf0; font-size:.9rem; font-weight:750; }
+    .connector-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+    .connector-card { padding:21px; border:1px solid rgba(197,161,90,.3); border-radius:17px; background:linear-gradient(145deg,#111925,#0a1018); }
+    .connector-card h3 { margin:0 0 8px; font-size:1.05rem; }
+    .connector-card p { margin:0; color:var(--muted); font-size:.92rem; }
+    .sector-connection-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; margin-top:25px; }
+    .sector-connection { padding:18px; border-radius:16px; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.09); }
+    .sector-connection h3 { margin:0 0 7px; color:var(--gold-light); font-size:1rem; }
+    .sector-connection p { margin:0; color:var(--muted); font-size:.91rem; }
+    .connector-disclaimer { max-width:850px; margin:20px auto 0; color:#c6cdd6; text-align:center; font-size:.9rem; }
+    .sample-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:930px; margin:0 auto; }
+    .sample-card { padding:24px; border:1px solid var(--gold); border-radius:20px; background:linear-gradient(145deg,#111925,#080B12); box-shadow:0 16px 40px rgba(0,0,0,.25); }
+    .sample-card-head { display:flex; align-items:center; gap:13px; padding-bottom:16px; margin-bottom:10px; border-bottom:1px solid rgba(197,161,90,.27); }
+    .logo-placeholder { display:grid; place-items:center; flex:0 0 56px; width:56px; height:56px; border:1px dashed rgba(197,161,90,.7); border-radius:13px; color:var(--gold-light); font-size:.7rem; font-weight:900; text-align:center; }
+    .sample-card-head strong,.sample-card-head b { display:block; color:var(--white); }
+    .sample-card-head small { display:block; margin-top:2px; color:var(--gold-light); }
+    .sample-line { display:flex; justify-content:space-between; gap:15px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.08); color:#d7dde5; font-size:.92rem; }
+    .sample-line b { color:#e9d7ad; }
+    .sample-caption { padding-top:14px; color:var(--muted); font-size:.82rem; }
+    .original-example { max-width:470px; margin:30px auto 0; }
+    .original-example img { display:block; width:100%; height:auto; border:1px solid rgba(197,161,90,.45); border-radius:16px; box-shadow:0 16px 40px rgba(0,0,0,.3); }
+    .original-example figcaption { margin-top:10px; color:#c6cdd6; text-align:center; font-size:.88rem; }
+    .hero-image { display:block; width:100%; max-height:560px; object-fit:cover; border-radius:22px; border:1px solid rgba(197,161,90,.55); box-shadow:0 25px 70px rgba(0,0,0,.45); }
+    .hero-image-wrap { position:relative; }
+    .hero-image-cta { position:absolute; left:28.5%; top:82.5%; width:43%; height:10.5%; display:block; border-radius:18px; }
+    .hero-image-cta:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+    .hero-image-note { max-width:620px; margin:10px auto 0; color:#c6cdd6; text-align:center; font-size:.8rem; line-height:1.45; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:25px; }
+    .section { padding:58px 0; }
+    .section.alt { background:#0c121b; border-top:1px solid rgba(255,255,255,.045); border-bottom:1px solid rgba(255,255,255,.045); }
+    .section-head { max-width:790px; margin:0 auto 24px; text-align:center; }
+    .section-head h2 { margin:8px 0 12px; font-size:clamp(1.9rem,3.8vw,3.1rem); line-height:1.1; letter-spacing:-.035em; }
+    .section-head p { margin:0; color:var(--muted); }
+    .contrast { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .contrast-card { padding:26px; border-radius:20px; border:1px solid rgba(255,255,255,.1); background:linear-gradient(150deg,#111925,#0c121b); }
+    .contrast-card.with { border-color:var(--line); background:radial-gradient(circle at 100% 0,rgba(23,59,120,.32),transparent 50%),linear-gradient(150deg,#141c27,#0b1118); }
+    .contrast-label { display:inline-block; padding:5px 11px; border-radius:999px; color:var(--gold-light); background:rgba(197,161,90,.12); font-size:.78rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .contrast-card h3 { margin:13px 0 9px; font-size:1.3rem; }
+    .contrast-card p { margin:0; color:var(--muted); }
+    .soft-note { margin:20px auto 0; max-width:780px; text-align:center; color:#d5dbe3; }
+    .benefits { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; } .promo-benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .benefits .learning-card { grid-column:1/-1; display:grid; grid-template-columns:54px minmax(0,1fr); gap:6px 18px; align-items:start; } .benefits .learning-card .icon { grid-column:1; grid-row:1; } .benefits .learning-card .learning-copy { grid-column:2; } .benefits .learning-card h3 { margin:0 0 8px; text-align:left; } .benefits .learning-card p { margin:0; text-align:justify; }
+    .card { min-height:175px; padding:21px; border:1px solid var(--line); border-radius:19px; background:linear-gradient(150deg,rgba(255,255,255,.065),rgba(255,255,255,.02)); }
+    .icon { display:inline-grid; place-items:center; width:44px; height:44px; margin-bottom:15px; border-radius:14px; color:var(--gold-light); background:rgba(197,161,90,.13); border:1px solid rgba(197,161,90,.35); font-size:1.25rem; font-weight:950; }
+    .card h3 { margin:0 0 8px; font-size:1.12rem; }
+    .card p { margin:0; color:var(--muted); font-size:.96rem; }
+    .sectors { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .sector { min-height:60px; display:flex; align-items:center; padding:13px 16px; border-radius:15px; border:1px solid rgba(197,161,90,.29); background:linear-gradient(135deg,rgba(23,59,120,.22),rgba(255,255,255,.03)); font-weight:750; }
+    .sector::before { content:""; flex:0 0 8px; width:8px; height:8px; margin-right:11px; border-radius:50%; background:var(--gold); }
+    .center-note { margin:20px auto 0; max-width:820px; color:var(--muted); text-align:center; }
+    .section-visual { max-width:860px; margin:30px auto 0; }
+    .section-visual img { display:block; width:100%; height:auto; border:1px solid rgba(197,161,90,.35); border-radius:18px; box-shadow:0 16px 40px rgba(0,0,0,.3); }
+    .section-visual figcaption { margin-top:9px; color:var(--muted); text-align:center; font-size:.88rem; }
+    .section-visual.portrait { max-width:510px; }
+    .starter-layout { display:flex; flex-direction:column; gap:20px; align-items:stretch; }
+    .starter-visual { max-width:860px; margin:0 auto; }
+    .starter-visual figcaption { margin:0 0 10px; }
+    .pain-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:28px 0; }
+    .pain-point { padding:20px; border:1px solid rgba(197,161,90,.32); border-radius:18px; background:linear-gradient(145deg,#111925,#0a1018); }
+    .pain-point span { color:var(--gold-light); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .pain-point h3 { margin:9px 0 7px; font-size:1.06rem; line-height:1.25; }
+    .pain-point p { margin:0; color:var(--muted); font-size:.92rem; }
+    .starter-section { padding:18px 0 22px; background:linear-gradient(180deg,#090e16,#0c111a); }
+    .starter-hook { display:grid; grid-template-columns:1fr 1.15fr; gap:8px 30px; align-items:center; margin:0; padding:29px 32px; border:1px solid rgba(197,161,90,.62); border-left:5px solid var(--gold); border-radius:20px; background:radial-gradient(circle at 96% 0,rgba(197,161,90,.2),transparent 43%),linear-gradient(145deg,#151c27,#0a1018); box-shadow:0 16px 38px rgba(0,0,0,.26); }
+    .starter-hook .eyebrow { grid-column:1/-1; margin:0; }
+    .starter-hook h2 { grid-column:1; margin:0; font-size:clamp(1.3rem,2.2vw,1.7rem); line-height:1.2; }
+    .starter-hook p { grid-column:2; margin:0; color:#e0e4e9; font-size:1.02rem; }
+    .starter-hook .button { grid-column:2; justify-self:start; margin-top:7px; }
+    .steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; counter-reset:step; }
+    .step { padding:23px; border-radius:18px; border:1px solid rgba(255,255,255,.09); background:var(--panel); }
+    .step::before { counter-increment:step; content:"0" counter(step); display:block; margin-bottom:12px; color:var(--gold); font-weight:950; letter-spacing:.12em; }
+    .step h3 { margin:0 0 8px; }
+    .step p { margin:0; color:var(--muted); font-size:.95rem; }
+    .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:start; }
+    .gallery figure { margin:0; }
+    .gallery img { display:block; width:100%; height:auto; border-radius:17px; border:1px solid rgba(197,161,90,.32); box-shadow:0 14px 38px rgba(0,0,0,.28); }
+    .gallery figcaption { margin-top:9px; color:var(--muted); font-size:.88rem; }
+    .communication-examples { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; max-width:1000px; margin:24px auto 0; }
+    .communication-examples figure,.communication-examples .original-example,.communication-examples .section-visual { max-width:none; margin:0; }
+    .founder-panel { display:grid; grid-template-columns:.8fr 1.2fr; gap:26px; align-items:center; padding:32px; border:1px solid var(--line); border-radius:23px; background:radial-gradient(circle at 0 50%,rgba(23,59,120,.27),transparent 35%),linear-gradient(140deg,#111925,#0a1018); }
+    .founder-mark { display:grid; place-items:center; min-height:190px; padding:20px; border-radius:18px; background:#080B12; border:1px solid rgba(197,161,90,.23); }
+    .founder-mark img { width:min(250px,90%); height:auto; }
+    .founder-copy h2 { margin:0 0 9px; font-size:clamp(1.7rem,3vw,2.5rem); line-height:1.12; }
+    .founder-copy p { margin:0 0 12px; color:var(--muted); }
+    .socials { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .social-chip { display:inline-flex; padding:8px 12px; border:1px solid rgba(197,161,90,.4); border-radius:999px; color:var(--gold-light); font-size:.9rem; text-decoration:none; }
+    .social-chip.pending { color:#d4dae1; border-style:dashed; }
+    .social-note { margin:10px 0 0 !important; font-size:.82rem; }
+    .pricing { max-width:900px; margin:0 auto; padding:38px; text-align:center; border:1px solid var(--gold); border-radius:26px; background:radial-gradient(circle at 50% 0,rgba(197,161,90,.18),transparent 52%),linear-gradient(150deg,#111925,#080B12); box-shadow:0 18px 55px rgba(0,0,0,.34); }
+    .pricing h2 { margin:7px 0 10px; font-size:clamp(1.9rem,3.6vw,2.8rem); line-height:1.1; }
+    .pricing-intro { max-width:660px; margin:0 auto 23px; color:var(--muted); }
+    .price-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:22px 0 17px; } .digital-services-callout { margin:26px 0 12px; padding:24px 28px; border:1px solid rgba(197,161,90,.62); border-left:5px solid var(--gold); border-radius:20px; background:linear-gradient(145deg,#151c27,#0a1018); box-shadow:0 16px 38px rgba(0,0,0,.22); } .digital-services-callout h3 { margin:0 0 9px; color:var(--gold); } .digital-services-callout p { margin:0; color:var(--muted); } .price-comparison-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; max-width:1000px; margin:28px auto 34px; align-items:start; } .price-comparison-grid figure { margin:0; text-align:center; } .price-comparison-grid img { display:block; width:100%; height:auto; border:1px solid rgba(197,161,90,.35); border-radius:18px; box-shadow:0 16px 40px rgba(0,0,0,.3); } .price-comparison-grid figcaption { margin-top:9px; color:var(--muted); text-align:center; font-size:.88rem; } .pricing-note { color:var(--muted); font-size:.9rem; margin:8px 0 18px; }
+    .price-card { padding:22px 15px; border:1px solid rgba(197,161,90,.48); border-radius:17px; background:rgba(8,11,18,.76); }
+    .price-card h3 { margin:0 0 7px; color:#e8e1d0; font-size:1rem; }
+    .price-card ul { margin:14px 0 0; padding-left:1.15rem; color:var(--muted); text-align:left; font-size:.9rem; }
+    .price-card li { margin:7px 0; }
+    .price-perks { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:20px 0 8px; }
+    .price-perks span { padding:9px 13px; border:1px solid rgba(197,161,90,.42); border-radius:999px; background:rgba(197,161,90,.08); color:#e8e1d0; font-size:.88rem; }
+    .sector-tier { margin:20px 0 26px; }
+    .sector-tier h3 { margin:0 0 12px; color:var(--gold-light); font-size:1.08rem; }
+    .case-study { margin-top:28px; padding:25px; border:1px solid rgba(197,161,90,.48); border-radius:20px; background:linear-gradient(145deg,#111925,#0a1018); }
+    .case-study h3 { margin:7px 0 12px; font-size:1.35rem; }
+    .case-study p { color:var(--muted); }
+    .case-study ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; margin:0; padding-left:1.2rem; color:var(--muted); }
+    .case-study li { padding-left:4px; }
+    .case-study-note { margin:14px 0 0 !important; font-size:.86rem; }
+    .price-value { color:var(--gold-light); font-size:clamp(1.55rem,3vw,2.05rem); font-weight:950; line-height:1.15; }
+    .pricing small { display:block; max-width:700px; margin:12px auto 0; color:#c6cdd6; }
+    .pricing .button { margin-top:21px; }
+    .faq-list { max-width:880px; margin:0 auto; display:grid; gap:10px; }
+    details { border:1px solid rgba(197,161,90,.3); border-radius:15px; background:#0e1621; padding:0 18px; }
+    summary { cursor:pointer; padding:17px 28px 17px 0; font-weight:850; list-style:none; position:relative; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:"+"; position:absolute; right:1px; top:12px; color:var(--gold); font-size:1.35rem; }
+    details[open] summary::after { content:"−"; }
+    details p { margin:0; padding:0 0 17px; color:var(--muted); }
+    .final-cta { padding:62px 0; text-align:center; background:linear-gradient(130deg,#111b29,#090e16); border-top:1px solid var(--line); }
+    .final-cta h2 { margin:8px 0 10px; font-size:clamp(1.9rem,3.8vw,3rem); line-height:1.1; }
+    .final-cta p { max-width:720px; margin:0 auto; color:var(--muted); }
+    .final-cta .button { margin-top:22px; }
+    .final-cta .mini-note { margin-top:8px; font-size:.88rem; }
+    .contact-number { margin:12px 0 0 !important; color:var(--gold-light) !important; font-weight:850; }
+    footer { padding:28px 0 36px; background:#05070c; border-top:1px solid rgba(255,255,255,.08); color:#b8c0ca; font-size:.9rem; }
+    .footer-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+    .footer-brand { width:min(100%,430px); max-width:430px; display:grid; grid-template-columns:minmax(0,52%) minmax(0,1fr); column-gap:8px; align-items:center; }
+    .footer-brand img { display:block; grid-column:1; grid-row:1; width:min(220px,100%); height:auto; margin:0; }
+    .footer-verse { grid-column:2; grid-row:1; margin:0; color:#3d4b62; font-size:7px; font-weight:650; line-height:1.25; text-align:right; user-select:none; -webkit-user-select:none; -moz-user-select:none; }
+    .footer-verse-title { display:flex; justify-content:flex-end; align-items:center; gap:3px; margin-bottom:2px; white-space:nowrap; }
+    .footer-verse-book { display:inline-flex; flex:none; width:7px; height:7px; color:#fff; }
+    .footer-verse-book svg { display:block; width:100%; height:100%; }
+    .footer-location { grid-column:1/-1; margin:8px 0 0; }
+    .footer-copy { max-width:580px; }
+    .footer-copy strong { display:block; margin-bottom:3px; color:var(--white); }
+    @media (min-width:1025px) { .footer-row { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1fr); gap:clamp(28px,4vw,56px); align-items:center; } .footer-brand { justify-self:start; } .footer-copy { width:100%; justify-self:end; } }
+    @media (max-width:980px) { .nav { padding:12px 0; align-items:flex-start; flex-direction:column; } .brand-logo { width:min(310px,65vw); } .nav-links { justify-content:flex-start; } .hero-grid { grid-template-columns:1fr; } .hero-image { max-width:650px; margin:0 auto; } .benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .sectors { grid-template-columns:repeat(2,minmax(0,1fr)); } .connector-grid,.sector-connection-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .pain-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .starter-layout { grid-template-columns:1fr; } .starter-visual { max-width:760px; margin:0 auto; } .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:620px) { .benefits .learning-card { grid-template-columns:42px minmax(0,1fr); } .wrap { width:min(100% - 30px,1160px); } .nav { gap:10px; } .nav-links { gap:10px 13px; } .nav-links a:not(.button) { font-size:.84rem; } .nav-links .button { min-height:42px; padding:8px 13px; font-size:.88rem; } .hero { padding:42px 0 48px; } .section { padding:53px 0; } .contrast,.benefits,.steps,.gallery,.communication-examples,.price-grid,.price-comparison-grid,.connector-grid,.sector-connection-grid,.sample-grid,.case-study ul,.pain-grid { grid-template-columns:1fr; } .starter-hook { grid-template-columns:1fr; padding:23px; } .starter-hook h2,.starter-hook p,.starter-hook .button { grid-column:1; } .card { min-height:auto; } .founder-panel { grid-template-columns:1fr; padding:22px; } .founder-mark { min-height:140px; } .pricing { padding:25px 18px; } .sample-line { flex-direction:column; gap:3px; } .footer-row { align-items:flex-start; flex-direction:column; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .button { transition:none; } }
+  
+    .visual-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; max-width:1000px; margin:28px auto 0; align-items:start; }
+    .visual-row .section-visual { max-width:none; margin:0; }
+    .section-subtitle { margin:25px 0 12px; color:var(--gold-light); text-align:center; font-size:1.18rem; }
+    .faq-groups { max-width:880px; margin:0 auto; display:grid; gap:22px; }
+    .faq-group h3 { margin:0 0 10px; color:var(--gold-light); font-size:1.05rem; }
+    .faq-group-list { display:grid; gap:9px; }
+    @media (max-width:620px) { .visual-row { grid-template-columns:1fr; } }
+
+/* Ritmo visual centrado con párrafos legibles */
+main > section:not(#preguntas) .section-head,
+#inicio .hero-copy,
+#precio,
+#contacto .wrap { text-align:center; }
+main > section:not(#preguntas) .section-head h2,
+main > section:not(#preguntas) .section-subtitle,
+main > section:not(#preguntas) .card h3,
+#precio .price-card h3,
+#visibilidad .digital-services-callout h3,
+.starter-hook h3 { text-align:center; }
+main > section:not(#preguntas) .section-head > p,
+main > section:not(#preguntas) .card p,
+#inicio .hero-copy > p,
+#precio .pricing-intro,
+#precio .pricing-note,
+#visibilidad .digital-services-callout p,
+.starter-hook p { max-width:780px; margin-left:auto; margin-right:auto; text-align:justify; }
+main > section:not(#preguntas) .actions,
+#precio .price-perks { justify-content:center; }
+#precio .price-card .price-value { text-align:center; }
+#precio .price-card ul,
+#precio .price-card li { text-align:left; }
+#visibilidad .digital-services-callout { text-align:center; }
+#soluciones .learning-card { grid-template-columns:1fr; justify-items:center; gap:8px; text-align:center; }
+#soluciones .learning-card .icon { grid-column:1; grid-row:auto; margin:0 auto; }
+#soluciones .learning-card .learning-copy { grid-column:1; max-width:860px; margin:0 auto; text-align:center; }
+#soluciones .learning-card h3 { text-align:center; }
+#soluciones .learning-card p { max-width:860px; margin:0 auto; text-align:justify; }
+#preguntas,
+#preguntas .faq-group,
+#preguntas details,
+#preguntas summary,
+#preguntas p { text-align:left; }
+#muestras figure figcaption { text-align:center; }
+#quienes .founder-panel { text-align:center; }
+#quienes .founder-panel p { max-width:780px; margin-left:auto; margin-right:auto; text-align:justify; }
+
+
+/* Centrado fino de los bloques señalados */
+#inicio .hero-copy > p { max-width:780px; margin:0 auto; text-align:center; }
+#inicio .hero-copy > p.hero-handoff-note { max-width:860px; margin:16px auto 0 !important; text-align:center !important; }
+#inicio .hero-copy > .hero-tagline { margin-top:12px !important; font-size:clamp(1.2rem,2vw,1.65rem); font-weight:900; }
+#inicio .ai-badge { width:100%; max-width:860px; margin:18px auto 0; justify-content:center; text-align:center; }
+#inicio .ai-badge p { max-width:780px; margin:0 auto !important; text-align:center !important; }
+#inicio .modernization-note { max-width:860px; margin:14px auto 0; text-align:center; }
+#contacto .contact-number,
+#contacto .mini-note { max-width:780px; margin-left:auto !important; margin-right:auto !important; text-align:center !important; }
+
+#inicio .hero-copy > h1 { text-align:center; margin-left:auto; margin-right:auto; }
+
+/* Eje común para todo el bloque de portada; el logo de navegación no se modifica */
+#inicio .hero-grid { justify-items:center; }
+#inicio .hero-copy { width:100%; max-width:1160px; margin-left:auto; margin-right:auto; text-align:center; }
+#inicio .hero-copy > .eyebrow,
+#inicio .hero-copy > h1,
+#inicio .hero-copy > p,
+#inicio .hero-copy > .hero-tagline { margin-left:auto; margin-right:auto; text-align:center; }
+#inicio .hero-copy > .actions { width:100%; justify-content:center; margin-left:auto; margin-right:auto; }
+#inicio .hero-visual { width:100%; margin-left:auto; margin-right:auto; }
+
+.hero-email-note,.contact-email { margin:10px auto; color:var(--muted); font-size:.92rem; text-align:center; } .hero-email-note a,.contact-email a,footer a[href^="mailto:"] { color:var(--gold-light); text-decoration:underline; text-underline-offset:3px; }
+#quienes a[href^="mailto:"] { text-decoration:none; }
+
+.whatsapp-float { position:fixed; right:20px; bottom:88px; z-index:40; display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 18px; border:1px solid #c5a15a; border-radius:999px; background:linear-gradient(135deg,#152238 0%,#05080e 100%); color:#f0d28b; font-weight:850; text-decoration:none; box-shadow:0 9px 26px rgba(0,0,0,.42); }
+.whatsapp-float:hover { border-color:#e4c078; background:linear-gradient(135deg,#1d2d47 0%,#080b12 100%); color:#fff; transform:translateY(-1px); }
+.whatsapp-float-icon { display:block; width:27px; height:27px; flex:0 0 27px; object-fit:contain; }
+@media (max-width:620px) { .whatsapp-float { right:14px; bottom:86px; min-height:48px; padding:0 15px; } }
+@media (min-width:621px) and (max-width:1024px) and (orientation:landscape) and (max-height:600px) {
+  footer { padding:18px 0 22px; }
+  .footer-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:14px; align-items:center; }
+  .footer-brand { width:100%; max-width:none; grid-template-columns:minmax(0,52%) minmax(0,1fr); column-gap:6px; }
+  .footer-brand img { width:min(220px,100%); }
+  .footer-copy { width:100%; max-width:none; min-width:0; font-size:.78rem; }
+  .footer-copy .socials { gap:6px; margin-top:8px; }
+  .footer-copy .social-chip { padding:6px 8px; font-size:.72rem; line-height:1.15; }
+}
+@media (orientation:landscape) and (max-height:600px) and (max-width:1024px) {
+  .growth-infographic { padding:0; overflow-x:clip; }
+  .growth-infographic .wrap { width:100%; max-width:none; }
+  .growth-infographic .section-visual.portrait { width:100vw; max-width:none; margin:0; }
+  .growth-infographic .section-visual img { width:100vw; max-width:none; height:auto; border:0; border-radius:0; }
+}
+
+
+/* Nueva sección de packs: integrada visualmente con la identidad WebDesign */
+.packs-section { padding:72px 0; background:linear-gradient(180deg,#080B12 0%,#0c121b 55%,#080B12 100%); border-top:1px solid rgba(197,161,90,.2); border-bottom:1px solid rgba(197,161,90,.2); }
+.packs-section .section-head { margin-bottom:32px; }
+.packs-intro { max-width:820px; margin:0 auto 28px; color:#d6dce4; text-align:center; }
+.pack-common { margin:0 auto 30px; padding:24px; border:1px solid rgba(197,161,90,.32); border-radius:22px; background:linear-gradient(145deg,#111925,#0a1018); }
+.pack-common h3 { margin:0 0 16px; color:var(--gold-light); font-size:1.15rem; text-align:center; }
+.pack-common-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.pack-common-item { padding:14px; border:1px solid rgba(255,255,255,.09); border-radius:14px; background:rgba(255,255,255,.025); }
+.pack-common-item strong { display:block; margin-bottom:4px; color:#f5e5c1; font-size:.94rem; }
+.pack-common-item p { margin:0; color:#c1c8d1; font-size:.86rem; line-height:1.5; }
+.packs-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; align-items:stretch; }
+.pack-card { position:relative; display:flex; flex-direction:column; padding:23px; border:1px solid rgba(197,161,90,.34); border-radius:21px; background:linear-gradient(155deg,#111925,#0a1018); box-shadow:0 14px 38px rgba(0,0,0,.22); }
+.pack-card.recommended { border:2px solid var(--gold); background:linear-gradient(155deg,#182641 0%,#101a2b 58%,#101722 100%); box-shadow:0 18px 48px rgba(0,0,0,.35),0 0 28px rgba(197,161,90,.14); transform:translateY(-7px); }
+.pack-label { display:inline-flex; align-self:flex-start; margin-bottom:12px; padding:5px 10px; border:1px solid rgba(197,161,90,.42); border-radius:999px; color:var(--gold-light); font-size:.7rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+.pack-card.recommended .pack-label { color:#101722; background:linear-gradient(90deg,#ead5a8,#c5a15a); border-color:#ead5a8; }
+.pack-card h3 { margin:0; color:#fff; font-size:1.28rem; line-height:1.2; }
+.pack-audience { min-height:48px; margin:8px 0 15px; color:#c1c8d1; font-size:.9rem; }
+.pack-price { margin:0 0 15px; padding:12px 13px; border:1px solid rgba(255,255,255,.1); border-radius:13px; color:#fff; background:rgba(0,0,0,.2); }
+.pack-price strong { display:block; color:#f0d28b; font-size:1.15rem; }
+.pack-price span { display:block; color:#c1c8d1; font-size:.78rem; }
+.pack-list-title { margin:0 0 10px; color:var(--gold-light); font-size:.78rem; font-weight:850; letter-spacing:.09em; text-transform:uppercase; }
+.pack-features { display:grid; gap:11px; margin:0; padding:0; list-style:none; }
+.pack-features li { padding-left:15px; position:relative; color:#d8dee7; font-size:.86rem; line-height:1.48; }
+.pack-features li::before { content:""; position:absolute; left:0; top:.52em; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.pack-features strong { color:#fff; }
+.pack-recap { margin-top:15px; padding-top:13px; border-top:1px solid rgba(255,255,255,.1); color:#bdc6d2; font-size:.81rem; }
+.pack-cta { display:inline-flex; justify-content:center; align-items:center; min-height:43px; margin-top:18px; padding:10px 15px; border:1px solid var(--gold); border-radius:999px; color:#f0d28b; font-weight:850; text-decoration:none; transition:background .2s,color .2s; }
+.pack-cta:hover { background:var(--gold); color:#080B12; }
+.pack-note { max-width:900px; margin:23px auto 0; color:#bfc7d1; text-align:center; font-size:.84rem; }
+@media (max-width:900px) { .packs-grid { grid-template-columns:1fr 1fr; } .pack-card.recommended { transform:none; } .pack-common-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:620px) { .packs-section { padding:52px 0; } .packs-grid,.pack-common-grid { grid-template-columns:1fr; } .pack-common { padding:18px; } .pack-card { padding:20px; } .pack-audience { min-height:0; } }
+
+
+/* Comparativa completa de los tres packs; centrada y horizontal en escritorio */
+.pack-compare { max-width:1160px; margin:30px auto 42px; padding:22px; border:1px solid rgba(197,161,90,.32); border-radius:22px; background:linear-gradient(145deg,#101722,#090e15); }
+.pack-compare-head { margin-bottom:18px; text-align:center; }
+.pack-compare-head .eyebrow { color:var(--gold-light); }
+.pack-compare-head h3 { margin:5px 0 7px; color:#fff; font-size:clamp(1.45rem,3vw,2rem); }
+.pack-compare-head p { margin:0; color:#c1c8d1; font-size:.92rem; }
+.pack-table-wrap { overflow-x:auto; border:1px solid rgba(197,161,90,.25); border-radius:15px; background:#0b111a; }
+.pack-table { width:100%; min-width:900px; border-collapse:collapse; text-align:left; }
+.pack-table th { padding:14px 16px; color:var(--gold-light); background:#101a29; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; }
+.pack-table th:first-child { width:51%; }
+.pack-table th:nth-child(3),.pack-table td:nth-child(3) { background:rgba(197,161,90,.11); }
+.pack-table th:nth-child(3) { color:#fff0ca; }
+.pack-table td { padding:12px 16px; border-top:1px solid rgba(255,255,255,.08); color:#d8dee7; font-size:.86rem; vertical-align:middle; }
+.pack-table td:first-child strong { display:block; color:#fff; font-size:.9rem; }
+.pack-table td:first-child span { display:block; margin-top:3px; color:#b7c1cf; font-size:.8rem; line-height:1.45; }
+.pack-table td:not(:first-child),.pack-table th:not(:first-child) { min-width:145px; text-align:center; }
+.pack-check { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:50%; color:#09111c; background:linear-gradient(135deg,#ead5a8,#c5a15a); font-weight:950; }
+.pack-no { color:#7e8a99; }
+.pack-details-title { margin:38px 0 20px; color:#fff; text-align:center; font-size:clamp(1.5rem,3vw,2rem); }
+.packs-grid { max-width:1160px; margin-inline:auto; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; }
+.pack-card { height:100%; }
+.pack-card.recommended { transform:translateY(-7px); }
+@media (max-width:900px) { .packs-grid { grid-template-columns:1fr 1fr; } .pack-card.recommended { transform:none; } }
+@media (max-width:620px) { .pack-compare { padding:15px; margin:24px auto 34px; } .pack-table { min-width:760px; } .packs-grid { grid-template-columns:1fr; } }
+
+/* Bloque comercial adelantado: conserva la propuesta de valor, elimina elementos de precio duplicados */
+.value-lead { padding:50px 0 28px; }
+.value-lead-card { max-width:900px; padding:30px 36px; }
+.value-lead-card .pricing-intro { margin-bottom:18px; }
+.value-lead-card .price-perks { margin:18px 0 8px; }
+.value-lead-card .pricing-note { margin-bottom:0; }
+.packs-section { padding-top:24px; }
+.packs-section .section-head { margin-bottom:18px; }
+.packs-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:stretch; max-width:1160px; margin:0 auto 26px; }
+.pack-card { height:100%; }
+.pack-card.recommended { transform:translateY(-6px); }
+.pack-compare { margin:0 auto 32px; }
+.packs-next-step { max-width:900px; margin:30px auto 10px; text-align:center; }
+.packs-next-step p { margin:0 auto 16px; color:#c1c8d1; }
+@media (max-width:900px) { .packs-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .pack-card.recommended { transform:none; } }
+@media (max-width:620px) { .value-lead { padding:36px 0 20px; } .value-lead-card { padding:23px 18px; } .packs-grid { grid-template-columns:1fr; } }
+
+    /* Ejemplos compactos: dan contexto visual sin desplazar el contenido de venta. */
+    #muestras { padding-top:34px; padding-bottom:34px; }
+    #muestras .communication-examples { max-width:780px; margin-top:16px; gap:12px; }
+    #muestras .communication-examples img { width:100%; max-height:210px; object-fit:contain; }
+    #muestras .communication-examples figcaption { margin-top:6px; font-size:.76rem; line-height:1.35; }
+    #muestras .original-example img { max-width:100%; max-height:210px; object-fit:contain; }
+    .roi-callout { margin:0 0 16px; padding:16px; border:1px solid rgba(197,161,90,.55); border-radius:15px; background:linear-gradient(145deg,rgba(197,161,90,.16),rgba(23,59,120,.18)); }
+    .roi-callout strong { display:block; color:var(--gold-light); font-size:1.05rem; line-height:1.3; }
+    .roi-callout p { margin:7px 0 0; color:#e2e7ed; font-size:.88rem; line-height:1.5; }
+    /* Tabla comparativa completa dentro del ancho de un móvil vertical; al ampliar, el texto se lee con zoom. */
+    @media (max-width:620px) {
+      #muestras { padding-top:28px; padding-bottom:28px; }
+      #muestras .communication-examples { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      #muestras .communication-examples img,#muestras .original-example img { max-height:150px; }
+      #muestras .communication-examples figcaption { font-size:.66rem; line-height:1.3; }
+      .pack-compare { padding:7px; margin:20px auto 26px; }
+      .pack-compare-head { margin-bottom:12px; }
+      .pack-compare-head p { font-size:.8rem; }
+      .pack-table-wrap { overflow-x:hidden; }
+      .pack-table { width:100%; min-width:0; table-layout:fixed; }
+      .pack-table th { padding:7px 2px; font-size:.62rem; letter-spacing:0; line-height:1.15; overflow-wrap:anywhere; }
+      .pack-table th:first-child { width:42%; }
+      .pack-table th:not(:first-child) { width:19.33%; min-width:0; }
+      .pack-table td { padding:7px 2px; font-size:.72rem; overflow-wrap:anywhere; }
+      .pack-table td:first-child strong { font-size:.7rem; line-height:1.22; }
+      .pack-table td:first-child span { font-size:.61rem; line-height:1.25; }
+      .pack-table td:not(:first-child),.pack-table th:not(:first-child) { min-width:0; }
+      .pack-table .pack-check,.pack-table .pack-no { font-size:.8rem; }
+    }
+  
+    .roi-callout { max-width:900px; margin:18px auto 26px; padding:18px 20px; border:1px solid rgba(197,161,90,.62); border-radius:17px; background:linear-gradient(145deg,rgba(197,161,90,.17),rgba(23,59,120,.2)); box-shadow:0 12px 32px rgba(0,0,0,.18); }
+    .roi-callout strong { display:block; color:var(--gold-light); font-size:1.12rem; line-height:1.35; }
+    .roi-callout p { margin:8px 0 0; color:#e2e7ed; font-size:.94rem; line-height:1.55; }
+    .packs-heading { margin:22px 0 0; text-align:center; font-size:clamp(1.5rem,3vw,2rem); }
+    @media (max-width:620px) { .roi-callout { padding:15px; } .roi-callout strong { font-size:1rem; } .roi-callout p { font-size:.84rem; } }
+  
+.sample-lightbox { width:80vw; height:80vh; max-width:80vw; max-height:80vh; padding:14px; border:1px solid rgba(197,161,90,.75); border-radius:18px; color:var(--white); background:#080B12; box-shadow:0 25px 90px rgba(0,0,0,.72); }
+.sample-lightbox::backdrop { background:rgba(0,0,0,.84); backdrop-filter:blur(5px); }
+.sample-lightbox-inner { position:relative; display:grid; place-items:center; width:100%; height:100%; }
+.sample-lightbox img { display:block; max-width:100%; max-height:calc(80vh - 58px); width:auto; height:auto; object-fit:contain; border-radius:10px; }
+.sample-lightbox figcaption { position:absolute; left:8px; right:62px; bottom:4px; overflow:hidden; color:#e3e7ed; font-size:.78rem; text-overflow:ellipsis; white-space:nowrap; }
+.sample-lightbox-close { position:absolute; top:0; right:0; z-index:2; display:grid; place-items:center; width:44px; height:44px; border:1px solid rgba(255,255,255,.35); border-radius:50%; color:white; background:rgba(8,11,18,.92); font-size:1.6rem; cursor:pointer; }
+#muestras .communication-examples img { cursor:zoom-in; }
+#muestras .communication-examples img:focus-visible { outline:3px solid var(--gold-light); outline-offset:3px; }
+@media (max-width:620px) { .sample-lightbox { width:80vw; height:80vh; max-width:80vw; max-height:80vh; padding:8px; } .sample-lightbox img { max-height:calc(80vh - 45px); } .sample-lightbox figcaption { font-size:.68rem; } }
+
+    /* Imágenes integradas al relato: texto y apoyo visual alternados, sin bloques de imágenes consecutivos. */
+    .starter-layout { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:26px; align-items:center; }
+    .starter-visual { width:100%; max-width:560px; margin:0; }
+    .starter-hook { width:100%; }
+    .sample-break-copy { max-width:760px; margin:22px auto; padding:13px 18px; border-left:3px solid var(--gold); border-radius:0 12px 12px 0; color:#d9dfe7; background:rgba(197,161,90,.07); text-align:center; }
+    .sample-examples-secondary { margin-top:0; }
+    #whatsapp-business > .wrap > .section-visual:first-of-type { margin-top:20px; }
+    #whatsapp-business > .wrap > .section-visual:last-of-type { max-width:800px; margin-top:26px; }
+    @media (max-width:980px) { .starter-layout { grid-template-columns:1fr; } .starter-visual { max-width:720px; margin:0 auto; } }
+    @media (max-width:620px) { .sample-break-copy { margin:16px auto; font-size:.9rem; } .sample-examples-secondary { margin-top:0; } }
+</style>
+<meta content="Asistente de IA para pymes y autónomos | WebDesign" name="twitter:title"/><meta content="Asistente de IA para pymes y autónomos: atención por WhatsApp, Telegram y correo, organización de citas y presupuestos, y asesoramiento para mejorar la presencia digital." name="twitter:description"/></head>
+<body>
+<button aria-controls="site-header" aria-expanded="true" aria-label="Abrir el menú de navegación" class="header-reopen-tab" id="header-reopen-tab" type="button"><span aria-hidden="true">☰</span><span>Menú</span><span aria-hidden="true">⌄</span></button>
+<header class="site-header" id="site-header">
+<div class="wrap nav">
+<a aria-label="WebDesign, inicio" class="brand" href="#inicio"><img alt="Logo WebDesign" class="brand-logo" src="img-01.png"/></a>
+<nav aria-label="Navegación principal" class="nav-links"><a href="#soluciones">Cómo te ayuda</a><a href="#promociones">Agenda y comunicación</a><a href="#visibilidad">Análisis y presencia digital</a><a href="#sectores">Sectores</a><a href="#packs">Planes y packs</a><a href="preguntas-frecuentes.html">Preguntas frecuentes</a><a class="button" href="modo-de-prueba.html" aria-label="Probar ChatWeb, la demo del asistente de IA">Prueba ChatWeb</a></nav>
+</div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="wrap hero-grid">
+<div class="hero-copy"><div class="eyebrow">De autónomos para autónomos · desde Castellón de la Plana, Comunidad Valenciana, para toda España</div><h1>Creamos una IA que aprende de ti, organiza, resume, prepara presupuestos y te ayuda con todo lo que necesitas para tu empresa.</h1><p>Aprende de tus servicios y tu forma de atender. Responde por WhatsApp, Telegram y correo a cualquier hora; además, organiza la agenda, prepara presupuestos y consulta el inventario conectado. Mientras la IA atiende los mensajes, tú puedes centrarte en tus clientes o descansar.</p><p class="hero-handoff-note"><strong>Cuando hace falta, te pasa el relevo a la persona encargada.</strong> Las reclamaciones, las consultas con información insuficiente y los casos especiales se derivan a una persona. Acordamos contigo quién las atiende y cómo.</p><span class="hero-tagline">La tecnología del futuro, trabajando para tu negocio hoy.</span><div class="actions"><a aria-label="Probar ChatWeb, la demo del asistente de IA" class="button" href="modo-de-prueba.html">Prueba ChatWeb</a><a class="button outline" href="#packs">Ver los packs</a></div><p class="hero-email-note">¿Prefieres hablar con nosotros? <a href="https://wa.me/34685758321?text=INFO">WhatsApp</a> · <a href="mailto:chat@ia-webdesing.es">Correo</a></p><figure class="hero-visual"><div class="hero-image-wrap"><img alt="Creatividad de WebDesign: un asistente de IA ayuda a atraer y atender clientes en WhatsApp con respuestas rápidas." class="hero-image" src="img-02.webp"/></div><figcaption class="hero-image-note">Una muestra visual de cómo puede ser la atención de tu negocio.</figcaption></figure></div>
+</div>
+</section>
+
+
+<section class="section alt" id="soluciones"><div class="wrap"><div class="section-head"><div class="eyebrow">Una IA especializada que aprende contigo</div><h2>Tu IA atiende, organiza y prepara presupuestos por ti.</h2><p>La adaptamos a tu empresa y va aprendiendo a medida que le das información sobre tus servicios, tarifas, procesos y forma de atender. Atiende también fuera del horario habitual, de noche, los domingos y festivos, para que tus clientes reciban respuesta mientras tú atiendes a alguien o descansas.</p></div><div class="benefits"><article class="card"><span aria-hidden="true" class="icon">✉</span><h3>Respuestas 24/7, también fuera de horario</h3><p>Atiende por WhatsApp, Telegram y tu correo de forma natural, con el mismo tono que usas con tus clientes: atención personalizada sin perderte de nada.</p></article><article class="card"><span aria-hidden="true" class="icon">⌖</span><h3>Agenda y recordatorios</h3><p>Organiza citas, cambios y avisos; ayuda a recordar la cita de mañana y a ofrecer los huecos que se liberan.</p></article><article class="card"><span aria-hidden="true" class="icon">↗</span><h3>Presupuestos sin rehacerlos a mano</h3><p>Recoge los datos y prepara presupuestos con las tarifas acordadas para que puedas centrarte en atender al cliente.</p></article><article class="card"><span aria-hidden="true" class="icon">▤</span><h3>Cobro y seguimiento de facturas</h3><p>Ayuda a recordar facturas pendientes, dar seguimiento a los pagos y registrar el estado del cobro en las herramientas acordadas. La emisión se realiza desde el sistema de facturación del negocio.</p></article><article class="card"><span aria-hidden="true" class="icon">▦</span><h3>Consulta de stock e inventario</h3><p>Responde sobre existencias y ayuda a detectar productos con poco stock cuando se conecta con los datos de tu inventario.</p></article><article class="card"><span aria-hidden="true" class="icon">☷</span><h3>Resúmenes a tu medida</h3><p>Recibe a diario o con la frecuencia acordada un resumen de citas, correos, mensajes, presupuestos y tareas pendientes, según las herramientas conectadas.</p></article><article class="card"><span aria-hidden="true" class="icon">↗</span><h3>Cuando hace falta, te pasa la consulta</h3><p>Si llega una reclamación, falta información, es un caso especial o el audio no se entiende, no improvisa: deriva la consulta a una persona designada, según el proceso acordado con el negocio.</p></article><article class="card learning-card"><span aria-hidden="true" class="icon">✦</span><div class="learning-copy"><h3>Aprendizaje progresivo, con tu conocimiento</h3><p>Cada vez que compartes información correcta y actualizada, la IA amplía su conocimiento del negocio para responder mejor sobre tus productos, servicios y procesos.</p></div></article></div><figure class="section-visual portrait"><img alt="Funciones de una IA especializada: atención, información útil, presupuestos, citas, recordatorios, audios y atención multilingüe" decoding="async" loading="lazy" src="img-03.webp"/><figcaption>Tu asistente se configura contigo y evoluciona a medida que le enseñas cómo funciona tu negocio.</figcaption></figure></div></section><section class="section alt" id="whatsapp-business"><div class="wrap"><div class="section-head"><div class="eyebrow">Tu negocio, en el WhatsApp que ya conocen</div><h2>Convierte WhatsApp en tu vitrina virtual.</h2><p>El catálogo de WhatsApp muestra productos y servicios de forma clara y facilita que cada consulta avance hacia una compra o reserva.</p></div><figure class="section-visual"><img alt="Comparativa visual del cansancio de responder repetidamente en WhatsApp y una atención más organizada" decoding="async" loading="lazy" src="img-04.webp"/><figcaption>Menos interrupciones para que puedas atender a las personas que tienes delante.</figcaption></figure><div class="benefits"><article class="card"><span aria-hidden="true" class="icon">⌂</span><h3>Catálogo de productos y servicios</h3><p>Presenta tu oferta, precios e imágenes en una vitrina virtual dentro de WhatsApp, pensada para un pequeño negocio o para quien trabaja desde casa.</p></article><article class="card"><span aria-hidden="true" class="icon">✉</span><h3>Respuestas con el mismo tono que usas con tus clientes</h3><p>La IA aprende cómo te comunicas con ellos, resuelve sus dudas y puede compartir precios e imágenes de tu catálogo.</p></article><article class="card"><span aria-hidden="true" class="icon">≡</span><h3>Conversaciones organizadas</h3><p>Mantén a la vista nuevas consultas y seguimientos, sin perder el trato personal.</p></article></div><figure class="section-visual"><img alt="Funciones de WhatsApp Business para mostrar un catálogo de servicios, responder con IA, organizar conversaciones y resumir audios" decoding="async" loading="lazy" src="img-05.webp"/><figcaption>Un canal familiar para mostrar lo que ofreces y atender con la personalidad de tu negocio.</figcaption></figure></div></section><section aria-label="Acompañamiento para negocios que empiezan" class="starter-section"><div class="wrap"><div class="starter-layout"><figure class="section-visual starter-visual"><figcaption>Vitrina virtual y una IA a medida para el autónomo que trabaja desde casa.</figcaption><img alt="Autónoma que organiza desde casa la atención de su pequeño negocio por WhatsApp" decoding="async" loading="lazy" src="img-16.webp"/></figure><aside class="starter-hook"><div class="eyebrow">Apoyo al emprendedor y al pequeño autónomo</div><h2>Tu catálogo de WhatsApp: una vitrina virtual para tu negocio desde casa.</h2><p>Ayudamos a quienes trabajan desde casa a mostrar y ofrecer sus productos o servicios en WhatsApp, como en un escaparate, para que sus clientes puedan descubrirlos y contactarles fácilmente.</p></aside></div></div></section><section class="section" id="promociones"><div class="wrap"><div class="section-head"><div class="eyebrow">Agenda y nuevas oportunidades</div><h2>¿Tienes nuevas fechas, huecos libres o una promoción puntual?</h2><p>La agenda se configura con las reglas de tu negocio para coordinar citas, cambios y avisos. Los anticipos y avisos a interesados se habilitan según las herramientas y el alcance acordado.</p><figure class="section-visual promo-visual"><img alt="Asistente especializado que avisa a clientes interesados de nuevas fechas, huecos libres y promociones para que puedan reservar." decoding="async" loading="lazy" src="img-06.webp"/><figcaption>La agenda se adapta a las reglas y al funcionamiento de cada negocio.</figcaption></figure></div><h3 class="section-subtitle">Tu agenda y comunicación, mejor aprovechadas</h3><div class="benefits promo-benefits"><article class="card"><span aria-hidden="true" class="icon">◷</span><h3>Recordatorios</h3><p>Recuerdan la cita en el momento oportuno y ayudan a que tus clientes la tengan presente.</p></article><article class="card"><span aria-hidden="true" class="icon">↔</span><h3>Cambios y cancelaciones</h3><p>Gestiona cambios y cancelaciones para que puedas reorganizar tu agenda con más facilidad.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Huecos disponibles</h3><p>Cuando se libera una cita, avisa a clientes interesados y te ayuda a aprovechar ese hueco.</p></article><article class="card"><span aria-hidden="true" class="icon">◷</span><h3>Campañas y lanzamientos en un solo comando</h3><p>Con un solo comando, cuéntale a la IA tu promoción o lanzamiento. Te ayuda a ordenar la idea, preparar el mensaje y comunicarlo de una vez a tus clientes interesados, siguiendo las normas de comunicación de tu empresa.</p></article></div><div class="agenda-visual-spacer" aria-hidden="true"></div><figure class="section-visual agenda-banner"><img alt="Banner de WebDesign sobre avisar a clientes interesados para ayudar a llenar los huecos libres de la agenda; mantenimiento desde 45 euros al mes." decoding="async" loading="lazy" src="img-07.jpg"/><figcaption>Aviso a clientes interesados cuando se libera una cita.</figcaption></figure></div></section><section class="section alt" id="visibilidad">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Análisis, marketing y visibilidad</div><h2>Escucha, mejora y vuelve a conectar con tus clientes.</h2><p>Convierte las opiniones de tus clientes y la presencia digital de tu negocio en ideas prácticas para mejorar la atención y tu visibilidad.</p></div>
+<div class="benefits"><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Vuelve a conectar con tus clientes</h3><p>Detecta qué valoran tus clientes y qué dudas se repiten para ayudarte a preparar seguimientos y campañas que vuelvan a abrir la conversación.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>Analiza tu web, tus redes y la competencia</h3><p>Revisa tu web, tus redes sociales y la presencia pública de otros negocios del sector para señalar oportunidades de mejora.</p></article><article class="card"><span aria-hidden="true" class="icon">✦</span><h3>SEO y SEM, en palabras sencillas</h3><p>SEO: mejoras en tu web para ayudar a que aparezca en los resultados orgánicos de búsqueda de Google y otros buscadores. SEM: campañas de anuncios de pago que muestran tu negocio a personas que buscan servicios como los tuyos.</p></article></div>
+<figure class="section-visual portrait"><img alt="Diagrama del recorrido SEO/SEM desde Google hasta el contacto por WhatsApp" decoding="async" loading="lazy" src="img-08.webp"/><figcaption>Mejoras de visibilidad y llamadas a la acción para facilitar el contacto desde Google, Instagram y WhatsApp.</figcaption></figure>
+
+</div>
+<div class="digital-services-callout"><h3>Más apoyo para tu presencia digital</h3><p>Además del asesoramiento SEO/SEM, si lo necesitas podemos crear la página web de tu negocio y gestionar tus perfiles sociales. Adaptamos el alcance y el presupuesto a lo que necesites. La gestión de redes no incluye creación de contenido.</p></div></section><section class="section alt" id="sectores">
+<div class="wrap">
+<div class="pain-grid"><article class="pain-point"><span>Estética y peluquería</span><h3>Más tiempo de calidad para tus clientes.</h3><p>Organiza las citas y apoya la captación y el seguimiento de clientes para que puedas centrarte en atenderles.</p></article><article class="pain-point"><span>Talleres y empresas de transporte</span><h3>De la consulta al presupuesto, con menos pasos.</h3><p>Con tus servicios, tarifas e inventario como referencia, la IA recoge los datos necesarios y prepara presupuestos según las reglas de tu negocio, ayudándote a agilizar la venta.</p></article><article class="pain-point"><span>Microempresas y pymes</span><h3>Más apoyo en las tareas de cada día.</h3><p>Los packs reúnen funciones adicionales —como inventario, seguimiento del estado de pedidos y conexión con programas de gestión compatibles— para ayudarte a organizar y gestionar el trabajo, según las necesidades de tu empresa.</p></article></div>
+<figure class="section-visual"><img alt="Centro de estética y masajes con una comparación visual de la organización de consultas por WhatsApp" decoding="async" loading="lazy" src="img-09.webp"/><figcaption>Creatividad para estética y masajes sobre organización de consultas y atención por WhatsApp.</figcaption></figure>
+<div class="sector-tier"><h3>Especialmente recomendado</h3><div class="sectors"><div class="sector">Centros de estética</div><div class="sector">Peluquerías y barberías</div><div class="sector">Tratamientos y terapias</div><div class="sector">Farmacias</div><div class="sector">Talleres mecánicos</div></div></div>
+<div class="sector-tier"><h3>Somos tan versátiles que trabajamos también con:</h3><div class="sectors"><div class="sector">Restaurantes y cafeterías</div><div class="sector">Agencias de viajes</div><div class="sector">Librerías</div><div class="sector">Empresas de transporte</div><div class="sector">Otros servicios</div></div></div>
+<figure class="section-visual portrait"><img alt="Sectores a los que WebDesign adapta su automatización de WhatsApp, desde estética y talleres hasta transporte y viajes" decoding="async" loading="lazy" src="img-10.webp"/><figcaption>Ejemplos de sectores donde se puede adaptar la automatización de WhatsApp.</figcaption></figure>
+<p class="center-note">Desde Castellón de la Plana, Comunidad Valenciana, trabajamos con pymes y autónomos de toda España.</p>
+<article class="case-study"><div class="eyebrow">Ejemplo de un proyecto real</div><h3>Castelló Connect Transfer: atención adaptada al transporte</h3><p>Castelló Connect Transfer es un ejemplo real de cómo un asistente especializado puede ayudar a organizar la atención de una empresa de transporte:</p><ul><li>Presupuestos de traslado adaptados al trayecto.</li><li>Reservas organizadas y seguimiento de consultas.</li><li>Orientación sobre el vehículo según pasajeros y equipaje.</li><li>Información útil sobre otros servicios de transporte.</li></ul><p class="case-study-note">Un ejemplo real de cómo un asistente especializado acompaña a un negocio de transporte.</p></article>
+</div>
+</section><section class="section alt" id="muestras"><div class="wrap"><div class="section-head"><div class="eyebrow">Ejemplos reales e ilustrativos</div><h2>Mira cómo puede trabajar tu IA especializada.</h2><p>Toca cualquier ejemplo para verlo ampliado.</p></div><div class="communication-examples"><figure class="original-example"><img alt="Ejemplo de ficha de confirmación de un servicio de transporte en Castellón, de Castelló Connect Transfer" src="img-11.png"/><figcaption>Ejemplo real de una ficha de Castelló Connect Transfer. La ruta, fecha e importe son de una muestra pasada, no una oferta ni tarifa vigente.</figcaption></figure><figure class="section-visual portrait"><img alt="Ejemplo de confirmación de servicio de automatización de WhatsApp de WebDesign con precios vigentes" decoding="async" loading="lazy" src="img-12.webp"/><figcaption>Ejemplo visual de confirmación: configuración inicial desde 298 € y mantenimiento desde 45 €/mes.</figcaption></figure></div><p class="sample-break-copy">La misma idea en cada caso: respuestas claras para tus clientes y menos tareas repetidas para ti. Los siguientes ejemplos son ilustrativos y sus precios no son tarifas reales.</p><div class="communication-examples sample-examples-secondary"><figure class="section-visual portrait"><img alt="Ejemplo ilustrativo de presupuesto para taller mecánico en una conversación de WhatsApp con fondo claro." decoding="async" loading="lazy" src="img-13.webp"/><figcaption>Ejemplo ilustrativo de presupuesto para taller; los precios y condiciones son de muestra.</figcaption></figure><figure class="section-visual portrait"><img alt="Confirmación ilustrativa de cita para un centro de estética, presentada como una captura móvil de WhatsApp con tonos rosas suaves." decoding="async" loading="lazy" src="img-14.webp"/><figcaption>Ejemplo ilustrativo de confirmación de cita para un centro de estética en WhatsApp.</figcaption></figure></div></div></section><section class="section" id="como-trabajamos">
+<div class="wrap">
+<div class="section-head"><div class="eyebrow">Un proceso contigo</div><h2>Empezar es más sencillo de lo que parece.</h2><p>Te acompañamos desde la primera conversación hasta que el asistente encaja con el día a día de tu negocio.</p></div>
+<div class="steps"><article class="step"><h3>1. Conocemos tu negocio</h3><p>Conocemos tus servicios, tu forma de atender y lo que quieres mejorar.</p></article><article class="step"><h3>2. Diseñamos y configuramos tu asistente</h3><p>Preparamos respuestas, funciones y una atención con la personalidad de tu negocio.</p></article><article class="step"><h3>3. Empiezas con acompañamiento</h3><p>Probamos la solución contigo y te acompañamos con soporte y mejoras continuas.</p></article></div>
+<figure class="section-visual"><img alt="Proceso WebDesign en tres pasos: conocer el negocio, configurar y probar, y acompañar" decoding="async" loading="lazy" src="img-15.webp"/><figcaption>Un proceso cercano para crear un asistente a la medida de tu negocio.</figcaption></figure>
+</div>
+</section>
+<section class="section" id="quienes">
+<div class="wrap founder-panel">
+<div class="founder-mark"><img alt="Logo WebDesign" src="img-01.png"/></div>
+<div class="founder-copy"><div class="eyebrow">Una marca creada por autónomos</div><h2>De autónomos para autónomos, pequeños negocios y pymes.</h2><p>WebDesign acompaña a autónomos y pequeños equipos de 1 a 10 personas desde Castellón de la Plana, Comunidad Valenciana, a toda España. Creamos asistentes especializados que reflejan la personalidad de tu negocio y cuidan la relación con tus clientes.</p><div class="socials"><a class="social-chip" href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21</a><a class="social-chip" href="mailto:chat@ia-webdesing.es" title="Escríbenos por correo">chat@ia-webdesing.es</a><a class="social-chip" href="https://www.instagram.com/ia_webdesing?exln=Z3VsYjVma2drYmxr&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">Instagram</a><a class="social-chip" href="https://www.facebook.com/share/19nWuPdr1T/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank">Facebook</a></div></div>
+</div>
+</section><section aria-label="Opciones para acompañar el crecimiento de tu negocio" class="section growth-infographic"><div class="wrap"><figure class="section-visual portrait"><img alt="Infografía WebDesign: tres caminos para acompañar el crecimiento de un negocio: seguir trabajando a solas, contratar apoyo o automatizar con IA." decoding="async" height="3840" loading="lazy" src="webdesign_growth_paths.jpg" width="2170"/></figure></div></section><section class="packs-section" id="packs">
+<div class="wrap">
+<div class="section-head">
+<div class="eyebrow">Más oportunidades. Más tiempo para ti.</div>
+<h2>Una IA que se paga sola con todo lo que hace por tu negocio.</h2>
+<p>Responde a tus clientes también fuera de horario, ayuda a mantener la agenda activa, prepara presupuestos y campañas, recuerda las citas y se ocupa de tareas repetitivas. Así no pierdes oportunidades por tardar en contestar y recuperas tiempo para atender y hacer crecer tu negocio.</p>
+</div><div class="roi-callout roi-lead"><strong>El valor está en el conjunto, cada día.</strong><p>Una cita que no se pierde, un nuevo cliente que recibe respuesta, un hueco de agenda que vuelves a ofrecer y horas que ya no dedicas a repetir tareas: todo suma. Un no-show puede costar de media 35–50 €, y una hora de trabajo autónomo vale al menos 45 €; son ejemplos del valor que la IA ayuda a proteger y recuperar, no una tarea extra que tengas que perseguir para justificar la cuota.</p></div><h2 class="packs-heading">Elige el pack que encaja contigo.</h2><p class="packs-intro">Una misma base de atención, con herramientas que se amplían según las necesidades del negocio. Negocio, recomendado para cuidar las citas y aprovechar mejor la agenda.</p><div class="packs-grid">
+<article class="pack-card">
+<span class="pack-label">Para empezar</span>
+<h3>Autónomo</h3>
+<p class="pack-audience">Para autónomos que trabajan solos o llevan su negocio desde casa.</p>
+<p class="pack-price"><strong>Desde 298 € de configuración · desde 45 €/mes</strong><span>Mantenimiento: soporte cercano, ajustes continuos, informes de actividad, asesoramiento SEO/SEM y mejoras para acompañar la evolución del negocio.</span></p>
+<p class="pack-list-title">Incluye la base común y</p>
+<ul class="pack-features">
+<li><strong>Catálogo de WhatsApp Business:</strong> presenta lo que vendes o los servicios que ofreces.</li>
+<li><strong>Solicitudes y presupuestos:</strong> deja ordenadas las consultas para que no se pierdan.</li>
+<li><strong>Audios y varios idiomas:</strong> facilita atender a clientes que escriben con voz o en otra lengua.</li>
+<li><strong>Resúmenes a tu medida:</strong> recibe a diario o con la frecuencia acordada un resumen de citas, correos, presupuestos, mensajes y tareas pendientes, según las herramientas que se conecten.</li>
+<li><strong>Enlace de pago:</strong> comparte con tu cliente un enlace al método de pago configurado.</li>
+<li><strong>Apoyo cercano:</strong> acompañamiento para adaptar la atención a tu negocio.</li>
+</ul>
+<a class="pack-cta" href="https://wa.me/34685758321?text=INFO">Consultar Autónomo</a>
+</article>
+<article class="pack-card recommended">
+<span class="pack-label">Recomendado · se paga solo</span>
+<h3>Negocio</h3>
+<p class="pack-audience">Para centros de hasta 3 personas que atienden mientras trabajan.</p>
+<p class="pack-price"><strong>Desde 498 € de configuración · desde 75 €/mes</strong><span>Mantenimiento: soporte, ajustes continuos, informes de actividad, asesoramiento SEO/SEM y mejoras para mantener el asistente adaptado al negocio.</span></p>
+<p class="pack-list-title">Todo lo de Autónomo, más</p>
+<ul class="pack-features">
+<li><strong>Agenda conectada:</strong> ayuda a organizar citas, cambios y cancelaciones.</li>
+<li><strong>Recordatorios:</strong> avisa a los clientes de sus citas para ayudarles a tenerlas presentes.</li>
+<li><strong>Depósito o fianza:</strong> opción de solicitar un anticipo para reservar.</li>
+<li><strong>Huecos y promociones:</strong> avisa a clientes interesados que hayan aceptado recibir comunicaciones.</li>
+<li><strong>Booksy, Fresha o Treatwell:</strong> revisamos si la plataforma que usas se puede conectar.</li>
+<li><strong>CRM ligero:</strong> una ficha sencilla para recordar visitas, servicios y próximos seguimientos.</li>
+<li><strong>Publicaciones en grupos:</strong> programa avisos en grupos de WhatsApp definidos y autorizados.</li>
+</ul>
+<p class="pack-recap">Ayuda a que las citas y el seguimiento no dependan de tener el móvil en la mano.</p>
+<a class="pack-cta" href="https://wa.me/34685758321?text=INFO">Consultar Negocio</a>
+</article>
+<article class="pack-card">
+<span class="pack-label">Para crecer con orden</span>
+<h3>Pyme</h3>
+<p class="pack-audience">Para pymes de hasta 10 personas con más consultas, servicios o procesos.</p>
+<p class="pack-price"><strong>Desde 798 € de configuración · desde 149 €/mes</strong><span>Mantenimiento: soporte prioritario, ajustes continuos, informes de actividad y análisis mensual de reseñas y competencia. El alcance final se ajusta al equipo, las funciones y las conexiones.</span></p>
+<p class="pack-list-title">Todo lo de Negocio, más</p>
+<ul class="pack-features">
+<li><strong>Bandeja compartida:</strong> el equipo puede repartir consultas y saber quién las atiende.</li>
+<li><strong>Conexión con programas de gestión:</strong> valoramos Holded, Odoo, HubSpot, Sage u otras herramientas.</li>
+<li><strong>Presupuesto y seguimiento:</strong> ayuda a pasar solicitudes aceptadas al proceso comercial acordado.</li>
+<li><strong>Estado de pedidos o servicios:</strong> informa al cliente usando los datos disponibles del negocio.</li>
+<li><strong>Panel de actividad:</strong> permite revisar consultas, tiempos de respuesta y resultados acordados.</li>
+<li><strong>Permisos y comunicaciones:</strong> ayuda a llevar un registro de autorizaciones y bajas.</li>
+<li><strong>Apoyo prioritario:</strong> seguimiento y análisis periódico según el alcance contratado.</li>
+</ul>
+<a class="pack-cta" href="https://wa.me/34685758321?text=INFO">Valorar Pyme</a>
+</article>
+</div><div aria-label="Comparativa detallada de servicios incluidos en los tres packs" class="pack-compare">
+<div class="pack-compare-head"><div class="eyebrow">Comparativa completa de servicios</div><h3>Todo lo que ofrece cada pack</h3><p>Funciones explicadas sin tecnicismos, para que puedas comparar de un vistazo.</p></div>
+<div class="pack-table-wrap"><table class="pack-table"><thead><tr><th>Servicio y qué hace</th><th>Autónomo</th><th>Negocio<br/><small>Recomendado</small></th><th>Pyme</th></tr></thead><tbody><tr><td><strong>Derivación a una persona</strong><span>Deriva reclamaciones, casos especiales, consultas sin información suficiente o audios que no se entienden a una persona, según el proceso acordado.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Asistente WhatsApp y correo</strong><span>Responde consultas comunes con la información y el tono acordados.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Catálogo y respuestas con IA</strong><span>Muestra tus productos o servicios y responde consultas con la información que nos facilites.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Presupuestos y solicitudes</strong><span>Ordena peticiones y prepara presupuestos según las tarifas acordadas.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Audios y varios idiomas</strong><span>Comprende notas de voz y puede responder en el idioma del cliente.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Resúmenes configurables</strong><span>Reúne citas, correos, mensajes, presupuestos y tareas pendientes con la frecuencia acordada, según las herramientas conectadas.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Enlace de pago</strong><span>Permite compartir con el cliente un enlace al método de pago acordado, sujeto a la configuración y compatibilidad.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Control básico de stock</strong><span>Consulta el inventario disponible y ayuda a detectar productos con poco stock, si los datos están conectados.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Acompañamiento cercano</strong><span>Apoyo para configurar el asistente y adaptarlo al negocio.</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Agenda conectada a Google Calendar</strong><span>Ayuda a organizar citas y gestionar cambios o cancelaciones.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Recordatorios de citas</strong><span>Envía avisos para ayudar a que el cliente recuerde su cita.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Depósito o fianza para reservar</strong><span>Opción de solicitar un anticipo al confirmar una reserva.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Avisos de huecos y promociones</strong><span>Contacta con personas interesadas que hayan aceptado recibir estos avisos.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Booksy, Fresha o Treatwell</strong><span>Se valora la conexión con la plataforma que ya utiliza el centro.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>CRM ligero: ficha sencilla de clientes</strong><span>Permite consultar visitas, servicios y próximos seguimientos en un mismo sitio.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Publicaciones en grupos de WhatsApp</strong><span>Programa avisos en grupos definidos; se revisan permisos y normas.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Bandeja compartida, usuarios y roles</strong><span>Reparte consultas entre el equipo y deja claro quién las está atendiendo.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Conexión con programas de gestión</strong><span>Se valora conectar Holded, Odoo, HubSpot, Sage u otras herramientas.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Presupuesto a albarán o seguimiento comercial</strong><span>Ayuda a pasar un presupuesto aceptado al proceso de trabajo definido.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Seguimiento del estado de pedidos o servicios</strong><span>Informa al cliente con el estado disponible en los datos del negocio.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Panel de actividad (KPI)</strong><span>Reúne datos acordados, como consultas recibidas y tiempos de respuesta.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Permisos y registro de comunicaciones</strong><span>Ayuda a organizar autorizaciones, preferencias y bajas.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr><tr><td><strong>Soporte prioritario y análisis periódico</strong><span>Incluye el acompañamiento y las revisiones definidos en el alcance.</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="No incluido" class="pack-no">—</span></td><td><span aria-label="Incluido" class="pack-check">✓</span></td></tr></tbody></table></div></div><h3 class="pack-details-title">Los tres packs, explicados con detalle</h3><p class="pack-note">Las conexiones a calendario, pagos, aplicaciones y datos se definen contigo y se prueban antes de activarlas. Cada herramienta se revisa para confirmar compatibilidad. La creación de páginas web se ofrece y presupuesta aparte; los packs no incluyen una página web.</p>
+<div class="packs-next-step"><p>Autónomo: desde 298 € de configuración y desde 45 €/mes. Negocio: desde 498 € de configuración y desde 75 €/mes. Pyme: desde 798 € de configuración y desde 149 €/mes. El mantenimiento incluye soporte y ajustes continuos; en Pyme, soporte prioritario. El precio final de Pyme se ajusta al equipo, las funciones y las conexiones. Cualquier coste externo se detalla antes de empezar.</p></div>
+</div>
+</section><section class="final-cta" id="contacto">
+<div class="wrap"><div class="eyebrow">Hablemos de tu negocio</div><h2>¿Qué te gustaría mejorar en tu negocio?</h2><p>Cuéntanos qué quieres organizar o mejorar y te ayudamos a dar el siguiente paso con un asistente de IA especializado en tu empresa.</p><a class="button" href="https://wa.me/34685758321?text=Hola%2C%20quiero%20mejorar%20la%20atenci%C3%B3n%20de%20mi%20negocio">Hablemos de tu negocio</a><p class="contact-number">WhatsApp · +34 685 75 83 21</p><p class="contact-email">Correo: <a href="mailto:chat@ia-webdesing.es">chat@ia-webdesing.es</a></p><p class="mini-note">Cuéntanos qué tareas te quitan tiempo y te orientamos sobre el pack adecuado.</p></div>
+</section></main>
+<dialog aria-label="Vista ampliada del ejemplo" class="sample-lightbox" id="sample-lightbox"><div class="sample-lightbox-inner"><button aria-label="Cerrar imagen ampliada" class="sample-lightbox-close" type="button">×</button><img alt=""/><figcaption></figcaption></div></dialog>
+<footer>
+<div class="wrap footer-row"><div class="footer-brand"><img alt="Logo WebDesign" src="img-01.png"/><div class="footer-verse"><div class="footer-verse-title"><span aria-hidden="true" class="footer-verse-book"><svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.3C9.4 4.7 6.5 4.5 3.5 5.2v13c3-.7 5.9-.5 8.5 1.1 2.6-1.6 5.5-1.8 8.5-1.1v-13c-3-.7-5.9-.5-8.5 1.1Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path><path d="M12 6.3v13M6.5 8.5c1.2-.1 2.3.1 3.5.7M17.5 8.5c-1.2-.1-2.3.1-3.5.7" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></span><span>1. Proverbios 16:3</span></div><span class="footer-verse-quote">«Encomienda a Jehová tus obras, y tus pensamientos serán afirmados».</span></div><div class="footer-location">Desde Castellón de la Plana, Comunidad Valenciana · servicio en toda España.</div></div><div class="footer-copy"><strong>WebDesign · De autónomos a autónomos.</strong>Asistente de IA para WhatsApp y correo, organización de citas y presupuestos, y asesoramiento y gestión de presencia digital —incluido Instagram— para autónomos y pymes.<div class="socials"><a class="social-chip" href="preguntas-frecuentes.html">Preguntas frecuentes</a><a class="social-chip" href="https://wa.me/34685758321?text=INFO">WhatsApp · +34 685 75 83 21</a><a class="social-chip" href="mailto:chat@ia-webdesing.es" title="Escríbenos por correo">chat@ia-webdesing.es</a><a class="social-chip" href="https://www.instagram.com/ia_webdesing?exln=Z3VsYjVma2drYmxr&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">Instagram</a><a class="social-chip" href="https://www.facebook.com/share/19nWuPdr1T/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank">Facebook</a></div></div></div>
+</footer>
+<a aria-label="Escríbenos por WhatsApp con el mensaje INFO" class="whatsapp-float" href="https://wa.me/34685758321?text=INFO"><img alt="" aria-hidden="true" class="whatsapp-float-icon" src="img-19.png"/><span>WhatsApp</span></a><script>
+(() => {
+  const header = document.getElementById('site-header');
+  const tab = document.getElementById('header-reopen-tab');
+  if (!header || !tab) return;
+  let lastY = window.scrollY;
+  let scheduled = false;
+  const showHeader = () => {
+    header.classList.remove('is-hidden');
+    header.removeAttribute('aria-hidden');
+    header.inert = false;
+    tab.classList.remove('is-visible');
+    tab.setAttribute('aria-expanded', 'true');
+  };
+  const hideHeader = () => {
+    header.classList.add('is-hidden');
+    header.setAttribute('aria-hidden', 'true');
+    header.inert = true;
+    tab.classList.add('is-visible');
+    tab.setAttribute('aria-expanded', 'false');
+  };
+  const onScroll = () => {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(() => {
+      const currentY = Math.max(0, window.scrollY);
+      const movement = currentY - lastY;
+      if (currentY < 90) showHeader();
+      else if (movement > 7) hideHeader();
+      else if (movement < -5) showHeader();
+      lastY = currentY;
+      scheduled = false;
+    });
+  };
+  tab.addEventListener('click', (event) => {
+    showHeader();
+    if (event.detail === 0) header.querySelector('.nav-links a')?.focus({ preventScroll: true });
+  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>
+<script>
+(() => {
+  const dialog = document.getElementById('sample-lightbox');
+  if (!dialog) return;
+  const preview = dialog.querySelector('img');
+  const caption = dialog.querySelector('figcaption');
+  const close = dialog.querySelector('.sample-lightbox-close');
+  const openImage = (image) => {
+    preview.src = image.currentSrc || image.src;
+    preview.alt = image.alt || '';
+    caption.textContent = image.closest('figure')?.querySelector('figcaption')?.textContent || image.alt || '';
+    dialog.showModal();
+  };
+  document.querySelectorAll('#muestras .communication-examples img').forEach((image) => {
+    image.tabIndex = 0;
+    image.setAttribute('role', 'button');
+    image.setAttribute('aria-haspopup', 'dialog');
+    image.setAttribute('aria-label', `${image.alt}. Toca para ampliar`);
+    image.addEventListener('click', () => openImage(image));
+    image.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImage(image); }
+    });
+  });
+  close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => { preview.removeAttribute('src'); });
+})();
+</script>
+</body>
+</html>
