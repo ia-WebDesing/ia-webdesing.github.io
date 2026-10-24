@@ -45,7 +45,7 @@
 .rv-pegado{position:relative}
 .rv-centro{display:flex;justify-content:center;margin:6px 0 -6px}
 /* Dentro del botón flotante de WhatsApp */
-.rv-wa{--w:30px;margin:-10px -4px -6px -6px}
+.rv-wa{--w:44px;margin:-22px -2px -8px -10px}
 .rv-wa .rv-bocadillo{bottom:118%}
 
 @media (max-width:760px){.rv-esquina{--w:66px}.agenda-banner.rv-pegado{margin-top:calc(66px * 1.4)}}
@@ -77,8 +77,16 @@
 @keyframes rvArribaD{from{transform:rotate(-150deg)}to{transform:rotate(-110deg)}}
 @keyframes rvArribaI{from{transform:rotate(110deg)}to{transform:rotate(150deg)}}
 
+/* Más vida: la de frente también mueve la cabeza; saltos y miradas al azar (los lanza robot.js) */
+.rv[data-figura="frente"]:not([data-modo]).rv-dentro .rv-cab-in{animation:rvMiraAlrededor 5.5s ease-in-out infinite}
+@keyframes rvMiraAlrededor{0%,100%{transform:rotate(0)}18%{transform:rotate(-6deg)}30%{transform:rotate(-6deg)}48%{transform:rotate(5deg)}62%{transform:rotate(5deg)}80%{transform:rotate(0)}}
+.rv .rv-salto{position:absolute;inset:0}
+.rv.rv-salta .rv-salto{animation:rvSalto .75s cubic-bezier(.3,.7,.4,1)}
+@keyframes rvSalto{0%{transform:translateY(0) scaleY(1)}15%{transform:translateY(0) scale(1.06,.9)}45%{transform:translateY(-28%) scale(.96,1.06)}75%{transform:translateY(0) scale(1.07,.92)}100%{transform:none}}
+.rv.rv-gira .rv-cab{transform:rotate(calc(var(--cabeza) + var(--mira,0deg) - 9deg));transition:transform .3s}
+
 /* Movimiento reducido: sin andar, botar ni bailar; mantiene parpadeo, mirada y gestos pequeños */
-@media (prefers-reduced-motion:reduce){.rv .rv-fig,.rv.rv-dentro .rv-fig,.rv[data-modo].rv-dentro .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig,.rv[data-pose="izquierda"].rv-dentro .rv-fig{transform:scaleX(-1)!important}.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out infinite!important}}
+@media (prefers-reduced-motion:reduce){.rv.rv-salta .rv-salto{animation:none}.rv .rv-fig,.rv.rv-dentro .rv-fig,.rv[data-modo].rv-dentro .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig,.rv[data-pose="izquierda"].rv-dentro .rv-fig{transform:scaleX(-1)!important}.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out infinite!important}}
 
 /* Pantalla del visor: expresiones */
 .rv-visor{position:absolute;left:39%;top:23.4%;width:32.4%;height:15.6%;border-radius:22%/38%;background:linear-gradient(#16244a,#0f1a38);display:flex;align-items:center;justify-content:center;color:#8fd0ff;font:700 calc(var(--w)*.13)/1 "Inter",system-ui,sans-serif;letter-spacing:.04em;text-shadow:0 0 4px #4aa8ff,0 0 9px #2f7dff;opacity:0;transition:opacity .18s;white-space:nowrap;overflow:hidden}

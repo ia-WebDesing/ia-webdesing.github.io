@@ -7,10 +7,10 @@
   function img(f, n, fichero) { return '<img class="rv-' + n + '" src="' + base + f.pre + (fichero || n) + '.webp" alt="" width="' + f.w + '" height="' + f.h + '" decoding="async" loading="lazy">'; }
   function monta(r) {
     var f = FIG[r.dataset.figura] || FIG.costado, b = r.querySelector('.rv-bocadillo');
-    var fig = '<span class="rv-fig">' + img(f, 'brazo2', f.b) + img(f, 'cuerpo') +
+    var fig = '<span class="rv-salto"><span class="rv-fig">' + img(f, 'brazo2', f.b) + img(f, 'cuerpo') +
       '<span class="rv-cab"><span class="rv-cab-in">' + img(f, 'cabeza') + '<span class="rv-visor"></span><i class="rv-parpado"></i></span></span>' +
-      '<span class="rv-nube"><i></i><i></i><i></i></span>' + img(f, 'brazo', f.a) + '</span>';
-    var vieja = r.querySelector('.rv-fig');
+      '<span class="rv-nube"><i></i><i></i><i></i></span>' + img(f, 'brazo', f.a) + '</span></span>';
+    var vieja = r.querySelector('.rv-salto');
     if (vieja) vieja.outerHTML = fig; else r.insertAdjacentHTML('afterbegin', fig);
     if (!b && r.dataset.frase) r.insertAdjacentHTML('beforeend', '<span class="rv-bocadillo">' + r.dataset.frase + '</span>');
   }
@@ -53,6 +53,18 @@
     }
     r.addEventListener('mouseenter', function () { alegre = Date.now() + 1500; pinta(); });
     r._pinta = pinta;
+    // De vez en cuando, cada robot hace algo por su cuenta: salta o gira la cabeza
+    if (!reducido) (function vida() {
+      setTimeout(function () {
+        var b = r.getBoundingClientRect();
+        if (r.classList.contains('rv-dentro') && b.bottom > 0 && b.top < innerHeight && !document.hidden) {
+          var cls = Math.random() < 0.45 ? 'rv-salta' : 'rv-gira';
+          r.classList.add(cls); setTimeout(function () { r.classList.remove(cls); }, cls === 'rv-salta' ? 760 : 1100);
+          if (cls === 'rv-salta') { alegre = Date.now() + 900; pinta(); }
+        }
+        vida();
+      }, 6000 + Math.random() * 9000);
+    })();
     setInterval(pinta, 600);
   });
 
