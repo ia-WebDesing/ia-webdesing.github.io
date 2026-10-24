@@ -1,0 +1,102 @@
+/* Robot IA WebDesign · mascota articulada (cabeza, brazos, visor que parpadea) */
+.rv{--w:96px;--brazo:0deg;--cabeza:0deg;position:relative;display:inline-block;flex:0 0 auto;width:var(--w);aspect-ratio:275/372;vertical-align:bottom;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.rv[data-pose="arriba"]{--brazo:-38deg;--cabeza:-5deg}
+.rv[data-pose="abajo"]{--brazo:42deg;--cabeza:7deg}
+.rv-fig{position:absolute;inset:0;transform-origin:50% 100%;opacity:0;transform:translateX(-26px)}
+.rv[data-pose="izquierda"] .rv-fig{transform:scaleX(-1) translateX(-26px)}
+.rv-fig img,.rv-cab,.rv-cab-in{position:absolute;inset:0;width:100%;height:100%}
+.rv-cab,.rv-cab-in{transform-origin:47.3% 51.6%}
+.rv-cab{transform:rotate(calc(var(--cabeza) + var(--mira,0deg)));transition:transform .35s ease-out}
+.rv-brazo{transform-origin:63.3% 55.1%;transform:rotate(var(--brazo))}
+.rv-brazo2{transform-origin:18.9% 60.5%}
+.rv-parpado{position:absolute;left:39%;top:23.4%;width:32.4%;height:15.6%;border-radius:22%/38%;background:linear-gradient(#1a2850,#121d3d);transform:scaleY(0);transform-origin:50% 50%}
+.rv-bocadillo{position:absolute;bottom:92%;left:50%;z-index:3;width:max-content;max-width:190px;padding:7px 11px;border:1px solid rgba(120,170,255,.55);border-radius:14px;background:rgba(9,16,32,.94);color:#e8eefc;font-size:.8rem;font-weight:800;line-height:1.25;text-align:center;box-shadow:0 8px 22px rgba(0,0,0,.4),0 0 14px rgba(70,140,255,.25);opacity:0;transform:translate(-50%,6px) scale(.9);transition:opacity .25s,transform .25s;pointer-events:none}
+.rv-bocadillo::after{content:"";position:absolute;left:50%;top:100%;border:7px solid transparent;border-top-color:rgba(9,16,32,.94);transform:translateX(-50%)}
+
+/* Entrada al aparecer en pantalla: llega andando */
+.rv.rv-dentro .rv-fig{animation:rvLlega .9s cubic-bezier(.3,1.4,.5,1) forwards,rvRespira 3.2s ease-in-out .9s infinite,rvBrillo 4s ease-in-out 1s infinite}
+.rv[data-pose="izquierda"].rv-dentro .rv-fig{animation:rvLlegaIzq .9s cubic-bezier(.3,1.4,.5,1) forwards,rvRespiraIzq 3.2s ease-in-out .9s infinite,rvBrillo 4s ease-in-out 1s infinite}
+.rv.rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out .9s infinite}
+.rv.rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite}
+.rv.rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out .9s infinite}
+.rv.rv-dentro .rv-parpado{animation:rvParpadeo var(--parpadeo,4.6s) ease-in-out var(--retraso,1.5s) infinite}
+.rv.rv-habla .rv-bocadillo{opacity:1;transform:translate(-50%,0) scale(1)}
+.rv.rv-habla .rv-brazo{animation:rvSenalaRapido .5s ease-in-out infinite}
+
+@keyframes rvLlega{0%{opacity:0;transform:translateX(-26px)}25%{transform:translateX(-17px) translateY(-4px)}50%{transform:translateX(-9px)}75%{transform:translateX(-3px) translateY(-3px)}100%{opacity:1;transform:none}}
+@keyframes rvLlegaIzq{0%{opacity:0;transform:scaleX(-1) translateX(-26px)}50%{transform:scaleX(-1) translateX(-9px) translateY(-3px)}100%{opacity:1;transform:scaleX(-1)}}
+@keyframes rvRespira{0%,100%{opacity:1;transform:none}50%{opacity:1;transform:translateY(-1.5px) scaleY(1.012)}}
+@keyframes rvRespiraIzq{0%,100%{opacity:1;transform:scaleX(-1)}50%{opacity:1;transform:scaleX(-1) translateY(-1.5px) scaleY(1.012)}}
+@keyframes rvBrillo{0%,70%,100%{filter:drop-shadow(0 5px 7px rgba(0,0,0,.35))}80%,88%{filter:drop-shadow(0 5px 7px rgba(0,0,0,.35)) drop-shadow(0 0 9px rgba(70,150,255,.6))}}
+@keyframes rvSenala{0%,100%{transform:rotate(var(--brazo))}40%{transform:rotate(calc(var(--brazo) - 9deg))}55%{transform:rotate(calc(var(--brazo) - 5deg))}70%{transform:rotate(calc(var(--brazo) - 9deg))}}
+@keyframes rvSenalaRapido{0%,100%{transform:rotate(var(--brazo))}50%{transform:rotate(calc(var(--brazo) - 12deg))}}
+@keyframes rvBalanceo{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(7deg)}}
+@keyframes rvAsiente{0%,100%{transform:rotate(0)}22%{transform:rotate(3deg)}36%{transform:rotate(1deg)}52%{transform:rotate(3.5deg)}78%{transform:rotate(-1.5deg)}}
+@keyframes rvParpadeo{0%,92%,100%{transform:scaleY(0)}95%{transform:scaleY(1)}}
+
+/* Colocaciones */
+.rv-fila{display:flex;align-items:center;gap:14px;flex-wrap:nowrap}
+#inicio .rv-fila{flex-wrap:wrap;justify-content:center}
+#inicio .rv{--w:80px}
+.rv-esquina{position:absolute;z-index:2;--w:86px}
+.rv-esquina.arriba-dcha{bottom:100%;right:6%}
+.agenda-banner.rv-pegado{margin-top:calc(86px * 1.4)}
+.rv-esquina.abajo-izq{bottom:-12px;left:-18px}
+.rv-pegado{position:relative}
+.rv-centro{display:flex;justify-content:center;margin:6px 0 -6px}
+/* Dentro del botón flotante de WhatsApp */
+.rv-wa{--w:30px;margin:-10px -4px -6px -6px}
+.rv-wa .rv-bocadillo{bottom:118%}
+
+@media (max-width:760px){.rv-esquina{--w:66px}.agenda-banner.rv-pegado{margin-top:calc(66px * 1.4)}}
+@media (max-width:420px){.rv:not(.rv-wa){--w:72px}#inicio .rv{--w:62px}.rv-fila{gap:8px}}
+@media (prefers-reduced-motion:reduce){.rv .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig{transform:scaleX(-1)}.rv *{animation:none!important}}
+
+/* Pantalla del visor: expresiones */
+.rv-visor{position:absolute;left:39%;top:23.4%;width:32.4%;height:15.6%;border-radius:22%/38%;background:linear-gradient(#16244a,#0f1a38);display:flex;align-items:center;justify-content:center;color:#8fd0ff;font:700 calc(var(--w)*.13)/1 "Inter",system-ui,sans-serif;letter-spacing:.04em;text-shadow:0 0 4px #4aa8ff,0 0 9px #2f7dff;opacity:0;transition:opacity .18s;white-space:nowrap;overflow:hidden}
+.rv-visor.on{opacity:1}
+.rv-nube{position:absolute;left:58%;top:-6%;display:flex;gap:3px;opacity:0;transition:opacity .3s}
+.rv-nube i{width:calc(var(--w)*.06);height:calc(var(--w)*.06);border-radius:50%;background:#bcd6ff;box-shadow:0 0 6px #6aa8ff;animation:rvNube 1.4s ease-in-out infinite}
+.rv-nube i:nth-child(2){animation-delay:.2s}.rv-nube i:nth-child(3){animation-delay:.4s}
+.rv[data-modo="piensa"].rv-dentro .rv-nube{opacity:1}
+@keyframes rvNube{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-4px);opacity:1}}
+
+/* Pensando: se rasca el casco y ladea la cabeza despacio */
+.rv[data-modo="piensa"]{--brazo:-98deg;--cabeza:-4deg}
+.rv[data-modo="piensa"].rv-dentro .rv-brazo{animation:rvRasca 1.6s ease-in-out infinite}
+.rv[data-modo="piensa"].rv-dentro .rv-cab-in{animation:rvLadea 3.4s ease-in-out infinite}
+@keyframes rvRasca{0%,100%{transform:rotate(var(--brazo))}50%{transform:rotate(calc(var(--brazo) + 7deg))}}
+@keyframes rvLadea{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+
+/* Haciendo cuentas: teclea rápido con la mano */
+.rv[data-modo="cuenta"]{--brazo:38deg;--cabeza:6deg}
+.rv[data-modo="cuenta"].rv-dentro .rv-brazo{animation:rvTeclea .32s ease-in-out infinite}
+.rv[data-modo="cuenta"].rv-dentro .rv-cab-in{animation:rvAsiente 1.2s ease-in-out infinite}
+@keyframes rvTeclea{0%,100%{transform:rotate(var(--brazo))}50%{transform:rotate(calc(var(--brazo) + 9deg))}}
+
+/* Bailando de felicidad: rebota, se balancea y agita los brazos */
+.rv[data-modo="baila"]{--brazo:-45deg}
+.rv[data-modo="baila"].rv-dentro .rv-fig{animation:rvLlega .9s cubic-bezier(.3,1.4,.5,1) forwards,rvBaila .9s ease-in-out .9s infinite,rvBrillo 4s ease-in-out 1s infinite}
+.rv[data-modo="baila"][data-pose="izquierda"].rv-dentro .rv-fig{animation:rvLlegaIzq .9s cubic-bezier(.3,1.4,.5,1) forwards,rvBailaIzq .9s ease-in-out .9s infinite,rvBrillo 4s ease-in-out 1s infinite}
+.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvBrazoBaila .45s ease-in-out infinite alternate}
+.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBrazo2Baila .45s ease-in-out infinite alternate}
+.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvLadea .9s ease-in-out infinite}
+@keyframes rvBaila{0%,100%{opacity:1;transform:translateY(0) rotate(-5deg)}25%{opacity:1;transform:translateY(-7px) rotate(0)}50%{opacity:1;transform:translateY(0) rotate(5deg)}75%{opacity:1;transform:translateY(-7px) rotate(0)}}
+@keyframes rvBailaIzq{0%,100%{opacity:1;transform:scaleX(-1) translateY(0) rotate(-5deg)}25%{opacity:1;transform:scaleX(-1) translateY(-7px)}50%{opacity:1;transform:scaleX(-1) rotate(5deg)}75%{opacity:1;transform:scaleX(-1) translateY(-7px)}}
+@keyframes rvBrazoBaila{from{transform:rotate(-70deg)}to{transform:rotate(-20deg)}}
+@keyframes rvBrazo2Baila{from{transform:rotate(-25deg)}to{transform:rotate(20deg)}}
+
+/* La mano pasa por detrás del casco al rascarse o señalar arriba */
+.rv[data-modo="piensa"] .rv-cab,.rv[data-pose="arriba"] .rv-cab{z-index:2}
+/* Bocadillos dentro de la pantalla en filas con botón */
+.rv-fila{flex-wrap:wrap;justify-content:flex-start}
+.rv-fila .rv-bocadillo{left:0;transform:translate(0,6px) scale(.9)}
+.rv-fila .rv.rv-habla .rv-bocadillo{transform:none}
+.rv-fila .rv-bocadillo::after{left:28px}
+.rv-fila .rv[data-pose="izquierda"] .rv-bocadillo{left:auto;right:0}
+.rv-fila .rv[data-pose="izquierda"] .rv-bocadillo::after{left:auto;right:22px}
+.rv-bocadillo{max-width:min(190px,70vw)}
+
+/* Mirada: dos ojos en el visor que siguen al cursor */
+.rv-visor .rv-ojo{display:block;width:17%;height:46%;margin:0 7%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#e9f6ff 0 18%,#8fd0ff 30%,#3d8dff 100%);box-shadow:0 0 6px #4aa8ff,0 0 12px #2f7dff;transform:translate(var(--ox,0),var(--oy,0));transition:transform .12s ease-out}
+body{overflow-x:clip}
