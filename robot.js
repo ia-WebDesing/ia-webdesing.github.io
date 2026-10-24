@@ -2,24 +2,31 @@
    la hace entrar al verla, parpadear, mirar hacia el cursor y hablar al pasar o tocar. Sin dependencias. */
 (function () {
   var base = window.RV_BASE || (document.currentScript && document.currentScript.src || '').replace(/robot\.js.*$/, '');
-  var capas = ['brazo2', 'cuerpo'];
-  function img(n) { return '<img class="rv-' + n + '" src="' + base + 'rs-' + n + '.webp" alt="" width="275" height="372" decoding="async" loading="lazy">'; }
+  // Dos figuras: de costado (rs-) y de frente (fr-). En la de frente, rv-brazo es su brazo derecho (a la derecha de la imagen).
+  var FIG = { costado: { pre: 'rs-', w: 275, h: 372, a: 'brazo', b: 'brazo2' }, frente: { pre: 'fr-', w: 226, h: 359, a: 'brazod', b: 'brazoi' } };
+  function img(f, n, fichero) { return '<img class="rv-' + n + '" src="' + base + f.pre + (fichero || n) + '.webp" alt="" width="' + f.w + '" height="' + f.h + '" decoding="async" loading="lazy">'; }
+  function monta(r) {
+    var f = FIG[r.dataset.figura] || FIG.costado, b = r.querySelector('.rv-bocadillo');
+    var fig = '<span class="rv-fig">' + img(f, 'brazo2', f.b) + img(f, 'cuerpo') +
+      '<span class="rv-cab"><span class="rv-cab-in">' + img(f, 'cabeza') + '<span class="rv-visor"></span><i class="rv-parpado"></i></span></span>' +
+      '<span class="rv-nube"><i></i><i></i><i></i></span>' + img(f, 'brazo', f.a) + '</span>';
+    var vieja = r.querySelector('.rv-fig');
+    if (vieja) vieja.outerHTML = fig; else r.insertAdjacentHTML('afterbegin', fig);
+    if (!b && r.dataset.frase) r.insertAdjacentHTML('beforeend', '<span class="rv-bocadillo">' + r.dataset.frase + '</span>');
+  }
   var GUIONES = {
     piensa: ['·', '··', '···', '?', '···', 'IA'],
     cuenta: ['2+3', '=5', '45€', '×12', '✓', 'IA'],
-    baila: ['♪', '^‿^', '♫', '^‿^']
+    baila: ['♪', '^‿^', '♫', '^‿^'],
+    saluda: ['^‿^', 'HOLA', '^‿^', 'IA']
   };
-  GUIONES.piensa.ritmo = 650; GUIONES.cuenta.ritmo = 600; GUIONES.baila.ritmo = 450;
+  GUIONES.piensa.ritmo = 650; GUIONES.cuenta.ritmo = 600; GUIONES.baila.ritmo = 450; GUIONES.saluda.ritmo = 800;
   var robots = [].slice.call(document.querySelectorAll('.rv'));
   var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   robots.forEach(function (r, i) {
     r.setAttribute('aria-hidden', 'true');
-    r.innerHTML = '<span class="rv-fig">' + capas.map(img).join('') +
-      '<span class="rv-cab"><span class="rv-cab-in">' + img('cabeza') + '<span class="rv-visor"></span><i class="rv-parpado"></i></span></span>' +
-      '<span class="rv-nube"><i></i><i></i><i></i></span>' +
-      img('brazo') + '</span>' +
-      (r.dataset.frase ? '<span class="rv-bocadillo">' + r.dataset.frase + '</span>' : '');
+    r.innerHTML = ''; monta(r);
     // Cada robot parpadea a su ritmo
     r.style.setProperty('--parpadeo', (3.8 + (i * 0.7) % 2.4).toFixed(1) + 's');
     r.style.setProperty('--retraso', (1 + (i * 0.9) % 2).toFixed(1) + 's');
@@ -32,8 +39,9 @@
     });
     r._habla = habla;
     // Expresiones en la pantalla del visor
-    var visor = r.querySelector('.rv-visor'), paso = 0, alegre = 0;
+    var paso = 0, alegre = 0;
     function pinta() {
+      var visor = r.querySelector('.rv-visor'); if (!visor) return;
       if (alegre > Date.now()) { visor.textContent = '^ ^'; visor.classList.add('on'); return; }
       if (r._mira > Date.now()) {
         if (!visor.querySelector('.rv-ojo')) visor.innerHTML = '<b class="rv-ojo"></b><b class="rv-ojo"></b>';
@@ -52,6 +60,7 @@
   window.RV = {
     pon: function (r, o) {
       if (!r) return;
+      if (o.figura && o.figura !== (r.dataset.figura || 'costado')) { r.dataset.figura = o.figura; monta(r); }
       if ('modo' in o) { if (o.modo) r.dataset.modo = o.modo; else delete r.dataset.modo; }
       if (o.pose) r.dataset.pose = o.pose;
       if (o.frase) { var b = r.querySelector('.rv-bocadillo'); if (!b) { b = document.createElement('span'); b.className = 'rv-bocadillo'; r.appendChild(b); } b.textContent = o.frase; r._habla && r._habla(o.ms || 3200); }

@@ -50,6 +50,33 @@
 
 @media (max-width:760px){.rv-esquina{--w:66px}.agenda-banner.rv-pegado{margin-top:calc(66px * 1.4)}}
 @media (max-width:420px){.rv:not(.rv-wa){--w:72px}#inicio .rv{--w:62px}.rv-fila{gap:8px}}
+/* Figura de frente: proporciones, articulaciones y visor propios */
+.rv[data-figura="frente"]{aspect-ratio:226/359}
+.rv[data-figura="frente"] .rv-cab,.rv[data-figura="frente"] .rv-cab-in{transform-origin:50% 60%}
+.rv[data-figura="frente"] .rv-brazo{transform-origin:82.3% 66.9%}
+.rv[data-figura="frente"] .rv-brazo2{transform-origin:17.7% 66.9%}
+.rv[data-figura="frente"] .rv-visor,.rv[data-figura="frente"] .rv-parpado{left:20.5%;top:26.6%;width:61.5%;height:17.4%;border-radius:20%/40%}
+.rv[data-figura="frente"] .rv-nube{left:72%;top:-8%}
+.rv[data-figura="frente"]{--brazo:0deg;--cabeza:0deg}
+.rv[data-figura="frente"].rv-dentro .rv-brazo{animation:rvColgado 2.6s ease-in-out .9s infinite}
+.rv[data-figura="frente"].rv-dentro .rv-brazo2{animation:rvColgado2 2.6s ease-in-out infinite}
+@keyframes rvColgado{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg)}}
+@keyframes rvColgado2{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}
+/* Saluda con la mano */
+.rv[data-figura="frente"][data-modo="saluda"].rv-dentro .rv-brazo{animation:rvSaluda 1.1s ease-in-out .9s infinite}
+@keyframes rvSaluda{0%,100%{transform:rotate(-150deg)}50%{transform:rotate(-118deg)}}
+.rv[data-figura="frente"][data-modo="saluda"].rv-dentro .rv-cab-in{animation:rvLadea 2.2s ease-in-out infinite}
+/* Pensando: mano a la barbilla */
+.rv[data-figura="frente"][data-modo="piensa"]{--brazo:146deg;--cabeza:-4deg}
+.rv[data-figura="frente"][data-modo="piensa"] .rv-cab{z-index:auto}
+/* Haciendo cuentas: mano delante del pecho, teclea */
+.rv[data-figura="frente"][data-modo="cuenta"]{--brazo:118deg;--cabeza:8deg}
+/* Bailando: los dos brazos arriba, alternos */
+.rv[data-figura="frente"][data-modo="baila"].rv-dentro .rv-brazo{animation:rvArribaD .45s ease-in-out infinite alternate}
+.rv[data-figura="frente"][data-modo="baila"].rv-dentro .rv-brazo2{animation:rvArribaI .45s ease-in-out infinite alternate}
+@keyframes rvArribaD{from{transform:rotate(-150deg)}to{transform:rotate(-110deg)}}
+@keyframes rvArribaI{from{transform:rotate(110deg)}to{transform:rotate(150deg)}}
+
 /* Movimiento reducido: sin andar, botar ni bailar; mantiene parpadeo, mirada y gestos pequeños */
 @media (prefers-reduced-motion:reduce){.rv .rv-fig,.rv.rv-dentro .rv-fig,.rv[data-modo].rv-dentro .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig,.rv[data-pose="izquierda"].rv-dentro .rv-fig{transform:scaleX(-1)!important}.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out infinite!important}}
 
