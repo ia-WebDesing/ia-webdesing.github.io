@@ -21,6 +21,8 @@
     saluda: ['^‿^', 'HOLA', '^‿^', 'IA']
   };
   GUIONES.piensa.ritmo = 650; GUIONES.cuenta.ritmo = 600; GUIONES.baila.ritmo = 450; GUIONES.saluda.ritmo = 800;
+  // Acciones al azar: [clase, duración en ms, pone cara alegre]
+  var ACCIONES = [['rv-salta', 760, 1], ['rv-agacha', 1320, 0], ['rv-gira', 1100, 0], ['rv-estira', 1420, 0], ['rv-pasos', 1220, 0], ['rv-hola', 1200, 1], ['rv-salta', 760, 1], ['rv-agacha', 1320, 0]];
   var robots = [].slice.call(document.querySelectorAll('.rv'));
   var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -58,12 +60,12 @@
       setTimeout(function () {
         var b = r.getBoundingClientRect();
         if (r.classList.contains('rv-dentro') && b.bottom > 0 && b.top < innerHeight && !document.hidden) {
-          var cls = Math.random() < 0.45 ? 'rv-salta' : 'rv-gira';
-          r.classList.add(cls); setTimeout(function () { r.classList.remove(cls); }, cls === 'rv-salta' ? 760 : 1100);
-          if (cls === 'rv-salta') { alegre = Date.now() + 900; pinta(); }
+          var acc = ACCIONES[Math.floor(Math.random() * ACCIONES.length)];
+          r.classList.add(acc[0]); setTimeout(function () { r.classList.remove(acc[0]); }, acc[1]);
+          if (acc[2]) { alegre = Date.now() + acc[1]; pinta(); }
         }
         vida();
-      }, 6000 + Math.random() * 9000);
+      }, 4500 + Math.random() * 7000);
     })();
     setInterval(pinta, 600);
   });
