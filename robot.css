@@ -103,6 +103,18 @@
 @keyframes rvHolaCostado{from{transform:rotate(-60deg)}to{transform:rotate(-30deg)}}
 .rv.rv-gira .rv-cab{transform:rotate(calc(var(--cabeza) + var(--mira,0deg) - 9deg));transition:transform .3s}
 
+/* Aprendiendo: levanta la mano como quien acaba de entender algo y asiente */
+.rv[data-figura="frente"][data-modo="aprende"].rv-dentro .rv-brazo{animation:rvEureka 3.2s ease-in-out infinite}
+.rv[data-figura="frente"][data-modo="aprende"].rv-dentro .rv-cab-in{animation:rvAsiente 1.6s ease-in-out infinite}
+@keyframes rvEureka{0%,30%,100%{transform:rotate(0)}45%,75%{transform:rotate(-155deg)}55%,65%{transform:rotate(-140deg)}}
+/* Tarjeta de aprendizaje: robot en línea con el título */
+.learning-card:has(> .rv){grid-template-columns:78px minmax(0,1fr)!important;justify-items:start!important;align-items:center!important;text-align:left!important;gap:6px 16px!important}
+.learning-card > .rv{--w:74px;grid-column:1;grid-row:1}
+.learning-card > .rv .rv-bocadillo{left:0;transform:translate(0,6px) scale(.9)}.learning-card > .rv.rv-habla .rv-bocadillo{transform:none}.learning-card > .rv .rv-bocadillo::after{left:26px}
+.learning-card:has(> .rv) .learning-copy{grid-column:2!important;text-align:left!important;margin:0!important}
+.learning-card:has(> .rv) h3{text-align:left!important}
+@media (max-width:620px){.learning-card:has(> .rv){grid-template-columns:62px minmax(0,1fr)!important;align-items:start!important;padding-top:34px}.learning-card > .rv{--w:60px}}
+
 /* Movimiento reducido: sin andar, botar ni bailar; mantiene parpadeo, mirada y gestos pequeños */
 @media (prefers-reduced-motion:reduce){.rv.rv-salta .rv-salto,.rv.rv-agacha .rv-salto,.rv.rv-estira .rv-salto,.rv.rv-pasos .rv-salto{animation:none}.rv .rv-fig,.rv.rv-dentro .rv-fig,.rv[data-modo].rv-dentro .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig,.rv[data-pose="izquierda"].rv-dentro .rv-fig{transform:scaleX(-1)!important}.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out infinite!important}}
 

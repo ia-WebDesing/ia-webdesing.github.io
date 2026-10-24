@@ -18,9 +18,10 @@
     piensa: ['·', '··', '···', '?', '···', 'IA'],
     cuenta: ['2+3', '=5', '45€', '×12', '✓', 'IA'],
     baila: ['♪', '^‿^', '♫', '^‿^'],
-    saluda: ['^‿^', 'HOLA', '^‿^', 'IA']
+    saluda: ['^‿^', 'HOLA', '^‿^', 'IA'],
+    aprende: ['IA', '+1', 'IA↑', '+1', '✓']
   };
-  GUIONES.piensa.ritmo = 650; GUIONES.cuenta.ritmo = 600; GUIONES.baila.ritmo = 450; GUIONES.saluda.ritmo = 800;
+  GUIONES.piensa.ritmo = 650; GUIONES.cuenta.ritmo = 600; GUIONES.baila.ritmo = 450; GUIONES.saluda.ritmo = 800; GUIONES.aprende.ritmo = 900;
   // Acciones al azar: [clase, duración en ms, pone cara alegre]
   var ACCIONES = [['rv-salta', 760, 1], ['rv-agacha', 1320, 0], ['rv-gira', 1100, 0], ['rv-estira', 1420, 0], ['rv-pasos', 1220, 0], ['rv-hola', 1200, 1], ['rv-salta', 760, 1], ['rv-agacha', 1320, 0]];
   // Con «reducir movimiento» solo gestos pequeños: saludar y girar la cabeza
