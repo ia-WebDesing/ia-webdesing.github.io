@@ -53,8 +53,9 @@
         visor.classList.add('on'); return;
       }
       var guion = GUIONES[r.dataset.modo];
-      if (!guion || !r.classList.contains('rv-dentro')) { visor.classList.remove('on'); return; }
-      var v = guion[paso++ % guion.length]; visor.textContent = v; visor.classList.toggle('on', v !== 'IA');
+      var espejo = r.classList.contains('rv-espejo');
+      if (!guion || !r.classList.contains('rv-dentro')) { if (espejo) { visor.textContent = 'IA'; visor.classList.add('on'); } else visor.classList.remove('on'); return; }
+      var v = guion[paso++ % guion.length]; visor.textContent = v; visor.classList.toggle('on', v !== 'IA' || espejo);
     }
     r.addEventListener('mouseenter', function () { alegre = Date.now() + 1500; pinta(); });
     r._pinta = pinta;
@@ -72,6 +73,28 @@
       }, 4500 + Math.random() * 7000);
     })();
     setInterval(pinta, 600);
+  });
+
+  // Robots con objetivos (data-objetivos="selector"): señalan cada objetivo por turnos según dónde esté en pantalla
+  robots.forEach(function (r) {
+    var sel = r.dataset.objetivos; if (!sel) return;
+    var k = 0;
+    function apunta() {
+      var obj = [].slice.call(document.querySelectorAll(sel)).filter(function (o) { var b = o.getBoundingClientRect(); return b.width > 0; });
+      if (!obj.length) return;
+      var rb = r.getBoundingClientRect(), rx = rb.left + rb.width / 2;
+      // Objetivos a la vista, de derecha a izquierda
+      var todos = obj.map(function (o) { var b = o.getBoundingClientRect(); return { x: b.left + b.width / 2, y: b.top }; });
+      // La primera fila que hay debajo del robot (lo que acompaña); si no, todos
+      var debajo = todos.filter(function (p) { return p.y > rb.top - rb.height; });
+      var y0 = debajo.length ? Math.min.apply(null, debajo.map(function (p) { return p.y; })) : 0;
+      var vis = (debajo.length ? debajo.filter(function (p) { return p.y < y0 + 80; }) : todos).sort(function (a, b) { return b.x - a.x; });
+      if (!vis.length) return;
+      var lados = vis.filter(function (p, i) { return i === 0 || Math.abs(p.x - vis[0].x) > 60; });
+      var p = lados[k++ % lados.length] || vis[0];
+      r.classList.toggle('rv-espejo', p.x < rx - 40); r._pinta && r._pinta();
+    }
+    apunta(); setInterval(apunta, 3200); addEventListener('resize', apunta);
   });
 
   // API para cambiar de expresión desde la página (la demo la usa para acompañar cada paso)

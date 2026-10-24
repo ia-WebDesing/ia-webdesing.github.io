@@ -115,6 +115,15 @@
 .learning-card:has(> .rv) h3{text-align:left!important}
 @media (max-width:620px){.learning-card:has(> .rv){grid-template-columns:62px minmax(0,1fr)!important;align-items:start!important;padding-top:34px}.learning-card > .rv{--w:60px}}
 
+/* Espejo para señalar a la izquierda sin tocar las animaciones (propiedad scale independiente) */
+.rv .rv-fig{transition:scale .35s ease-in-out}
+.rv.rv-espejo .rv-fig{scale:-1 1}
+/* En espejo el visor se vuelve a girar para que «IA» se lea bien */
+.rv.rv-espejo .rv-visor{scale:-1 1}
+.rv-fila .rv.rv-espejo .rv-bocadillo,.rv-esquina.rv-espejo .rv-bocadillo{left:auto;right:0;transform:translate(0,6px) scale(.9)}
+.rv-fila .rv.rv-espejo.rv-habla .rv-bocadillo,.rv-esquina.rv-espejo.rv-habla .rv-bocadillo{transform:none}
+.rv-fila .rv.rv-espejo .rv-bocadillo::after,.rv-esquina.rv-espejo .rv-bocadillo::after{left:auto;right:24px;transform:none}
+
 /* Movimiento reducido: sin andar, botar ni bailar; mantiene parpadeo, mirada y gestos pequeños */
 @media (prefers-reduced-motion:reduce){.rv.rv-salta .rv-salto,.rv.rv-agacha .rv-salto,.rv.rv-estira .rv-salto,.rv.rv-pasos .rv-salto{animation:none}.rv .rv-fig,.rv.rv-dentro .rv-fig,.rv[data-modo].rv-dentro .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig,.rv[data-pose="izquierda"].rv-dentro .rv-fig{transform:scaleX(-1)!important}.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out infinite!important}}
 
@@ -165,7 +174,7 @@
 
 /* Mirada: dos ojos en el visor que siguen al cursor */
 .rv-visor .rv-ojo{display:block;width:17%;height:46%;margin:0 7%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#e9f6ff 0 18%,#8fd0ff 30%,#3d8dff 100%);box-shadow:0 0 6px #4aa8ff,0 0 12px #2f7dff;transform:translate(var(--ox,0),var(--oy,0));transition:transform .12s ease-out}
-body{overflow-x:clip}
+html,body{overflow-x:clip}
 
 /* «Tu asistente se paga solo» (bajo la calculadora de packs) */
 .wa-paga{margin-top:16px;padding:16px 16px 12px;border:1px solid rgba(197,161,90,.45);border-radius:15px;background:linear-gradient(160deg,rgba(23,59,120,.22),rgba(10,15,23,.6))}
@@ -203,3 +212,10 @@ body{overflow-x:clip}
 @keyframes heroWaBrillo{0%,100%{box-shadow:0 0 0 0 rgba(234,213,168,0)}50%{box-shadow:0 0 18px 2px rgba(234,213,168,.45)}}
 .hero-wa-btn::before{content:"";position:absolute;inset:-14px -8px}
 @media (prefers-reduced-motion:reduce){.hero-wa-btn{animation:none}}
+
+/* Los bocadillos ocultos no ocupan sitio (evita que el móvil ensanche la página y desplace el botón de WhatsApp) */
+.rv:not(.rv-habla) .rv-bocadillo{display:none}
+.rv.rv-habla .rv-bocadillo{animation:rvBocadillo .25s ease-out}
+@keyframes rvBocadillo{from{opacity:0}to{opacity:1}}
+/* Portada en móvil: primero el botón y luego el robot, que lo señala hacia atrás */
+@media (max-width:620px){#inicio .rv-fila > a.button:first-of-type{order:0}#inicio .rv-fila > .rv{order:1}#inicio .rv-fila > a.button.outline{order:2}}
