@@ -126,6 +126,14 @@
   var ultY = scrollY, paro;
   addEventListener('scroll', function () {
     var baja = scrollY > ultY; ultY = scrollY;
+    // El robot del logo acompaña despacio: mira hacia donde va la página
+    robots.forEach(function (r) {
+      if (!r.classList.contains('rv-logo')) return;
+      r.style.setProperty('--mira', (baja ? 6 : -4) + 'deg');
+      r.style.setProperty('--ox', '0px'); r.style.setProperty('--oy', (baja ? 1.8 : -1.8) + 'px');
+      r._mira = Date.now() + 1800; r._pinta();
+      clearTimeout(r._vuelveMira); r._vuelveMira = setTimeout(function () { r.style.setProperty('--mira', '0deg'); }, 1800);
+    });
     if (!matchMedia('(pointer: fine)').matches) mira(innerWidth / 2, baja ? innerHeight * 1.4 : -innerHeight * 0.4, 1200);
     clearTimeout(paro);
     paro = setTimeout(function () {
