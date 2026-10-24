@@ -23,6 +23,8 @@
   GUIONES.piensa.ritmo = 650; GUIONES.cuenta.ritmo = 600; GUIONES.baila.ritmo = 450; GUIONES.saluda.ritmo = 800;
   // Acciones al azar: [clase, duración en ms, pone cara alegre]
   var ACCIONES = [['rv-salta', 760, 1], ['rv-agacha', 1320, 0], ['rv-gira', 1100, 0], ['rv-estira', 1420, 0], ['rv-pasos', 1220, 0], ['rv-hola', 1200, 1], ['rv-salta', 760, 1], ['rv-agacha', 1320, 0]];
+  // Con «reducir movimiento» solo gestos pequeños: saludar y girar la cabeza
+  var SUAVES = [['rv-hola', 1200, 1], ['rv-gira', 1100, 0]];
   var robots = [].slice.call(document.querySelectorAll('.rv'));
   var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -57,11 +59,11 @@
     r._pinta = pinta;
     r._alegre = function (ms) { alegre = Date.now() + (ms || 900); pinta(); };
     // De vez en cuando, cada robot hace algo por su cuenta: salta o gira la cabeza
-    if (!reducido) (function vida() {
+    (function vida() {
       setTimeout(function () {
         var b = r.getBoundingClientRect();
         if (r.classList.contains('rv-dentro') && b.bottom > 0 && b.top < innerHeight && !document.hidden) {
-          var acc = ACCIONES[Math.floor(Math.random() * ACCIONES.length)];
+          var lista = reducido ? SUAVES : ACCIONES, acc = lista[Math.floor(Math.random() * lista.length)];
           r.classList.add(acc[0]); setTimeout(function () { r.classList.remove(acc[0]); }, acc[1]);
           if (acc[2]) { alegre = Date.now() + acc[1]; pinta(); }
         }
@@ -126,11 +128,10 @@
     var baja = scrollY > ultY; ultY = scrollY;
     if (!matchMedia('(pointer: fine)').matches) mira(innerWidth / 2, baja ? innerHeight * 1.4 : -innerHeight * 0.4, 1200);
     clearTimeout(paro);
-    if (reducido) return;
     paro = setTimeout(function () {
       var vis = robots.filter(function (r) { var b = r.getBoundingClientRect(); return r.classList.contains('rv-dentro') && b.top > 40 && b.bottom < innerHeight - 20; });
       var r = vis[Math.floor(Math.random() * vis.length)]; if (!r || r._ocupado) return;
-      var acc = ['rv-salta', 'rv-hola', 'rv-agacha', 'rv-salta', 'rv-pasos'][Math.floor(Math.random() * 5)];
+      var acc = reducido ? 'rv-hola' : ['rv-salta', 'rv-hola', 'rv-agacha', 'rv-salta', 'rv-pasos'][Math.floor(Math.random() * 5)];
       r._ocupado = true; r.classList.add(acc); r._alegre && r._alegre(900);
       setTimeout(function () { r.classList.remove(acc); r._ocupado = false; }, 1300);
     }, 450);
