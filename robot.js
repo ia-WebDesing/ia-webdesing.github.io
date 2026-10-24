@@ -55,6 +55,7 @@
     }
     r.addEventListener('mouseenter', function () { alegre = Date.now() + 1500; pinta(); });
     r._pinta = pinta;
+    r._alegre = function (ms) { alegre = Date.now() + (ms || 900); pinta(); };
     // De vez en cuando, cada robot hace algo por su cuenta: salta o gira la cabeza
     if (!reducido) (function vida() {
       setTimeout(function () {
@@ -93,29 +94,56 @@
     robots.forEach(function (r) { io.observe(r); });
   } else robots.forEach(function (r) { r.classList.add('rv-dentro'); });
 
-  // La cabeza sigue un poco al cursor (solo con ratón)
-  if (matchMedia('(pointer: fine)').matches) {
-    var pend = false, mx = 0, my = 0;
-    addEventListener('mousemove', function (ev) {
-      mx = ev.clientX; my = ev.clientY;
-      if (pend) return; pend = true;
+  // Mirada: sigue al cursor (ordenador), al dedo y al desplazamiento (móvil) y a la inclinación (Android)
+  var pend = false, mx = 0, my = 0;
+  function mira(x, y, dura) {
+    mx = x; my = y;
+    if (pend) return; pend = true;
+    requestAnimationFrame(function () {
+      pend = false;
+      robots.forEach(function (r) {
+        if (!r.classList.contains('rv-dentro')) return;
+        var b = r.getBoundingClientRect(); if (b.bottom < 0 || b.top > innerHeight) return;
+        var cx = b.left + b.width * 0.47, cy = b.top + b.height * 0.3;
+        var dx = mx - cx, dy = my - cy;
+        if (r.dataset.pose === 'izquierda') dx = -dx;
+        var ang = Math.max(-7, Math.min(7, Math.atan2(dy, Math.abs(dx) + 60) * 180 / Math.PI * 0.25));
+        if (dx < 0) ang = -ang * 0.5;
+        r.style.setProperty('--mira', ang.toFixed(1) + 'deg');
+        var dist = Math.hypot(dx, dy) || 1;
+        r.style.setProperty('--ox', (dx / dist * 3.2).toFixed(2) + 'px');
+        r.style.setProperty('--oy', (dy / dist * 1.8).toFixed(2) + 'px');
+        r._mira = Date.now() + (dura || 1600); r._pinta();
+      });
+    });
+  }
+  if (matchMedia('(pointer: fine)').matches) addEventListener('mousemove', function (ev) { mira(ev.clientX, ev.clientY); }, { passive: true });
+  // Móvil: miran al dedo
+  addEventListener('touchstart', function (ev) { var t = ev.touches[0]; if (t) mira(t.clientX, t.clientY, 2200); }, { passive: true });
+  // Móvil y ordenador: al desplazarse miran hacia donde va la página y, al parar, el robot en pantalla saluda
+  var ultY = scrollY, paro;
+  addEventListener('scroll', function () {
+    var baja = scrollY > ultY; ultY = scrollY;
+    if (!matchMedia('(pointer: fine)').matches) mira(innerWidth / 2, baja ? innerHeight * 1.4 : -innerHeight * 0.4, 1200);
+    clearTimeout(paro);
+    if (reducido) return;
+    paro = setTimeout(function () {
+      var vis = robots.filter(function (r) { var b = r.getBoundingClientRect(); return r.classList.contains('rv-dentro') && b.top > 40 && b.bottom < innerHeight - 20; });
+      var r = vis[Math.floor(Math.random() * vis.length)]; if (!r || r._ocupado) return;
+      var acc = ['rv-salta', 'rv-hola', 'rv-agacha', 'rv-salta', 'rv-pasos'][Math.floor(Math.random() * 5)];
+      r._ocupado = true; r.classList.add(acc); r._alegre && r._alegre(900);
+      setTimeout(function () { r.classList.remove(acc); r._ocupado = false; }, 1300);
+    }, 450);
+  }, { passive: true });
+  // Android: se inclinan un poco con el móvil (en iPhone haría falta pedir permiso; no se pide)
+  if (!reducido && window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+    var pendI = false;
+    addEventListener('deviceorientation', function (e) {
+      if (e.gamma == null || pendI) return; pendI = true;
       requestAnimationFrame(function () {
-        pend = false;
-        robots.forEach(function (r) {
-          if (!r.classList.contains('rv-dentro')) return;
-          var b = r.getBoundingClientRect(); if (b.bottom < 0 || b.top > innerHeight) return;
-          var cx = b.left + b.width * 0.47, cy = b.top + b.height * 0.3;
-          var dx = mx - cx, dy = my - cy;
-          if (r.dataset.pose === 'izquierda') dx = -dx;
-          var ang = Math.max(-7, Math.min(7, Math.atan2(dy, Math.abs(dx) + 60) * 180 / Math.PI * 0.25));
-          if (dx < 0) ang = -ang * 0.5;
-          r.style.setProperty('--mira', ang.toFixed(1) + 'deg');
-          // Ojos: se desplazan hacia el cursor dentro del visor
-          var dist = Math.hypot(dx, dy) || 1;
-          r.style.setProperty('--ox', (dx / dist * 3.2).toFixed(2) + 'px');
-          r.style.setProperty('--oy', (dy / dist * 1.8).toFixed(2) + 'px');
-          r._mira = Date.now() + 1600; r._pinta();
-        });
+        pendI = false;
+        var g = Math.max(-25, Math.min(25, e.gamma));
+        robots.forEach(function (r) { r.style.setProperty('--incl', (g * 0.18).toFixed(1) + 'deg'); });
       });
     }, { passive: true });
   }

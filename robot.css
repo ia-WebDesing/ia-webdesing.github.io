@@ -81,6 +81,7 @@
 .rv[data-figura="frente"]:not([data-modo]).rv-dentro .rv-cab-in{animation:rvMiraAlrededor 5.5s ease-in-out infinite}
 @keyframes rvMiraAlrededor{0%,100%{transform:rotate(0)}18%{transform:rotate(-6deg)}30%{transform:rotate(-6deg)}48%{transform:rotate(5deg)}62%{transform:rotate(5deg)}80%{transform:rotate(0)}}
 .rv .rv-salto{position:absolute;inset:0}
+.rv-salto{rotate:var(--incl,0deg);transform-origin:50% 100%;transition:rotate .25s ease-out}
 .rv.rv-salta .rv-salto{animation:rvSalto .75s cubic-bezier(.3,.7,.4,1)}
 @keyframes rvSalto{0%{transform:translateY(0) scaleY(1)}15%{transform:translateY(0) scale(1.06,.9)}45%{transform:translateY(-28%) scale(.96,1.06)}75%{transform:translateY(0) scale(1.07,.92)}100%{transform:none}}
 /* Se agacha: flexiona (aplasta desde los pies), baja la cabeza y vuelve a subir */
