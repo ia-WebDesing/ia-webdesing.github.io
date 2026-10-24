@@ -172,12 +172,12 @@ body{overflow-x:clip}
 .brand-vivo{display:flex!important;align-items:center;gap:2.5%;filter:none!important}
 .brand-vivo .rv-logo{--w:14.5%;flex:0 0 var(--w);cursor:default}
 .brand-vivo .rv-logo .rv-fig{opacity:1;transform:none}
-.rv-logo.rv-dentro .rv-fig{animation:rvMecer 7s ease-in-out infinite,rvBrillo 6s ease-in-out 1s infinite!important}
-.rv-logo.rv-dentro .rv-cab-in{animation:rvMiraLenta 9s ease-in-out infinite!important}
-.rv-logo.rv-dentro .rv-brazo{animation:rvBrazoLento 6.5s ease-in-out infinite!important}
-.rv-logo.rv-dentro .rv-brazo2{animation:rvBrazoLento2 6.5s ease-in-out infinite!important}
-.rv-logo .rv-cab{transition:transform 1.4s ease-in-out}
-.rv-logo .rv-ojo{transition:transform .9s ease-in-out}
+.rv-logo.rv-dentro .rv-fig{animation:rvMecer 4.4s ease-in-out infinite,rvBrillo 5s ease-in-out 1s infinite!important}
+.rv-logo.rv-dentro .rv-cab-in{animation:rvMiraLenta 5.6s ease-in-out infinite!important}
+.rv-logo.rv-dentro .rv-brazo{animation:rvBrazoLento 3.9s ease-in-out infinite!important}
+.rv-logo.rv-dentro .rv-brazo2{animation:rvBrazoLento2 4.3s ease-in-out infinite!important}
+.rv-logo .rv-cab{transition:transform .8s ease-in-out}
+.rv-logo .rv-ojo{transition:transform .45s ease-in-out}
 @keyframes rvMecer{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-2deg) translateY(-1px)}50%{transform:rotate(0) translateY(0)}75%{transform:rotate(2deg) translateY(-1px)}}
 @keyframes rvMiraLenta{0%,100%{transform:rotate(0)}20%,32%{transform:rotate(-5deg)}52%,64%{transform:rotate(4deg)}82%{transform:rotate(0)}}
 @keyframes rvBrazoLento{0%,100%{transform:rotate(0)}50%{transform:rotate(-8deg)}}
