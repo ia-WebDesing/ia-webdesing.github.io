@@ -578,9 +578,10 @@ img { height:auto; }
 <p class="wa-small">Precio mensual del mantenimiento. Cada bloque de 1.000 mensajes más suma 25 €/mes, y siempre te avisamos antes. La atención por tu web, email y Telegram no tiene límite. Las tarifas de WhatsApp las fija Meta; si cambian, te lo comunicamos con antelación.</p></div>
 <div class="wa-calc" aria-label="Calculadora de mensajes"><strong>Calcula tu caso</strong>
 <div class="wa-calc-row"><label>Chats al día <input id="waChats" type="number" min="0" max="2000" value="15" inputmode="numeric"></label>
-<label>Pack <select id="waPack"><option value="45|1000">Autónomo</option><option value="75|2000" selected>Negocio</option><option value="149|4000">Pyme</option></select></label></div>
+<label>Pack <select id="waPack"><option value="45|1000">Autónomo</option><option value="75|2000" selected>Negocio</option><option value="149|4000">Pyme</option></select></label>
+<label>Ticket medio de una venta (€) <input id="waTicket" type="number" min="1" max="100000" value="30" inputmode="numeric"></label></div>
 <p id="waResultado" class="wa-result" aria-live="polite"></p>
-<p class="wa-small">Atención 24/7: 30 días al mes, unas 1,5 respuestas y medio recordatorio por conversación.</p></div>
+<p class="wa-small">Atención 24/7: 30 días al mes, unas 1,5 respuestas y medio recordatorio por conversación. «Ventas extra» = clientes que, sin respuesta rápida, se habrían ido a otro sitio.</p></div>
 </div>
 </div>
 </section><section class="final-cta" id="contacto">
@@ -660,12 +661,14 @@ img { height:auto; }
 })();
 </script>
 <script>
-(function(){var c=document.getElementById('waChats'),p=document.getElementById('waPack'),r=document.getElementById('waResultado');if(!c||!p||!r)return;
+(function(){var c=document.getElementById('waChats'),p=document.getElementById('waPack'),t=document.getElementById('waTicket'),r=document.getElementById('waResultado');if(!c||!p||!r)return;
 var nf;try{nf=new Intl.NumberFormat('es-ES',{useGrouping:'always'})}catch(e){nf=new Intl.NumberFormat('es-ES')}function fmt(n){return nf.format(n)}
 function calc(){var chats=Math.max(0,Math.min(2000,parseInt(c.value,10)||0));var v=p.value.split('|'),base=+v[0],inc=+v[1];
 var msgs=Math.round(chats*30*2);var bloques=Math.max(0,Math.ceil((msgs-inc)/1000));var total=base+bloques*25;
-r.innerHTML='≈ <b>'+fmt(msgs)+' mensajes al mes</b>. '+(bloques?'Tu mantenimiento: <b>'+fmt(total)+' €/mes</b> ('+bloques+' bloque'+(bloques>1?'s':'')+' de 1.000 añadido'+(bloques>1?'s':'')+').':'Tu mantenimiento: <b>'+fmt(base)+' €/mes</b>, dentro de lo incluido.');}
-c.addEventListener('input',calc);p.addEventListener('change',calc);calc();})();
+r.innerHTML='≈ <b>'+fmt(msgs)+' mensajes al mes</b>. '+(bloques?'Tu mantenimiento: <b>'+fmt(total)+' €/mes</b> ('+bloques+' bloque'+(bloques>1?'s':'')+' de 1.000 añadido'+(bloques>1?'s':'')+').':'Tu mantenimiento: <b>'+fmt(base)+' €/mes</b>, dentro de lo incluido.');
+var tk=Math.max(1,parseInt(t&&t.value,10)||30),ventas=Math.ceil(total/tk),pct=chats?Math.max(1,Math.ceil(ventas*100/(chats*30))):0;
+r.innerHTML+='<br>Con un ticket medio de '+fmt(tk)+' €, te bastan <b>'+fmt(ventas)+' venta'+(ventas>1?'s':'')+' extra al mes</b> para cubrir tu cuota'+(chats?' (menos del '+pct+' % de tus chats)':'')+'. <b>Tu pack se paga solo.</b>';}
+c.addEventListener('input',calc);p.addEventListener('change',calc);if(t)t.addEventListener('input',calc);calc();})();
 </script>
 </body>
 </html>
