@@ -50,7 +50,8 @@
 
 @media (max-width:760px){.rv-esquina{--w:66px}.agenda-banner.rv-pegado{margin-top:calc(66px * 1.4)}}
 @media (max-width:420px){.rv:not(.rv-wa){--w:72px}#inicio .rv{--w:62px}.rv-fila{gap:8px}}
-@media (prefers-reduced-motion:reduce){.rv .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig{transform:scaleX(-1)}.rv *{animation:none!important}}
+/* Movimiento reducido: sin andar, botar ni bailar; mantiene parpadeo, mirada y gestos pequeños */
+@media (prefers-reduced-motion:reduce){.rv .rv-fig,.rv.rv-dentro .rv-fig,.rv[data-modo].rv-dentro .rv-fig{opacity:1;transform:none;animation:none!important}.rv[data-pose="izquierda"] .rv-fig,.rv[data-pose="izquierda"].rv-dentro .rv-fig{transform:scaleX(-1)!important}.rv[data-modo="baila"].rv-dentro .rv-brazo{animation:rvSenala 1.25s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-brazo2{animation:rvBalanceo 2.5s ease-in-out infinite!important}.rv[data-modo="baila"].rv-dentro .rv-cab-in{animation:rvAsiente 2.5s ease-in-out infinite!important}}
 
 /* Pantalla del visor: expresiones */
 .rv-visor{position:absolute;left:39%;top:23.4%;width:32.4%;height:15.6%;border-radius:22%/38%;background:linear-gradient(#16244a,#0f1a38);display:flex;align-items:center;justify-content:center;color:#8fd0ff;font:700 calc(var(--w)*.13)/1 "Inter",system-ui,sans-serif;letter-spacing:.04em;text-shadow:0 0 4px #4aa8ff,0 0 9px #2f7dff;opacity:0;transition:opacity .18s;white-space:nowrap;overflow:hidden}

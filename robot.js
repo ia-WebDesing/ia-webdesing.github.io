@@ -57,9 +57,8 @@
       if (o.frase) { var b = r.querySelector('.rv-bocadillo'); if (!b) { b = document.createElement('span'); b.className = 'rv-bocadillo'; r.appendChild(b); } b.textContent = o.frase; r._habla && r._habla(o.ms || 3200); }
     }
   };
-  if (reducido) { robots.forEach(function (r) { r.classList.add('rv-dentro'); }); return; }
-
-  if ('IntersectionObserver' in window) {
+  if (reducido) robots.forEach(function (r) { r.classList.add('rv-dentro'); });
+  else if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (e.isIntersecting && !e.target.classList.contains('rv-dentro')) {
