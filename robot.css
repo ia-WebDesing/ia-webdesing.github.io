@@ -5,6 +5,8 @@
 .rv-fig{position:absolute;inset:0;transform-origin:50% 100%;opacity:0;transform:translateX(-26px)}
 .rv[data-pose="izquierda"] .rv-fig{transform:scaleX(-1) translateX(-26px)}
 .rv-fig img,.rv-cab,.rv-cab-in{position:absolute;inset:0;width:100%;height:100%}
+/* Las piezas del robot no heredan bordes, sombras ni marcos de las imágenes de la página */
+.rv img{border:0!important;border-radius:0!important;box-shadow:none!important;background:none!important;padding:0!important;margin:0!important;max-width:none!important;outline:0!important;filter:none;object-fit:fill!important;aspect-ratio:auto!important}
 .rv-cab,.rv-cab-in{transform-origin:47.3% 51.6%}
 .rv-cab{transform:rotate(calc(var(--cabeza) + var(--mira,0deg)));transition:transform .35s ease-out}
 .rv-brazo{transform-origin:63.3% 55.1%;transform:rotate(var(--brazo))}
@@ -152,3 +154,24 @@
 /* Mirada: dos ojos en el visor que siguen al cursor */
 .rv-visor .rv-ojo{display:block;width:17%;height:46%;margin:0 7%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#e9f6ff 0 18%,#8fd0ff 30%,#3d8dff 100%);box-shadow:0 0 6px #4aa8ff,0 0 12px #2f7dff;transform:translate(var(--ox,0),var(--oy,0));transition:transform .12s ease-out}
 body{overflow-x:clip}
+
+/* «Tu asistente se paga solo» (bajo la calculadora de packs) */
+.wa-paga{margin-top:16px;padding:16px 16px 12px;border:1px solid rgba(197,161,90,.45);border-radius:15px;background:linear-gradient(160deg,rgba(23,59,120,.22),rgba(10,15,23,.6))}
+.wa-paga-cab{display:flex;gap:14px;align-items:center}
+.wa-paga-cab .rv{--w:78px}
+.wa-paga-cab strong{display:block;color:var(--gold-light,#ead5a8);font-size:1.15rem;margin:0 0 4px}
+.wa-paga-cab p{margin:0;color:var(--muted,#c1c8d1)}
+.wa-paga-cab b{color:var(--gold-light,#ead5a8);font-size:1.1em}
+.wa-paga-lista{list-style:none;margin:14px 0 8px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.wa-paga-lista li{padding:12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.03)}
+.wa-paga-lista b{display:block;color:var(--white,#f8f8f6);margin-bottom:4px}
+.wa-paga-lista span{color:var(--muted,#c1c8d1);font-size:.9rem;line-height:1.45}
+@media (max-width:760px){.wa-paga-lista{grid-template-columns:1fr}.wa-paga-cab .rv{--w:64px}}
+
+/* Logo de la cabecera: robot vivo + texto */
+.brand-vivo{display:flex!important;align-items:center;gap:2.5%;filter:none!important}
+.brand-vivo .rv-logo{--w:14.5%;flex:0 0 var(--w);cursor:default}
+.brand-vivo .rv-logo .rv-fig{opacity:1;transform:none}
+.rv-logo.rv-dentro .rv-fig{animation:rvRespira 3.2s ease-in-out infinite,rvBrillo 4s ease-in-out 1s infinite!important}
+.brand-vivo .brand-texto{flex:1 1 auto;width:83%;height:auto;display:block;filter:drop-shadow(0 5px 16px rgba(0,0,0,.35))}
+.brand-vivo .rv-visor{font-size:7px}

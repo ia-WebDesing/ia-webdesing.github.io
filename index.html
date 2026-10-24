@@ -474,7 +474,7 @@ img { height:auto; }
 <button aria-controls="site-header" aria-expanded="true" aria-label="Abrir el menú de navegación" class="header-reopen-tab" id="header-reopen-tab" type="button"><span aria-hidden="true">☰</span><span>Menú</span><span aria-hidden="true">⌄</span></button>
 <header class="site-header" id="site-header">
 <div class="wrap nav">
-<a aria-label="WebDesign, inicio" class="brand" href="#inicio"><img decoding="async" width="620" height="143" alt="Logo WebDesign" class="brand-logo" src="logo-ia-webdesign.webp"/></a>
+<a aria-label="WebDesign, inicio" class="brand" href="#inicio"><span class="brand-logo brand-vivo" role="img" aria-label="Logo WebDesign"><span class="rv rv-logo" data-pose="derecha" data-figura="frente"></span><img decoding="async" width="516" height="89" alt="" class="brand-texto" src="logo-texto.webp"/></span></a>
 <nav aria-label="Navegación principal" class="nav-links"><a href="#soluciones">Cómo te ayuda</a><a href="#promociones">Agenda y comunicación</a><a href="#visibilidad">Análisis y presencia digital</a><a href="#sectores">Sectores</a><a href="#packs">Planes y packs</a><a href="preguntas-frecuentes.html">Preguntas frecuentes</a><a class="button" href="modo-de-prueba.html" aria-label="Probar ChatWeb, la demo del asistente de IA">Prueba ChatWeb</a></nav>
 </div>
 </header>
@@ -588,7 +588,7 @@ img { height:auto; }
 <div class="wa-calc-row"><label>Chats al día <input id="waChats" type="number" min="0" max="2000" value="15" inputmode="numeric" enterkeyhint="done"></label>
 <label>Pack <select id="waPack"><option value="45|1000">Autónomo</option><option value="75|2000" selected>Negocio</option><option value="149|4000">Pyme</option></select></label>
 <label>Ticket medio de una venta (€) <input id="waTicket" type="number" min="1" max="100000" value="30" inputmode="numeric" enterkeyhint="done"></label></div>
-<p id="waResultado" class="wa-result" aria-live="polite"></p>
+<p id="waResultado" class="wa-result" aria-live="polite"></p><div class="wa-paga" id="waPaga"><div class="wa-paga-cab"><span class="rv" data-pose="derecha" data-modo="baila" data-frase="¡Se paga solo!" data-figura="frente"></span><div><strong>Tu asistente se paga solo</strong><p>Con todo lo que incluye tu pack, cada mes te basta con <b id="waPagaN">3</b> clientes que lleguen por cualquiera de estas tres vías:</p></div></div><ul class="wa-paga-lista"><li><b>Clientes que no pierdes</b><span>Responde al momento, también de noche y en festivos: quien te escribe a las 23:00 ya no se va a otro sitio.</span></li><li><b>Clientes que ganas</b><span>Avisa de novedades y promociones a quien ya mostró interés, con su permiso, y sin gastar en anuncios.</span></li><li><b>Agenda sin huecos</b><span>Recordatorios que reducen las ausencias y aviso de huecos libres a los clientes interesados.</span></li></ul><p class="wa-small">Y además: soporte, mejoras, copias de seguridad, vigilancia 24/7 e informes de actividad. Ejemplo orientativo con tus datos; no garantizamos resultados concretos.</p></div>
 <p class="wa-small">Atención 24/7: 30 días al mes, unas 1,5 respuestas y medio recordatorio por conversación. «Ventas extra» = clientes que, sin respuesta rápida, se habrían ido a otro sitio.</p></div>
 </div><div aria-label="Comparativa detallada de servicios incluidos en los tres packs" class="pack-compare">
 <div class="pack-compare-head"><div class="eyebrow">Comparativa completa de servicios</div><h3>Todo lo que ofrece cada pack</h3><p>Funciones explicadas sin tecnicismos, para que puedas comparar de un vistazo.</p></div>
@@ -700,7 +700,7 @@ function calc(){var chats=Math.max(0,Math.min(2000,parseInt(c.value,10)||0));var
 var msgs=Math.round(chats*30*2);var bloques=Math.max(0,Math.ceil((msgs-inc)/1000));var total=base+bloques*25;
 r.innerHTML='≈ <b>'+fmt(msgs)+' mensajes al mes</b>. '+(bloques?'Tu mantenimiento: <b>'+fmt(total)+' €/mes</b> ('+bloques+' bloque'+(bloques>1?'s':'')+' de 1.000 añadido'+(bloques>1?'s':'')+').':'Tu mantenimiento: <b>'+fmt(base)+' €/mes</b>, dentro de lo incluido.');
 var tk=Math.max(1,parseInt(t&&t.value,10)||30),ventas=Math.ceil(total/tk),pct=chats?Math.max(1,Math.ceil(ventas*100/(chats*30))):0;
-r.innerHTML+='<br>Con un ticket medio de '+fmt(tk)+' €, te bastan <b>'+fmt(ventas)+' venta'+(ventas>1?'s':'')+' extra al mes</b> para cubrir tu cuota'+(chats?' (menos del '+pct+' % de tus chats)':'')+'. <b>Tu pack se paga solo.</b>';}
+r.innerHTML+='<br>Con un ticket medio de '+fmt(tk)+' €, te bastan <b>'+fmt(ventas)+' venta'+(ventas>1?'s':'')+' extra al mes</b> para cubrir tu cuota'+(chats?' (menos del '+pct+' % de tus chats)':'')+'. <b>Tu pack se paga solo.</b>';var n=document.getElementById('waPagaN');if(n)n.textContent=fmt(ventas);}
 c.addEventListener('input',calc);document.addEventListener('touchstart',function(e){var a=document.activeElement;if(a&&(a===c||a===t)&&!e.target.closest('.wa-calc-row label'))a.blur();},{passive:true});[c,t].forEach(function(el){if(el)el.addEventListener('keydown',function(e){if(e.key==='Enter')el.blur();});});p.addEventListener('change',calc);if(t)t.addEventListener('input',calc);calc();})();
 </script>
 <script src="robot.js" defer></script>

@@ -63,7 +63,7 @@
       setTimeout(function () {
         var b = r.getBoundingClientRect();
         if (r.classList.contains('rv-dentro') && b.bottom > 0 && b.top < innerHeight && !document.hidden) {
-          var lista = reducido ? SUAVES : ACCIONES, acc = lista[Math.floor(Math.random() * lista.length)];
+          var lista = (reducido || r.classList.contains('rv-logo')) ? SUAVES : ACCIONES, acc = lista[Math.floor(Math.random() * lista.length)];
           r.classList.add(acc[0]); setTimeout(function () { r.classList.remove(acc[0]); }, acc[1]);
           if (acc[2]) { alegre = Date.now() + acc[1]; pinta(); }
         }
@@ -129,7 +129,7 @@
     if (!matchMedia('(pointer: fine)').matches) mira(innerWidth / 2, baja ? innerHeight * 1.4 : -innerHeight * 0.4, 1200);
     clearTimeout(paro);
     paro = setTimeout(function () {
-      var vis = robots.filter(function (r) { var b = r.getBoundingClientRect(); return r.classList.contains('rv-dentro') && b.top > 40 && b.bottom < innerHeight - 20; });
+      var vis = robots.filter(function (r) { var b = r.getBoundingClientRect(); return !r.classList.contains('rv-logo') && r.classList.contains('rv-dentro') && b.top > 40 && b.bottom < innerHeight - 20; });
       var r = vis[Math.floor(Math.random() * vis.length)]; if (!r || r._ocupado) return;
       var acc = reducido ? 'rv-hola' : ['rv-salta', 'rv-hola', 'rv-agacha', 'rv-salta', 'rv-pasos'][Math.floor(Math.random() * 5)];
       r._ocupado = true; r.classList.add(acc); r._alegre && r._alegre(900);
