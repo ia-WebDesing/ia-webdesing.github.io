@@ -236,3 +236,5 @@ html,body{overflow-x:clip}
 .rv-duo .rv .rv-bocadillo{left:0;transform:translate(0,6px) scale(.9)}
 .rv-duo .rv.rv-habla .rv-bocadillo{transform:none}
 @media (max-width:760px){.wa-paga-cab .rv-duo .rv{--w:58px}.wa-paga-cab{gap:10px}}
+.wa-paga-cab .rv .rv-bocadillo{left:0;transform:translate(0,6px) scale(.9)}
+.wa-paga-cab .rv.rv-habla .rv-bocadillo{transform:none}
