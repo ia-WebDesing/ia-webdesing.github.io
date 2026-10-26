@@ -219,3 +219,20 @@ html,body{overflow-x:clip}
 @keyframes rvBocadillo{from{opacity:0}to{opacity:1}}
 /* Portada en móvil: primero el botón y luego el robot, que lo señala hacia atrás */
 @media (max-width:620px){#inicio .rv-fila > a.button:first-of-type{order:0}#inicio .rv-fila > .rv{order:1}#inicio .rv-fila > a.button.outline{order:2}}
+/* Meneo: baile de lado a lado, de pie, con las «patitas» delante (como el sticker viral). Dos robots en .rv-duo bailan a la vez. */
+.rv-duo{display:inline-flex;gap:2px;flex:0 0 auto;align-items:flex-end}
+.rv-duo .rv-pareja{margin-left:-14px}
+.rv[data-modo="meneo"].rv-dentro .rv-fig{animation:rvLlega .9s cubic-bezier(.3,1.4,.5,1) forwards,rvMeneo 1.2s ease-in-out .9s infinite,rvBrillo 4s ease-in-out 1s infinite}
+.rv[data-modo="meneo"][data-pose="izquierda"].rv-dentro .rv-fig{animation:rvLlegaIzq .9s cubic-bezier(.3,1.4,.5,1) forwards,rvMeneoIzq 1.2s ease-in-out .9s infinite,rvBrillo 4s ease-in-out 1s infinite}
+[data-figura="frente"][data-modo="meneo"].rv-dentro .rv-brazo{animation:rvPataD .6s ease-in-out .9s infinite alternate}
+[data-figura="frente"][data-modo="meneo"].rv-dentro .rv-brazo2{animation:rvPataI .6s ease-in-out .9s infinite alternate}
+.rv[data-modo="meneo"].rv-dentro .rv-cab-in{animation:rvContraLadea 1.2s ease-in-out .9s infinite}
+@keyframes rvMeneo{0%,100%{opacity:1;transform:translateX(-4px) rotate(-7deg)}25%{opacity:1;transform:translateY(-4px) rotate(0)}50%{opacity:1;transform:translateX(4px) rotate(7deg)}75%{opacity:1;transform:translateY(-4px) rotate(0)}}
+@keyframes rvMeneoIzq{0%,100%{opacity:1;transform:scaleX(-1) translateX(-4px) rotate(-7deg)}25%{opacity:1;transform:scaleX(-1) translateY(-4px)}50%{opacity:1;transform:scaleX(-1) translateX(4px) rotate(7deg)}75%{opacity:1;transform:scaleX(-1) translateY(-4px)}}
+@keyframes rvPataD{from{transform:rotate(55deg)}to{transform:rotate(80deg)}}
+@keyframes rvPataI{from{transform:rotate(-80deg)}to{transform:rotate(-55deg)}}
+@keyframes rvContraLadea{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-6deg)}}
+@media (prefers-reduced-motion:reduce){[data-figura="frente"][data-modo="meneo"].rv-dentro .rv-brazo{animation:rvPataD 1.2s ease-in-out infinite alternate!important}[data-figura="frente"][data-modo="meneo"].rv-dentro .rv-brazo2{animation:rvPataI 1.2s ease-in-out infinite alternate!important}.rv[data-modo="meneo"].rv-dentro .rv-cab-in{animation:rvContraLadea 2.4s ease-in-out infinite!important}}
+.rv-duo .rv .rv-bocadillo{left:0;transform:translate(0,6px) scale(.9)}
+.rv-duo .rv.rv-habla .rv-bocadillo{transform:none}
+@media (max-width:760px){.wa-paga-cab .rv-duo .rv{--w:58px}.wa-paga-cab{gap:10px}}
